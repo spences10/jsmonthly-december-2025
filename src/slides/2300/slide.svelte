@@ -16,7 +16,7 @@
 </Transition>
 
 <Transition visible entry="scale-in" duration={0.6} delay={0.5}>
-	<div class="mt-16 flex flex-col gap-6 text-4xl">
+	<div class="mt-16 flex flex-col gap-6 text-4xl text-left">
 		<p>🌐 yourwebsite.com</p>
 		<p>𝕏 @yourhandle</p>
 		<p>📧 your@email.com</p>

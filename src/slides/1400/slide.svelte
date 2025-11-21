@@ -11,7 +11,7 @@
 </Transition>
 
 <Transition visible entry="scale-in" duration={0.6} delay={0.2}>
-	<div class="rounded-lg bg-gray-900 p-8 font-mono text-3xl">
+	<div class="rounded-lg bg-gray-900 p-8 font-mono text-3xl text-left">
 		<Transition visible order={1} delay={0.4}>
 			<p class="text-green-400">$ claude refactor --files 377</p>
 		</Transition>

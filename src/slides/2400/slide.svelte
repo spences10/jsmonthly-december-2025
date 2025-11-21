@@ -17,7 +17,7 @@
 	<h2 class="text-center text-6xl font-bold">From Bluesky</h2>
 </Transition>
 
-<div style="width: 100%; display: flex; justify-content: center; margin-top: 3rem;">
+<div style="width: 100%; display: flex; justify-content: center; transform: scale(1.5);">
 	<Bluesky
 		post_id="did:plc:fger3nuzbr624qn6qkm63kuf/app.bsky.feed.post/3m5k4gnasnq2t"
 		iframe_styles="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 600px;"
