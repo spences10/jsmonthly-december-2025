@@ -1,6 +1,6 @@
 /* fonts */
 @import '@fontsource/atkinson-hyperlegible';
-@import '@fontsource/monaspace-neon';
+@import '@fontsource-variable/victor-mono';
 
 /* presentation */
 @import '@animotion/core/theme';
@@ -21,13 +21,13 @@
 
 /* defaults */
 :root {
-	--r-background-color: oklch(20% 0.01 272);
+	--r-background-color: oklch(98% 0.01 272);
 	--r-main-font: 'Atkinson Hyperlegible';
 	--r-main-font-size: 42px;
-	--r-main-color: oklch(98% 0.02 272);
+	--r-main-color: oklch(20% 0.02 272);
 	--r-heading-font: 'Atkinson Hyperlegible';
-	--r-code-font: 'Monaspace Neon';
-	--r-link-color: oklch(90.54% 0.15 194);
+	--r-code-font: 'Victor Mono Variable';
+	--r-link-color: oklch(50% 0.15 194);
 	--ease: linear(
 		0 0%,
 		0.0036 9.62%,
