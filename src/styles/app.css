@@ -60,6 +60,14 @@ div:has(> pre) {
 	border-radius: var(--radius-lg);
 }
 
+/* slide centering - Reveal.js sections need explicit flex for centering */
+.reveal .slides section.place-content-center {
+	display: flex !important;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+}
+
 /* for animations */
 .hidden {
 	display: none;
