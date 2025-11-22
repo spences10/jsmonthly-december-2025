@@ -21,13 +21,61 @@ function parse_markdown(content) {
 }
 
 // Check if slide is a component reference and extract props
-// Syntax: <!-- component:name prop="value" prop2="value2" -->
+// Code fence: ```component:name
+//             prop: "value"
+//             ```
+// Single-line: ::component-name prop="value"
 function parse_component_reference(md) {
-	const match = md.match(/<!--\s*component:\s*([a-zA-Z0-9-]+)(.*)-->/)
-	if (!match) return null
+	// Try code fence syntax: ```component:name ... ```
+	const fence_match = md.match(
+		/^```component:([a-zA-Z0-9-]+)\s*\n([\s\S]*?)^```$/m,
+	)
+	if (fence_match) {
+		const component_name = fence_match[1]
+		const block_content = fence_match[2]
 
-	const component_name = match[1]
-	const attrs_string = match[2].trim()
+		// Parse YAML-like props
+		const props = {}
+		const lines = block_content.split('\n')
+		let current_array_key = null
+
+		for (const line of lines) {
+			// Array item: - "value" or - value (unquoted)
+			const array_item_quoted = line.match(/^\s*-\s*["'](.*)["']\s*$/)
+			const array_item_unquoted = line.match(/^\s*-\s+(.+?)\s*$/)
+			const array_item_match =
+				array_item_quoted || array_item_unquoted
+			if (array_item_match && current_array_key) {
+				props[current_array_key].push(array_item_match[1])
+				continue
+			}
+
+			// Key with value: key: "value"
+			const prop_match = line.match(/^\s*(\w+):\s*["'](.*)["']\s*$/)
+			if (prop_match) {
+				props[prop_match[1]] = prop_match[2]
+				current_array_key = null
+				continue
+			}
+
+			// Key without value (starts array): key:
+			const array_start_match = line.match(/^\s*(\w+):\s*$/)
+			if (array_start_match) {
+				current_array_key = array_start_match[1]
+				props[current_array_key] = []
+				continue
+			}
+		}
+
+		return { name: component_name, props }
+	}
+
+	// Try single-line syntax: ::name prop="value"
+	const inline_match = md.match(/^::([a-zA-Z0-9-]+)(.*)$/m)
+	if (!inline_match) return null
+
+	const component_name = inline_match[1]
+	const attrs_string = inline_match[2].trim()
 
 	// Parse attributes: prop="value" or prop='value'
 	const props = {}
@@ -120,21 +168,38 @@ function to_pascal_case(str) {
 }
 
 // Generate a component wrapper slide
-function generate_component_slide(component_name, props = {}) {
+function generate_component_slide(
+	component_name,
+	props = {},
+	notes = [],
+) {
 	const pascal_name = to_pascal_case(component_name)
+	const has_notes = notes.length > 0
 
 	// Check for image imports (src props starting with $lib/)
 	const imports = [
 		`import ${pascal_name} from '../../slides-custom/${component_name}.svelte'`,
 	]
+
+	if (has_notes) {
+		imports.push(`import { Notes } from '@animotion/core'`)
+	}
+
 	const processed_props = {}
 
 	for (const [key, value] of Object.entries(props)) {
-		if (key === 'src' && value.startsWith('$lib/')) {
+		if (
+			(key === 'src' || key === 'image') &&
+			typeof value === 'string' &&
+			value.startsWith('$lib/')
+		) {
 			// Generate an import for the image
-			const img_var = 'slideImage'
+			const img_var = key === 'src' ? 'slideImage' : 'slideImageProp'
 			imports.push(`import ${img_var} from '${value}'`)
 			processed_props[key] = { type: 'variable', value: img_var }
+		} else if (Array.isArray(value)) {
+			// Array prop - serialize as JSON
+			processed_props[key] = { type: 'array', value }
 		} else {
 			processed_props[key] = { type: 'string', value }
 		}
@@ -152,33 +217,42 @@ function generate_component_slide(component_name, props = {}) {
 					if (prop.type === 'variable') {
 						return `${key}={${prop.value}}`
 					}
+					if (prop.type === 'array') {
+						return `${key}={${JSON.stringify(prop.value)}}`
+					}
 					return `${key}="${prop.value}"`
 				})
 				.join(' ')
 	}
 
-	return `<script>
+	let output = `<script>
 	${imports.join('\n\t')}
 </script>
 
-<${pascal_name}${props_string} />
-`
+<${pascal_name}${props_string} />`
+
+	if (has_notes) {
+		output += '\n\n' + notes_to_html(notes)
+	}
+
+	return output + '\n'
 }
 
 // Convert markdown to basic Svelte slide
 function markdown_to_svelte(md, index) {
-	// Check for component reference first
-	const component_ref = parse_component_reference(md)
+	// Extract notes first (works for both component and regular slides)
+	const { content, notes } = extract_notes(md)
+	const has_notes = notes.length > 0
+
+	// Check for component reference
+	const component_ref = parse_component_reference(content)
 	if (component_ref) {
 		return generate_component_slide(
 			component_ref.name,
 			component_ref.props,
+			notes,
 		)
 	}
-
-	// Extract notes from content
-	const { content, notes } = extract_notes(md)
-	const has_notes = notes.length > 0
 
 	const lines = content.split('\n')
 	let html = ''
