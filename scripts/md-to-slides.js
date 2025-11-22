@@ -39,6 +39,9 @@ function parse_component_reference(md) {
 		const lines = block_content.split('\n')
 		let current_array_key = null
 
+		// Unescape backslashes from quoted strings
+		const unescape = (str) => str.replace(/\\\\/g, '\\')
+
 		for (const line of lines) {
 			// Array item: - "value" or - value (unquoted)
 			const array_item_quoted = line.match(/^\s*-\s*["'](.*)["']\s*$/)
@@ -46,14 +49,17 @@ function parse_component_reference(md) {
 			const array_item_match =
 				array_item_quoted || array_item_unquoted
 			if (array_item_match && current_array_key) {
-				props[current_array_key].push(array_item_match[1])
+				const value = array_item_quoted
+					? unescape(array_item_match[1])
+					: array_item_match[1]
+				props[current_array_key].push(value)
 				continue
 			}
 
 			// Key with value: key: "value"
 			const prop_match = line.match(/^\s*(\w+):\s*["'](.*)["']\s*$/)
 			if (prop_match) {
-				props[prop_match[1]] = prop_match[2]
+				props[prop_match[1]] = unescape(prop_match[2])
 				current_array_key = null
 				continue
 			}

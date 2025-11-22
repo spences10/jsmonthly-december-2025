@@ -18,12 +18,15 @@ caption: "Svelte London WhatsApp chat"
 
 # I lied!
 
-On gathering the information for this talk, when I announced it, it
-was 370, but I hadn't finished! 😅
+It was 370 files in 11 hours, but I hadn't finished! 😅
 
 ---
 
 # so!
+
+> notes:
+>
+> - This talk should be titled
 
 ---
 
@@ -72,9 +75,14 @@ points:
 
 ---
 
-## The CLI Output From Hell
-
-::terminal-output
+```component:bullet-points
+title: "The CLI Output From Hell"
+points:
+  - svelte-check vomiting thousands of errors
+  - Scroll... scroll... scroll... more errors
+  - "Found 2,847 errors in 377 files"
+  - Terminal buffer couldn't even hold it all
+```
 
 ---
 
@@ -89,15 +97,26 @@ points:
 
 ---
 
-## The Breakthrough
-
-<!-- what made you realise there was a better way? -->
+```component:bullet-points
+title: "The Breakthrough"
+points:
+  - "What if I just... fed the errors to Claude?"
+  - Copy 50 lines of errors → paste → get fixes
+  - It actually worked
+  - Repeat until svelte-check passes
+```
 
 ---
 
-## The Loop
-
-::timeline-workflow
+```component:bullet-points
+title: "The Loop"
+points:
+  - Run svelte-check
+  - Copy first 50 errors
+  - Paste to Claude → get fixes
+  - Apply fixes → commit
+  - Repeat until green
+```
 
 ---
 
@@ -124,9 +143,14 @@ points:
 
 ---
 
-## The Unlock
-
-::unlock-timeline
+```component:bullet-points
+title: "The Unlock"
+points:
+  - PR #5361 merged
+  - Legacy UI package finally gone
+  - Clean foundation to build on
+  - Everything else became possible
+```
 
 ---
 
@@ -152,9 +176,14 @@ points:
 
 ---
 
-## Before vs After
-
-::before-after
+```component:bullet-points
+title: "Before vs After"
+points:
+  - Before: Blocked by legacy UI package for 18 months
+  - Before: Custom styling scattered everywhere
+  - After: Vanilla shadcn-svelte components
+  - After: Performance optimizations finally possible
+```
 
 ---
 
@@ -168,15 +197,26 @@ points:
 
 ---
 
-## Performance Wins
-
-<!-- list the concrete improvements from PR 5381 -->
+```component:bullet-points
+title: "Performance Wins"
+points:
+  - Auth optimization with remote functions
+  - Session caching reducing DB round trips
+  - Progressive loading for agent data
+  - Tab-based lazy loading
+```
 
 ---
 
-## The Numbers
-
-::stats-animated
+```component:bullet-points
+title: "The Numbers"
+points:
+  - 137 hours of coding
+  - 128 commits across 4 PRs
+  - 875 files changed
+  - 10 days start to finish
+  - +25,477 / -19,733 lines
+```
 
 ---
 
@@ -190,9 +230,14 @@ points:
 
 ---
 
-## Augmentation, Not Replacement
-
-<!-- the human takeaway -->
+```component:bullet-points
+title: "Augmentation, Not Replacement"
+points:
+  - I made all the architectural decisions
+  - Claude handled the tedious execution
+  - Still needed to understand every fix
+  - But didn't have to type it all manually
+```
 
 ---
 
