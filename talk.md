@@ -206,4 +206,11 @@ points:
 
 ---
 
-::thank-you
+```component:thank-you
+title: "Thank You!"
+subtitle: "Questions?"
+links:
+  - 🌐 scottspence.com
+  - 🦋 @scottspence.dev
+  - 💻 github.com/spences10
+```
