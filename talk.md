@@ -1,8 +1,18 @@
-<!-- component:title-slide title="How I Refactored 370 Files in 11 Hours" subtitle="(Thanks Claude)" name="Scott Spence" event="JSMonthly" date="December 2025" -->
+```component:title-slide
+title: "How I Refactored 370 Files in 11 Hours"
+subtitle: "(Thanks Claude)"
+name: "Scott Spence"
+event: "JSMonthly"
+date: "December 2025"
+```
 
 ---
 
-<!-- component:image-caption src="$lib/assets/svelte_london_whatsapp_chat.png" alt="Svelte London WhatsApp chat" -->
+```component:image-caption
+src: "$lib/assets/svelte_london_whatsapp_chat.png"
+alt: "Svelte London WhatsApp chat"
+caption: "Svelte London WhatsApp chat"
+```
 
 ---
 
@@ -15,7 +25,16 @@ was 370, but I hadn't finished! 😅
 
 # so!
 
-How I Shipped 875 files, 128 commits, in 10 days (thanks Claude)
+---
+
+```component:title-slide
+title: "How I Refactored 875 files over 128 commits, in 10 days"
+subtitle: "(Thanks Claude)"
+```
+
+> notes:
+>
+> - Doesn't really roll off the tongue does it
 
 ---
 
@@ -24,40 +43,49 @@ repetitive refactor that would have taken me weeks to do manually.
 
 ---
 
-## About Me
-
-- Scott Spence
-- SvelteKit TypeScript Developer
-- Writer at scottspence.com
-- Deep in the Claude Code ecosystem
+```component:about-me
+name: "Scott Spence"
+title: "SvelteKit TypeScript Developer"
+image: "$lib/assets/mug-face.png"
+points:
+  - Svelte LDN meetup organiser
+  - Working with Svelte workshops
+  - Application Team Lead
+  - Dad 👨‍👩‍👧
+  - Cat dad 😺
+```
 
 > notes:
 >
-> - Mention working at company X
+> - Mention working at company XtendOps
 > - Been using Claude Code since early access
 
 ---
 
-## The Setup
-
-- Monorepo with legacy UI package
-- Dependency mismatch causing cascade of errors
-- svelte-check spitting out thousands of lines
+```component:bullet-points
+title: "The Setup"
+points:
+  - Monorepo with legacy UI package
+  - Dependency mismatch causing cascade of errors
+  - svelte-check spitting out thousands of lines
+```
 
 ---
 
 ## The CLI Output From Hell
 
-<!-- component:terminal-output -->
+::terminal-output
 
 ---
 
-## Why This Wasn't Fixable Manually
-
-- 377 files affected
-- Each fix could introduce new errors
-- Time estimate: weeks of tedious work
-- Human attention span: not built for this
+```component:bullet-points
+title: "Why This Wasn't Fixable Manually"
+points:
+  - 377 files affected
+  - Each fix could introduce new errors
+  - Time estimate: weeks of tedious work
+  - Human attention span: not built for this
+```
 
 ---
 
@@ -69,64 +97,74 @@ repetitive refactor that would have taken me weeks to do manually.
 
 ## The Loop
 
-<!-- component:timeline-workflow -->
+::timeline-workflow
 
 ---
 
-## Iteration Reality
-
-- Session resets every few hours
-- Context limits hit repeatedly
-- 50 lines at a time = manageable chunks
-- 30 commits over 4.6 days
+```component:bullet-points
+title: "Iteration Reality"
+points:
+  - Session resets every few hours
+  - Context limits hit repeatedly
+  - 50 lines at a time = manageable chunks
+  - 30 commits over 4.6 days
+```
 
 ---
 
-## PR #5361: Remove UI Package
-
-- 377 files changed
-- 60 hours of coding
-- 12,225 lines added
-- 9,020 lines deleted
-- The enabler for everything else
+```component:bullet-points
+title: "PR #5361: Remove UI Package"
+points:
+  - 377 files changed
+  - 60 hours of coding
+  - 12,225 lines added
+  - 9,020 lines deleted
+  - The enabler for everything else
+```
 
 ---
 
 ## The Unlock
 
-<!-- component:unlock-timeline -->
+::unlock-timeline
 
 ---
 
-## PR #5375: Vanilla shadcn-svelte
-
-- With UI package gone, could standardize
-- 364 files changed
-- 24 hours
-- 37 commits in under a day
+```component:bullet-points
+title: "PR #5375: Vanilla shadcn-svelte"
+points:
+  - With UI package gone, could standardize
+  - 364 files changed
+  - 24 hours
+  - 37 commits in under a day
+```
 
 ---
 
-## PR #5381: The Dream Refactor
-
-- 18 months in the making
-- Finally possible with clean foundation
-- 122 files, 54 commits, 43 hours
-- Auth optimization with remote functions
+```component:bullet-points
+title: "PR #5381: The Dream Refactor"
+points:
+  - 18 months in the making
+  - Finally possible with clean foundation
+  - 122 files, 54 commits, 43 hours
+  - Auth optimization with remote functions
+```
 
 ---
 
 ## Before vs After
 
-<!-- component:before-after -->
+::before-after
 
 ---
 
-## Time Freed = Time Earned
-
-- Foundation work finished
-- Room to tackle performance
-- The stuff I actually wanted to do
+```component:bullet-points
+title: "Time Freed = Time Earned"
+points:
+  - Foundation work finished
+  - Room to tackle performance
+  - The stuff I actually wanted to do
+```
 
 ---
 
@@ -138,15 +176,17 @@ repetitive refactor that would have taken me weeks to do manually.
 
 ## The Numbers
 
-<!-- component:stats-animated -->
+::stats-animated
 
 ---
 
-## What This Actually Means
-
-- AI didn't replace me
-- It enabled work at inhuman scale
-- I focused on decisions, not drudgery
+```component:bullet-points
+title: "What This Actually Means"
+points:
+  - AI didn't replace me
+  - It enabled work at inhuman scale
+  - I focused on decisions, not drudgery
+```
 
 ---
 
@@ -158,8 +198,8 @@ repetitive refactor that would have taken me weeks to do manually.
 
 ## Impact Summary
 
-<!-- component:key-takeaways -->
+::key-takeaways
 
 ---
 
-<!-- component:thank-you -->
+::thank-you
