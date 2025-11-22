@@ -1,6 +1,11 @@
 #!/usr/bin/env node
 
-import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs'
+import {
+	existsSync,
+	mkdirSync,
+	readFileSync,
+	writeFileSync,
+} from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -8,44 +13,44 @@ const __dirname = dirname(fileURLToPath(import.meta.url))
 const SLIDES_DIR = join(__dirname, '..', 'src', 'slides')
 
 // Parse markdown file and split into slides
-function parseMarkdown(content) {
+function parse_markdown(content) {
 	return content
 		.split(/^---$/m)
-		.map(s => s.trim())
-		.filter(s => s.length > 0)
+		.map((s) => s.trim())
+		.filter((s) => s.length > 0)
 }
 
 // Check if slide is a component reference
-function parseComponentReference(md) {
+function parse_component_reference(md) {
 	const match = md.match(/<!--\s*component:\s*([a-zA-Z0-9-]+)\s*-->/)
 	return match ? match[1] : null
 }
 
 // Convert component name to PascalCase for import
-function toPascalCase(str) {
+function to_pascal_case(str) {
 	return str
 		.split('-')
-		.map(word => word.charAt(0).toUpperCase() + word.slice(1))
+		.map((word) => word.charAt(0).toUpperCase() + word.slice(1))
 		.join('')
 }
 
 // Generate a component wrapper slide
-function generateComponentSlide(componentName) {
-	const pascalName = toPascalCase(componentName)
+function generate_component_slide(component_name) {
+	const pascal_name = to_pascal_case(component_name)
 	return `<script>
-	import ${pascalName} from '../../slides-custom/${componentName}.svelte'
+	import ${pascal_name} from '../../slides-custom/${component_name}.svelte'
 </script>
 
-<${pascalName} />
+<${pascal_name} />
 `
 }
 
 // Convert markdown to basic Svelte slide
-function markdownToSvelte(md, index) {
+function markdown_to_svelte(md, index) {
 	// Check for component reference first
-	const componentName = parseComponentReference(md)
-	if (componentName) {
-		return generateComponentSlide(componentName)
+	const component_name = parse_component_reference(md)
+	if (component_name) {
+		return generate_component_slide(component_name)
 	}
 
 	const lines = md.split('\n')
@@ -76,7 +81,8 @@ function markdownToSvelte(md, index) {
 		else if (/^\d+\.\s/.test(trimmed)) {
 			if (!inList || listType !== 'ol') {
 				if (inList) html += listType === 'ol' ? '</ol>\n' : '</ul>\n'
-				html += '<ol class="mt-8 flex flex-col gap-4 text-4xl list-decimal list-inside">\n'
+				html +=
+					'<ol class="mt-8 flex flex-col gap-4 text-4xl list-decimal list-inside">\n'
 				inList = true
 				listType = 'ol'
 			}
@@ -107,15 +113,15 @@ function markdownToSvelte(md, index) {
 }
 
 // Main
-const inputFile = process.argv[2]
-if (!inputFile) {
+const input_file = process.argv[2]
+if (!input_file) {
 	console.log('Usage: node scripts/md-to-slides.js <markdown-file>')
 	console.log('Example: node scripts/md-to-slides.js talk.md')
 	process.exit(1)
 }
 
-const content = readFileSync(inputFile, 'utf-8')
-const slides = parseMarkdown(content)
+const content = readFileSync(input_file, 'utf-8')
+const slides = parse_markdown(content)
 
 console.log(`Found ${slides.length} slides`)
 
@@ -129,7 +135,7 @@ slides.forEach((md, i) => {
 		mkdirSync(dir, { recursive: true })
 	}
 
-	const svelte = markdownToSvelte(md, i)
+	const svelte = markdown_to_svelte(md, i)
 	writeFileSync(file, svelte + '\n')
 	console.log(`Created: src/slides/${num}/slide.svelte`)
 })
