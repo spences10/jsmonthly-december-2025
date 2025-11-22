@@ -1,0 +1,129 @@
+pr,timestamp,date,hour,message
+5361,2025-11-12T21:03:17+00:00,2025-11-12,21,refactor: Remove ui package
+5361,2025-11-12T21:09:06+00:00,2025-11-12,21,refactor: Add TooltipProvider to agent card
+5361,2025-11-12T21:15:01+00:00,2025-11-12,21,refactor: Update superValidate import
+5361,2025-11-12T21:44:59+00:00,2025-11-12,21,test: update tests from ui package to local ui
+5361,2025-11-12T21:57:38+00:00,2025-11-12,21,test: Update SSR tests
+5361,2025-11-12T22:05:42+00:00,2025-11-12,22,refactor: Integrate SuperForms
+5361,2025-11-12T22:08:19+00:00,2025-11-12,22,refactor: Update superValidate import
+5361,2025-11-12T22:18:01+00:00,2025-11-12,22,test: Mock superValidate in tests
+5361,2025-11-13T10:55:32+00:00,2025-11-13,10,refactor: Enhance Tooltip component
+5361,2025-11-13T12:07:18+00:00,2025-11-13,12,refactor: Update component props
+5361,2025-11-13T12:32:52+00:00,2025-11-13,12,refactor: Replace with $state for reactivity
+5361,2025-11-13T12:39:03+00:00,2025-11-13,12,refactor: Replace with $state in LLMRouterStep
+5361,2025-11-13T13:01:46+00:00,2025-11-13,13,refactor: Bind step prop in StepSettings
+5361,2025-11-13T13:06:15+00:00,2025-11-13,13,refactor: Improve random image selection
+5361,2025-11-13T13:29:40+00:00,2025-11-13,13,refactor: Bind step prop for reactivity
+5361,2025-11-13T14:44:59+00:00,2025-11-13,14,delete research document
+5361,2025-11-13T14:58:47+00:00,2025-11-13,14,refactor: Enhance agentId synchronization
+5361,2025-11-14T21:12:10+00:00,2025-11-14,21,chore: update dependencies
+5361,2025-11-14T21:14:50+00:00,2025-11-14,21,Merge main
+5361,2025-11-14T21:24:37+00:00,2025-11-14,21,chore: update lockfile
+5361,2025-11-14T22:14:55+00:00,2025-11-14,22,feat: update FieldValue type
+5361,2025-11-14T22:35:03+00:00,2025-11-14,22,feat: remove bits-ui-old dependency
+5361,2025-11-14T22:40:36+00:00,2025-11-14,22,fix: cast AIAgent types
+5361,2025-11-15T08:17:28+00:00,2025-11-15,8,refactor: eliminate prop-syncing
+5361,2025-11-15T08:46:29+00:00,2025-11-15,8,fix: Redis WRONGTYPE errors
+5361,2025-11-15T09:03:05+00:00,2025-11-15,9,fix: CSP violations
+5361,2025-11-17T10:55:10+00:00,2025-11-17,10,test: fix command-center tests
+5361,2025-11-17T10:59:00+00:00,2025-11-17,10,Merge main
+5361,2025-11-17T11:00:26+00:00,2025-11-17,11,fix: restore QID route functions
+5361,2025-11-17T11:11:45+00:00,2025-11-17,11,fix: update QID Router onclick
+5375,2025-11-17T17:50:30+00:00,2025-11-17,17,refactor: vanilla schadcn-svelte
+5375,2025-11-17T17:53:07+00:00,2025-11-17,17,refactor: update gradient classes
+5375,2025-11-17T18:17:36+00:00,2025-11-17,18,refactor: use primary/accent colors
+5375,2025-11-17T18:25:21+00:00,2025-11-17,18,refactor: update foreground colors
+5375,2025-11-17T18:33:28+00:00,2025-11-17,18,refactor: update styles consistency
+5375,2025-11-17T19:31:07+00:00,2025-11-17,19,Refactor: remove border classes
+5375,2025-11-17T19:32:12+00:00,2025-11-17,19,Merge main
+5375,2025-11-17T19:36:19+00:00,2025-11-17,19,refactor: update Auth0 bg color
+5375,2025-11-17T19:47:51+00:00,2025-11-17,19,refactor: border-border!!!
+5375,2025-11-17T20:07:38+00:00,2025-11-17,20,refactor: vanilla schad styles
+5375,2025-11-17T20:13:18+00:00,2025-11-17,20,refactor: use ring instead of blue-500
+5375,2025-11-17T20:13:44+00:00,2025-11-17,20,refactor: add V2 Files Cleanup Plan
+5375,2025-11-17T20:33:36+00:00,2025-11-17,20,refactor: update EvalDetailsSkeleton
+5375,2025-11-17T20:34:15+00:00,2025-11-17,20,refactor: update smart-agent-card
+5375,2025-11-17T20:37:40+00:00,2025-11-17,20,refactor: update theme bg styles
+5375,2025-11-17T21:14:48+00:00,2025-11-17,21,test: update tests
+5375,2025-11-17T22:15:30+00:00,2025-11-17,22,refactor: enhance theme consistency
+5375,2025-11-17T22:15:46+00:00,2025-11-17,22,refactor: update Avatar component
+5375,2025-11-17T22:52:16+00:00,2025-11-17,22,refactor: update color variables
+5375,2025-11-17T22:53:20+00:00,2025-11-17,22,refactor: remove console logs
+5375,2025-11-17T23:00:01+00:00,2025-11-17,23,refactor: update pagination colors
+5375,2025-11-18T07:08:15+00:00,2025-11-18,7,refactor: remove unused styles
+5375,2025-11-18T08:25:42+00:00,2025-11-18,8,refactor: streamline navigation
+5375,2025-11-18T08:52:15+00:00,2025-11-18,8,refactor: update agent view styles
+5375,2025-11-18T09:03:33+00:00,2025-11-18,9,refactor: update MigratePanel tests
+5375,2025-11-18T09:15:11+00:00,2025-11-18,9,refactor: update XYFlow Controls
+5375,2025-11-18T11:13:10+00:00,2025-11-18,11,refactor: remove unused styles
+5375,2025-11-18T11:25:41+00:00,2025-11-18,11,refactor: enhance DeleteStepDialog tests
+5375,2025-11-18T11:51:42+00:00,2025-11-18,11,Refactor: update color classes
+5375,2025-11-18T12:02:36+00:00,2025-11-18,12,revert: SmartAgent changes
+5375,2025-11-18T12:12:11+00:00,2025-11-18,12,refactor: remove unused imports
+5375,2025-11-18T12:49:57+00:00,2025-11-18,12,refactor: update Tabs layout
+5375,2025-11-18T15:20:31+00:00,2025-11-18,15,refactor: simplify class bindings
+5375,2025-11-18T15:25:12+00:00,2025-11-18,15,refactor: add PrismaClient import
+5375,2025-11-18T16:21:10+00:00,2025-11-18,16,refactor: update CSRF config
+5375,2025-11-18T16:32:17+00:00,2025-11-18,16,refactor: update tabs active state
+5375,2025-11-18T17:04:16+00:00,2025-11-18,17,refactor: enhance DualThumbSlider
+5381,2025-11-18T18:16:38+00:00,2025-11-18,18,feat: optimize auth with remote functions
+5381,2025-11-18T18:16:50+00:00,2025-11-18,18,refactor: streamline impersonation
+5381,2025-11-18T18:24:34+00:00,2025-11-18,18,feat: optimize reporting data loading
+5381,2025-11-18T18:50:35+00:00,2025-11-18,18,feat: implement remote functions
+5381,2025-11-18T18:51:16+00:00,2025-11-18,18,feat: add SvelteKit remote functions skill
+5381,2025-11-18T19:13:10+00:00,2025-11-18,19,feat: enhance auth tests
+5381,2025-11-18T19:27:21+00:00,2025-11-18,19,refactor: simplify agent-builder state
+5381,2025-11-18T19:40:46+00:00,2025-11-18,19,Refactor: extract helper functions
+5381,2025-11-18T19:59:04+00:00,2025-11-18,19,feat: add performance optimization notes
+5381,2025-11-18T19:59:49+00:00,2025-11-18,19,refactor: remove obsolete tests
+5381,2025-11-18T20:00:22+00:00,2025-11-18,20,refactor: update agent-view tests
+5381,2025-11-18T20:04:02+00:00,2025-11-18,20,refactor: update agent-view tests
+5381,2025-11-18T20:14:10+00:00,2025-11-18,20,refactor: remove autocomplete files
+5381,2025-11-18T20:18:51+00:00,2025-11-18,20,chore: update dependencies
+5381,2025-11-18T20:29:35+00:00,2025-11-18,20,refactor: enhance SimpleAutocomplete
+5381,2025-11-18T20:52:49+00:00,2025-11-18,20,test: add reporting utility tests
+5381,2025-11-19T07:46:38+00:00,2025-11-19,7,refactor: remove redundant code
+5381,2025-11-19T08:23:53+00:00,2025-11-19,8,refactor: resolve svelte check issues
+5381,2025-11-19T09:55:34+00:00,2025-11-19,9,perf: optimize bundle size
+5381,2025-11-19T10:20:20+00:00,2025-11-19,10,refactor: lint fix
+5381,2025-11-19T14:07:03+00:00,2025-11-19,14,refactor: update AccessDenied styling
+5381,2025-11-19T14:12:05+00:00,2025-11-19,14,refactor: add Filler to Chart.js
+5381,2025-11-19T14:35:50+00:00,2025-11-19,14,refactor: reduce db round trips
+5381,2025-11-19T14:42:16+00:00,2025-11-19,14,refactor: remove unused fields
+5381,2025-11-19T16:05:27+00:00,2025-11-19,16,refactor: optimise index data loading
+5381,2025-11-19T16:21:58+00:00,2025-11-19,16,Merge main
+5381,2025-11-19T17:05:50+00:00,2025-11-19,17,fix: guard url.searchParams
+5381,2025-11-19T19:17:33+00:00,2025-11-19,19,refactor: improve creator info fetching
+5381,2025-11-19T20:46:55+00:00,2025-11-19,20,fix: build and svelte check issues
+5381,2025-11-19T21:02:11+00:00,2025-11-19,21,refactor: optimize agent data fetching
+5381,2025-11-19T21:43:18+00:00,2025-11-19,21,refactor: implement progressive loading
+5381,2025-11-20T19:11:35+00:00,2025-11-20,19,refactor: implement session caching
+5381,2025-11-20T19:25:09+00:00,2025-11-20,19,Merge main
+5381,2025-11-20T19:39:10+00:00,2025-11-20,19,refactor: underp
+5381,2025-11-20T19:44:53+00:00,2025-11-20,19,refactor: remove diagnostic endpoint
+5381,2025-11-20T19:45:08+00:00,2025-11-20,19,chore: update lockfile
+5381,2025-11-20T19:45:45+00:00,2025-11-20,19,Merge main
+5381,2025-11-20T19:46:22+00:00,2025-11-20,19,refactor: improve feedback handling
+5381,2025-11-20T20:08:26+00:00,2025-11-20,20,refactor: update Playwright image
+5381,2025-11-20T20:15:48+00:00,2025-11-20,20,refactor: enhance session management
+5381,2025-11-20T20:28:14+00:00,2025-11-20,20,refactor: default to dark mode
+5381,2025-11-20T20:40:25+00:00,2025-11-20,20,refactor: update logout tests
+5381,2025-11-20T20:52:49+00:00,2025-11-20,20,refactor: update PromptContentDialog
+5381,2025-11-20T21:02:59+00:00,2025-11-20,21,refactor: remove unused promptInputVariables
+5381,2025-11-20T21:04:35+00:00,2025-11-20,21,chore: lint shit
+5381,2025-11-20T21:52:38+00:00,2025-11-20,21,refactor: enforce dark mode
+5381,2025-11-20T22:06:00+00:00,2025-11-20,22,refactor: update isDarkMode initialization
+5381,2025-11-20T22:45:17+00:00,2025-11-20,22,refactor: enhance performance logging
+5381,2025-11-20T23:17:42+00:00,2025-11-20,23,refactor: simplify authorization logic
+5381,2025-11-20T23:51:55+00:00,2025-11-20,23,refactor: implement tab-based lazy loading
+5381,2025-11-21T06:33:47+00:00,2025-11-21,6,test: fix agent-view tests
+5381,2025-11-21T07:10:23+00:00,2025-11-21,7,fix: add Redis timeout
+5381,2025-11-21T07:31:52+00:00,2025-11-21,7,fix: improve session cache TTL
+5381,2025-11-21T07:42:29+00:00,2025-11-21,7,fix: cast Prisma AIAgent types
+5397,2025-11-21T12:54:33+00:00,2025-11-21,12,refactor: no need for effect here
+5397,2025-11-21T16:05:36+00:00,2025-11-21,16,refactor: update imports
+5397,2025-11-21T16:44:31+00:00,2025-11-21,16,test: update tests
+5397,2025-11-21T17:07:55+00:00,2025-11-21,17,refactor: improve error handling
+5397,2025-11-21T17:17:43+00:00,2025-11-21,17,refactor: enhance agent ID resolution
+5397,2025-11-21T17:37:39+00:00,2025-11-21,17,feat: add Spinner component
+5397,2025-11-21T18:31:48+00:00,2025-11-21,18,refactor: simplify display data handling

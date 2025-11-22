@@ -1,0 +1,120 @@
+{
+  "summary": {
+    "title": "AI-Assisted Large Refactors: A Case Study",
+    "total_hours": 137.45,
+    "total_commits": 128,
+    "total_files_changed": 875,
+    "total_lines_added": 25477,
+    "total_lines_deleted": 19733,
+    "date_range": {
+      "start": "2025-11-12",
+      "end": "2025-11-21"
+    }
+  },
+  "prs": [
+    {
+      "number": 5361,
+      "title": "Remove ui package",
+      "description": "The enabler - wouldn't have been possible solo without Claude",
+      "branch": "ui-blitz_Scott_CU-86dumbb4x",
+      "git_duration_days": 4.6,
+      "actual_coding_hours": 60.81,
+      "commits": 30,
+      "files_changed": 377,
+      "lines_added": 12225,
+      "lines_deleted": 9020,
+      "net_lines": 3205,
+      "start_date": "2025-11-12T21:03:17+00:00",
+      "end_date": "2025-11-17T11:11:45+00:00",
+      "daily_hours": {
+        "2025-11-12": 11.53,
+        "2025-11-13": 12.53,
+        "2025-11-14": 12.85,
+        "2025-11-15": 6.09,
+        "2025-11-16": 7.26,
+        "2025-11-17": 10.53
+      }
+    },
+    {
+      "number": 5375,
+      "title": "Vanilla shadcn-svelte implementation",
+      "description": "Enabled by #5361 - standardizing component library",
+      "branch": "Convert-XOOS-to-use-Vanilla-Schadcn_Scott_CU-86dyf228u",
+      "git_duration_days": 0.96,
+      "actual_coding_hours": 24.11,
+      "commits": 37,
+      "files_changed": 364,
+      "lines_added": 4776,
+      "lines_deleted": 4528,
+      "net_lines": 248,
+      "start_date": "2025-11-17T17:50:30+00:00",
+      "end_date": "2025-11-18T17:04:16+00:00",
+      "daily_hours": {
+        "2025-11-17": 10.53,
+        "2025-11-18": 13.58
+      }
+    },
+    {
+      "number": 5381,
+      "title": "Auth optimization with remote functions",
+      "description": "18 months in the making - finally possible after foundation work",
+      "branch": "Optimisation-Of-XOOS-loading_Scott_CU-86dyft9ph",
+      "git_duration_days": 2.56,
+      "actual_coding_hours": 43.21,
+      "commits": 54,
+      "files_changed": 122,
+      "lines_added": 8269,
+      "lines_deleted": 6054,
+      "net_lines": 2215,
+      "start_date": "2025-11-18T18:16:38+00:00",
+      "end_date": "2025-11-21T07:42:29+00:00",
+      "daily_hours": {
+        "2025-11-18": 13.58,
+        "2025-11-19": 11.40,
+        "2025-11-20": 8.89,
+        "2025-11-21": 9.33
+      }
+    },
+    {
+      "number": 5397,
+      "title": "Layout effect refactor",
+      "description": "Follow-up polish from #5381",
+      "branch": "ptch-effect-in-layout-loading_Scott_CU-86dyft9ph",
+      "git_duration_days": 0.23,
+      "actual_coding_hours": 9.33,
+      "commits": 7,
+      "files_changed": 12,
+      "lines_added": 207,
+      "lines_deleted": 131,
+      "net_lines": 76,
+      "start_date": "2025-11-21T12:54:33+00:00",
+      "end_date": "2025-11-21T18:31:48+00:00",
+      "daily_hours": {
+        "2025-11-21": 9.33
+      }
+    }
+  ],
+  "narrative": {
+    "chapter1": {
+      "pr": 5361,
+      "message": "The foundation - 60+ hours to remove legacy UI package and migrate to native components. This unlocked everything else."
+    },
+    "chapter2": {
+      "pr": 5375,
+      "message": "With the UI package gone, we could standardize on vanilla shadcn-svelte. 37 commits in ~24 hours."
+    },
+    "chapter3": {
+      "pr": 5381,
+      "message": "The dream refactor - 18 months of technical debt. Finally possible with a clean component foundation. 54 commits, 43 hours."
+    },
+    "chapter4": {
+      "pr": 5397,
+      "message": "Polish and cleanup. 7 commits, quick follow-up."
+    }
+  },
+  "metrics": {
+    "hours_per_commit": 1.07,
+    "lines_per_hour": 329,
+    "commits_per_day_avg": 12.8
+  }
+}

@@ -1,6 +1,7 @@
-<h2 class="text-8xl font-bold">Results</h2>
+<h2 class="text-8xl font-bold">Why This Wasn't Fixable Manually</h2>
 <ul class="mt-8 flex flex-col gap-4 text-4xl">
-	<li>370 files updated</li>
-	<li>11 hours total</li>
-	<li>Zero breaking changes</li>
+	<li>377 files affected</li>
+	<li>Each fix could introduce new errors</li>
+	<li>Time estimate: weeks of tedious work</li>
+	<li>Human attention span: not built for this</li>
 </ul>
