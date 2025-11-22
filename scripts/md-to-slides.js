@@ -256,8 +256,6 @@ function markdown_to_svelte(md, index) {
 
 	const lines = content.split('\n')
 	let html = ''
-	let in_list = false
-	let list_type = null
 
 	for (const line of lines) {
 		const trimmed = line.trim()
@@ -268,36 +266,8 @@ function markdown_to_svelte(md, index) {
 		} else if (trimmed.startsWith('# ')) {
 			html += `<h1 class="text-9xl font-bold text-center">${trimmed.slice(2)}</h1>\n`
 		}
-		// Bullet lists
-		else if (trimmed.startsWith('- ')) {
-			if (!in_list || list_type !== 'ul') {
-				if (in_list)
-					html += list_type === 'ol' ? '</ol>\n' : '</ul>\n'
-				html += '<ul class="mt-8 flex flex-col gap-4 text-4xl">\n'
-				in_list = true
-				list_type = 'ul'
-			}
-			html += `\t<li>${trimmed.slice(2)}</li>\n`
-		}
-		// Numbered lists
-		else if (/^\d+\.\s/.test(trimmed)) {
-			if (!in_list || list_type !== 'ol') {
-				if (in_list)
-					html += list_type === 'ol' ? '</ol>\n' : '</ul>\n'
-				html +=
-					'<ol class="mt-8 flex flex-col gap-4 text-4xl list-decimal list-inside">\n'
-				in_list = true
-				list_type = 'ol'
-			}
-			html += `\t<li>${trimmed.replace(/^\d+\.\s/, '')}</li>\n`
-		}
-		// Paragraphs (non-empty lines that aren't headers or lists)
-		else if (trimmed.length > 0) {
-			if (in_list) {
-				html += list_type === 'ol' ? '</ol>\n' : '</ul>\n'
-				in_list = false
-				list_type = null
-			}
+		// Paragraphs (non-empty lines that aren't headers)
+		else if (trimmed.length > 0 && !trimmed.startsWith('<!--')) {
 			// Check if it looks like a subtitle (in parentheses)
 			if (trimmed.startsWith('(') && trimmed.endsWith(')')) {
 				html += `<p class="text-5xl opacity-80">${trimmed}</p>\n`
@@ -305,11 +275,6 @@ function markdown_to_svelte(md, index) {
 				html += `<p class="mt-8 text-4xl">${trimmed}</p>\n`
 			}
 		}
-	}
-
-	// Close any open list
-	if (in_list) {
-		html += list_type === 'ol' ? '</ol>\n' : '</ul>\n'
 	}
 
 	// Add notes if present
