@@ -1,34 +1,38 @@
 <script lang="ts">
 	import { Transition } from '@animotion/core'
+
+	let {
+		title = 'Key Takeaways',
+		points = [],
+		icons = [],
+		icon = '✓',
+	} = $props()
 </script>
 
-<!-- Key Takeaways Slide -->
-<!-- Use for: Summary points, conclusions, main learnings -->
-<!-- Animation: Title scales in, then takeaways stagger with checkmarks -->
+<div class="flex flex-col items-start text-left">
+	{#if title}
+		<Transition visible entry="scale-in" duration={0.6}>
+			<h2 class="text-8xl font-bold">{title}</h2>
+		</Transition>
+	{/if}
 
-<Transition visible entry="scale-in" duration={0.6}>
-	<h2 class="text-8xl font-bold">Key Takeaways</h2>
-</Transition>
-
-<div class="mt-16 flex flex-col gap-8 text-4xl">
-	<Transition visible entry="scale-in" duration={0.6} delay={0.2} order={1}>
-		<div class="flex items-start gap-6">
-			<span class="text-5xl text-green-400">✓</span>
-			<p>AI handles tedious work so you focus on solving interesting problems</p>
+	{#if points.length > 0}
+		<div class="mt-16 flex flex-col gap-8 text-4xl">
+			{#each points as point, i}
+				<Transition
+					visible
+					entry="scale-in"
+					duration={0.6}
+					delay={0.2 + i * 0.1}
+				>
+					<div class="flex items-start gap-6">
+						<span class="text-5xl text-green-400"
+							>{icons[i] || icon}</span
+						>
+						<p>{point}</p>
+					</div>
+				</Transition>
+			{/each}
 		</div>
-	</Transition>
-
-	<Transition visible entry="scale-in" duration={0.6} delay={0.3} order={2}>
-		<div class="flex items-start gap-6">
-			<span class="text-5xl text-green-400">✓</span>
-			<p>Large-scale refactors become manageable with the right tools</p>
-		</div>
-	</Transition>
-
-	<Transition visible entry="scale-in" duration={0.6} delay={0.4} order={3}>
-		<div class="flex items-start gap-6">
-			<span class="text-5xl text-green-400">✓</span>
-			<p>Building reliable workflows is more important than one-off solutions</p>
-		</div>
-	</Transition>
+	{/if}
 </div>
