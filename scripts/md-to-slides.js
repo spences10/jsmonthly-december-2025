@@ -4,6 +4,8 @@ import {
 	existsSync,
 	mkdirSync,
 	readFileSync,
+	readdirSync,
+	rmSync,
 	writeFileSync,
 } from 'node:fs'
 import { dirname, join } from 'node:path'
@@ -293,6 +295,27 @@ function markdown_to_svelte(md, index) {
 	return html.trim()
 }
 
+// Clear all existing slide directories (numbered folders only)
+function clear_slides_directory() {
+	if (!existsSync(SLIDES_DIR)) return
+
+	const entries = readdirSync(SLIDES_DIR, { withFileTypes: true })
+	let removed = 0
+
+	for (const entry of entries) {
+		// Only remove numbered directories (100, 200, etc.)
+		if (entry.isDirectory() && /^\d+$/.test(entry.name)) {
+			const dir_path = join(SLIDES_DIR, entry.name)
+			rmSync(dir_path, { recursive: true, force: true })
+			removed++
+		}
+	}
+
+	if (removed > 0) {
+		console.log(`Cleared ${removed} existing slide directories`)
+	}
+}
+
 // Main
 const input_file = process.argv[2]
 if (!input_file) {
@@ -303,6 +326,9 @@ if (!input_file) {
 
 const content = readFileSync(input_file, 'utf-8')
 const slides = parse_markdown(content)
+
+// Clear existing slides before generating new ones
+clear_slides_directory()
 
 console.log(`Found ${slides.length} slides`)
 

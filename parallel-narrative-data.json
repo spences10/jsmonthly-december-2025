@@ -1,0 +1,153 @@
+{
+  "meta": {
+    "title": "Parallel Narrative: While Refactoring, Also Innovating",
+    "description": "During the 10-day refactor sprint (Nov 12-21, 2025), I was also building tools to improve Claude Code workflows",
+    "date_range": {
+      "start": "2025-11-12",
+      "end": "2025-11-21"
+    }
+  },
+  "work_refactor": {
+    "summary": "875 files, 128 commits, 137 hours across 4 PRs",
+    "source": "pr-analysis-data.json"
+  },
+  "personal_projects": {
+    "svelte_claude_skills": {
+      "repo": "spences10/svelte-claude-skills",
+      "description": "Building evaluation framework and hooks for reliable Claude Code skill activation",
+      "commits": [
+        {
+          "date": "2025-11-12T19:37:36Z",
+          "message": "Merge pull request #1 from spences10/renovate/configure"
+        },
+        {
+          "date": "2025-11-13T07:42:44Z",
+          "message": "feat: Add skill evaluation framework with activation and quality tests"
+        },
+        {
+          "date": "2025-11-13T09:26:34Z",
+          "message": "feat: Implement cost calculator and metrics tracker for Claude API usage"
+        },
+        {
+          "date": "2025-11-13T09:49:23Z",
+          "message": "feat: Add README and detailed guide for SvelteKit remote functions"
+        },
+        {
+          "date": "2025-11-13T10:04:24Z",
+          "message": "feat: Implement eval database schema, migration handling, and test execution framework"
+        },
+        {
+          "date": "2025-11-15T12:18:20Z",
+          "message": "feat: Add skill evaluation hooks and update settings for LLM integration"
+        },
+        {
+          "date": "2025-11-15T12:18:20Z",
+          "message": "feat: Enhance skill evaluation hook with detailed cost analysis and improved skill scanning"
+        },
+        {
+          "date": "2025-11-15T12:18:20Z",
+          "message": "feat: Update skill instruction message to guide activation of available skills"
+        },
+        {
+          "date": "2025-11-15T12:18:20Z",
+          "message": "feat: Revise skill activation instructions for clarity and sequence enforcement"
+        },
+        {
+          "date": "2025-11-15T20:12:02Z",
+          "message": "feat: Add skill simple instruction hook for activating skills"
+        },
+        {
+          "date": "2025-11-16T19:12:20Z",
+          "message": "feat: Add hook configuration options for testing and implement new hooks for skill activation"
+        }
+      ]
+    },
+    "scottspence_com": {
+      "repo": "spences10/scottspence.com",
+      "description": "Blog where the viral skills activation post was published",
+      "commits": [
+        {
+          "date": "2025-11-15T08:13:54Z",
+          "message": "feat: extract IP address server-side in submit_reaction function"
+        },
+        {
+          "date": "2025-11-16T19:39:26Z",
+          "message": "feat: add guide on improving Claude Code skills activation reliability",
+          "highlight": true,
+          "note": "THE VIRAL BLOG POST - 4.5k readers, 11.1k views in 6 days"
+        },
+        {
+          "date": "2025-11-20T07:16:44Z",
+          "message": "chore: cspell happy"
+        },
+        {
+          "date": "2025-11-20T07:18:42Z",
+          "message": "chore: update deps"
+        }
+      ]
+    }
+  },
+  "blog_post": {
+    "title": "Improving Claude Code Skills Activation Reliability",
+    "published": "2025-11-16",
+    "url": "https://scottspence.com/posts/improving-claude-code-skills-activation-reliability",
+    "metrics": {
+      "readers": 4500,
+      "views": 11100,
+      "timeframe_days": 6
+    },
+    "key_innovation": "Hook-based system to ensure Claude Code reliably activates custom skills"
+  },
+  "narrative_arc": {
+    "thesis": "While Claude helped ship 875 files in 10 days, I was also shipping improvements to HOW to work with Claude",
+    "timeline": [
+      {
+        "date": "2025-11-12",
+        "work": "Started PR #5361 - Remove UI package",
+        "personal": "Set up svelte-claude-skills repo"
+      },
+      {
+        "date": "2025-11-13",
+        "work": "Deep in UI package removal (12.5 hours coding)",
+        "personal": "Built skill evaluation framework, cost calculator, eval database"
+      },
+      {
+        "date": "2025-11-15",
+        "work": "Finishing PR #5361 fixes",
+        "personal": "Created hook system for reliable skill activation"
+      },
+      {
+        "date": "2025-11-16",
+        "work": "PR #5361 nearly done, started PR #5375 shadcn migration",
+        "personal": "Published blog post about skills activation"
+      },
+      {
+        "date": "2025-11-17",
+        "work": "PR #5361 merged, PR #5375 in full swing (37 commits)",
+        "personal": "Blog post gaining traction"
+      },
+      {
+        "date": "2025-11-21",
+        "work": "PR #5381 and #5397 completed - all 4 PRs done",
+        "personal": "Blog post hits 4.5k readers"
+      }
+    ]
+  },
+  "tools_built": [
+    {
+      "name": "claude-code-analytics",
+      "built": "2025-08-30",
+      "description": "CLI tool for analyzing Claude Code usage patterns, costs, and cache efficiency"
+    },
+    {
+      "name": "claude-statusline-powerline",
+      "built": "2025-08-17",
+      "description": "Powerline-style statusline showing Claude Code session stats"
+    },
+    {
+      "name": "svelte-claude-skills",
+      "built": "2025-11-11",
+      "description": "Framework for evaluating and improving Claude Code skill activation"
+    }
+  ]
+}

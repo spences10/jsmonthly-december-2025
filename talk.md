@@ -241,6 +241,66 @@ points:
 
 ---
 
+```component:bullet-points
+title: "Meanwhile..."
+points:
+  - While doing the refactor at work...
+  - I was also building tools to improve Claude workflows
+  - Same 10 days, parallel tracks
+```
+
+> notes:
+>
+> - This is the meta story
+> - Not just using AI, but improving how to use AI
+
+---
+
+```component:bullet-points
+title: "Building Better Workflows"
+points:
+  - Skill evaluation framework (Nov 13)
+  - Cost calculator and metrics tracker
+  - Hook system for reliable skill activation (Nov 15)
+  - Testing what makes Claude work consistently
+```
+
+> notes:
+>
+> - svelte-claude-skills repo
+> - Measuring activation rates, quality of outputs
+> - Finding patterns that work vs don't
+
+---
+
+```component:bullet-points
+title: "The Blog Post"
+points:
+  - "Improving Claude Code Skills Activation Reliability"
+  - Published Nov 16 (mid-refactor!)
+  - 4,500 readers in 6 days
+  - 11,100 views
+```
+
+> notes:
+>
+> - Shared what I learned about making Claude reliable
+> - People clearly wanted this information
+> - Community hungry for practical AI workflows
+
+---
+
+```component:bullet-points
+title: "The Real Unlock"
+points:
+  - AI accelerated my work
+  - Understanding AI made it reliable
+  - Sharing knowledge amplified impact
+  - 875 files + viral blog post = same 10 days
+```
+
+---
+
 ```component:key-takeaways
 title: "Impact Summary"
 points:
