@@ -1,6 +1,8 @@
-# How I Refactored 370 Files in 11 Hours
+<!-- component:title-slide title="How I Refactored 370 Files in 11 Hours" subtitle="(Thanks Claude)" name="Scott Spence" event="JSMonthly" date="December 2025" -->
 
-(Thanks Claude)
+---
+
+<!-- component:image-caption src="$lib/assets/svelte_london_whatsapp_chat.png" alt="Svelte London WhatsApp chat" -->
 
 ---
 
@@ -29,6 +31,11 @@ repetitive refactor that would have taken me weeks to do manually.
 - Writer at scottspence.com
 - Deep in the Claude Code ecosystem
 
+> notes:
+>
+> - Mention working at company X
+> - Been using Claude Code since early access
+
 ---
 
 ## The Setup
@@ -41,7 +48,7 @@ repetitive refactor that would have taken me weeks to do manually.
 
 ## The CLI Output From Hell
 
-<!-- screenshot or code block showing overwhelming error output -->
+<!-- component:terminal-output -->
 
 ---
 
@@ -62,12 +69,7 @@ repetitive refactor that would have taken me weeks to do manually.
 
 ## The Loop
 
-1. Run svelte-check
-2. Export CLI output to file
-3. Slice top 50 lines
-4. Feed to Claude
-5. Apply patches
-6. Repeat
+<!-- component:timeline-workflow -->
 
 ---
 
@@ -92,7 +94,7 @@ repetitive refactor that would have taken me weeks to do manually.
 
 ## The Unlock
 
-<!-- diagram: PR 5361 unlocked PR 5375 unlocked PR 5381 -->
+<!-- component:unlock-timeline -->
 
 ---
 
@@ -116,8 +118,7 @@ repetitive refactor that would have taken me weeks to do manually.
 
 ## Before vs After
 
-- Before: "Maybe someday..."
-- After: 10 days, done
+<!-- component:before-after -->
 
 ---
 
@@ -137,11 +138,7 @@ repetitive refactor that would have taken me weeks to do manually.
 
 ## The Numbers
 
-- 875 files changed
-- 128 commits
-- 137 hours total
-- 329 lines/hour throughput
-- 4 PRs shipped
+<!-- component:stats-animated -->
 
 ---
 
@@ -161,14 +158,8 @@ repetitive refactor that would have taken me weeks to do manually.
 
 ## Impact Summary
 
-- Legacy UI package removed
-- Components standardized on shadcn-svelte
-- 18-month tech debt cleared
-- Performance optimizations shipped
-- All in 10 days
+<!-- component:key-takeaways -->
 
 ---
 
-## Thanks!
-
-<!-- contact info, links, questions -->
+<!-- component:thank-you -->

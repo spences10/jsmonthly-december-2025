@@ -20,10 +20,95 @@ function parse_markdown(content) {
 		.filter((s) => s.length > 0)
 }
 
-// Check if slide is a component reference
+// Check if slide is a component reference and extract props
+// Syntax: <!-- component:name prop="value" prop2="value2" -->
 function parse_component_reference(md) {
-	const match = md.match(/<!--\s*component:\s*([a-zA-Z0-9-]+)\s*-->/)
-	return match ? match[1] : null
+	const match = md.match(/<!--\s*component:\s*([a-zA-Z0-9-]+)(.*)-->/)
+	if (!match) return null
+
+	const component_name = match[1]
+	const attrs_string = match[2].trim()
+
+	// Parse attributes: prop="value" or prop='value'
+	const props = {}
+	const attr_regex = /(\w+)=["']([^"']*)["']/g
+	let attr_match
+	while ((attr_match = attr_regex.exec(attrs_string)) !== null) {
+		props[attr_match[1]] = attr_match[2]
+	}
+
+	return { name: component_name, props }
+}
+
+// Extract speaker notes from markdown
+// Syntax: > notes:
+//         >   - bullet point
+//         >   - another point
+function extract_notes(md) {
+	const lines = md.split('\n')
+	const notes_lines = []
+	const content_lines = []
+	let in_notes = false
+
+	for (const line of lines) {
+		const trimmed = line.trim()
+
+		// Start of notes block
+		if (trimmed === '> notes:' || trimmed === '>notes:') {
+			in_notes = true
+			continue
+		}
+
+		// Continue notes block (lines starting with >)
+		if (in_notes && trimmed.startsWith('>')) {
+			// Remove the > prefix and any leading whitespace after it
+			const note_content = trimmed.slice(1).trim()
+			if (note_content.length > 0) {
+				notes_lines.push(note_content)
+			}
+			continue
+		}
+
+		// End of notes block (non-blockquote line)
+		if (in_notes && !trimmed.startsWith('>')) {
+			in_notes = false
+		}
+
+		content_lines.push(line)
+	}
+
+	return {
+		content: content_lines.join('\n').trim(),
+		notes: notes_lines,
+	}
+}
+
+// Convert notes array to HTML
+function notes_to_html(notes) {
+	if (notes.length === 0) return ''
+
+	let html = '<Notes>\n'
+
+	// Check if notes are bullet points
+	const has_bullets = notes.some((n) => n.startsWith('- '))
+
+	if (has_bullets) {
+		html += '\t<ul>\n'
+		for (const note of notes) {
+			if (note.startsWith('- ')) {
+				html += `\t\t<li>${note.slice(2)}</li>\n`
+			} else {
+				html += `\t\t<li>${note}</li>\n`
+			}
+		}
+		html += '\t</ul>\n'
+	} else {
+		// Plain text notes
+		html += `\t<p>${notes.join(' ')}</p>\n`
+	}
+
+	html += '</Notes>'
+	return html
 }
 
 // Convert component name to PascalCase for import
@@ -35,28 +120,70 @@ function to_pascal_case(str) {
 }
 
 // Generate a component wrapper slide
-function generate_component_slide(component_name) {
+function generate_component_slide(component_name, props = {}) {
 	const pascal_name = to_pascal_case(component_name)
+
+	// Check for image imports (src props starting with $lib/)
+	const imports = [
+		`import ${pascal_name} from '../../slides-custom/${component_name}.svelte'`,
+	]
+	const processed_props = {}
+
+	for (const [key, value] of Object.entries(props)) {
+		if (key === 'src' && value.startsWith('$lib/')) {
+			// Generate an import for the image
+			const img_var = 'slideImage'
+			imports.push(`import ${img_var} from '${value}'`)
+			processed_props[key] = { type: 'variable', value: img_var }
+		} else {
+			processed_props[key] = { type: 'string', value }
+		}
+	}
+
+	// Build props string for the component
+	const props_entries = Object.entries(processed_props)
+	let props_string = ''
+
+	if (props_entries.length > 0) {
+		props_string =
+			' ' +
+			props_entries
+				.map(([key, prop]) => {
+					if (prop.type === 'variable') {
+						return `${key}={${prop.value}}`
+					}
+					return `${key}="${prop.value}"`
+				})
+				.join(' ')
+	}
+
 	return `<script>
-	import ${pascal_name} from '../../slides-custom/${component_name}.svelte'
+	${imports.join('\n\t')}
 </script>
 
-<${pascal_name} />
+<${pascal_name}${props_string} />
 `
 }
 
 // Convert markdown to basic Svelte slide
 function markdown_to_svelte(md, index) {
 	// Check for component reference first
-	const component_name = parse_component_reference(md)
-	if (component_name) {
-		return generate_component_slide(component_name)
+	const component_ref = parse_component_reference(md)
+	if (component_ref) {
+		return generate_component_slide(
+			component_ref.name,
+			component_ref.props,
+		)
 	}
 
-	const lines = md.split('\n')
+	// Extract notes from content
+	const { content, notes } = extract_notes(md)
+	const has_notes = notes.length > 0
+
+	const lines = content.split('\n')
 	let html = ''
-	let inList = false
-	let listType = null
+	let in_list = false
+	let list_type = null
 
 	for (const line of lines) {
 		const trimmed = line.trim()
@@ -69,31 +196,33 @@ function markdown_to_svelte(md, index) {
 		}
 		// Bullet lists
 		else if (trimmed.startsWith('- ')) {
-			if (!inList || listType !== 'ul') {
-				if (inList) html += listType === 'ol' ? '</ol>\n' : '</ul>\n'
+			if (!in_list || list_type !== 'ul') {
+				if (in_list)
+					html += list_type === 'ol' ? '</ol>\n' : '</ul>\n'
 				html += '<ul class="mt-8 flex flex-col gap-4 text-4xl">\n'
-				inList = true
-				listType = 'ul'
+				in_list = true
+				list_type = 'ul'
 			}
 			html += `\t<li>${trimmed.slice(2)}</li>\n`
 		}
 		// Numbered lists
 		else if (/^\d+\.\s/.test(trimmed)) {
-			if (!inList || listType !== 'ol') {
-				if (inList) html += listType === 'ol' ? '</ol>\n' : '</ul>\n'
+			if (!in_list || list_type !== 'ol') {
+				if (in_list)
+					html += list_type === 'ol' ? '</ol>\n' : '</ul>\n'
 				html +=
 					'<ol class="mt-8 flex flex-col gap-4 text-4xl list-decimal list-inside">\n'
-				inList = true
-				listType = 'ol'
+				in_list = true
+				list_type = 'ol'
 			}
 			html += `\t<li>${trimmed.replace(/^\d+\.\s/, '')}</li>\n`
 		}
 		// Paragraphs (non-empty lines that aren't headers or lists)
 		else if (trimmed.length > 0) {
-			if (inList) {
-				html += listType === 'ol' ? '</ol>\n' : '</ul>\n'
-				inList = false
-				listType = null
+			if (in_list) {
+				html += list_type === 'ol' ? '</ol>\n' : '</ul>\n'
+				in_list = false
+				list_type = null
 			}
 			// Check if it looks like a subtitle (in parentheses)
 			if (trimmed.startsWith('(') && trimmed.endsWith(')')) {
@@ -105,8 +234,15 @@ function markdown_to_svelte(md, index) {
 	}
 
 	// Close any open list
-	if (inList) {
-		html += listType === 'ol' ? '</ol>\n' : '</ul>\n'
+	if (in_list) {
+		html += list_type === 'ol' ? '</ol>\n' : '</ul>\n'
+	}
+
+	// Add notes if present
+	if (has_notes) {
+		const notes_html = notes_to_html(notes)
+		const script = `<script>\n\timport { Notes } from '@animotion/core'\n</script>\n\n`
+		return script + html.trim() + '\n\n' + notes_html
 	}
 
 	return html.trim()
