@@ -15,8 +15,39 @@ function parseMarkdown(content) {
 		.filter(s => s.length > 0)
 }
 
+// Check if slide is a component reference
+function parseComponentReference(md) {
+	const match = md.match(/<!--\s*component:\s*([a-zA-Z0-9-]+)\s*-->/)
+	return match ? match[1] : null
+}
+
+// Convert component name to PascalCase for import
+function toPascalCase(str) {
+	return str
+		.split('-')
+		.map(word => word.charAt(0).toUpperCase() + word.slice(1))
+		.join('')
+}
+
+// Generate a component wrapper slide
+function generateComponentSlide(componentName) {
+	const pascalName = toPascalCase(componentName)
+	return `<script>
+	import ${pascalName} from '../../slides-custom/${componentName}.svelte'
+</script>
+
+<${pascalName} />
+`
+}
+
 // Convert markdown to basic Svelte slide
 function markdownToSvelte(md, index) {
+	// Check for component reference first
+	const componentName = parseComponentReference(md)
+	if (componentName) {
+		return generateComponentSlide(componentName)
+	}
+
 	const lines = md.split('\n')
 	let html = ''
 	let inList = false
