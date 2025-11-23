@@ -36,41 +36,41 @@ function parse_component_reference(md) {
 		const component_name = fence_match[1]
 		const block_content = fence_match[2]
 
-		// Parse YAML-like props
+		// Parse simple key: value props (supports strings, JSON, numbers, booleans)
 		const props = {}
-		const lines = block_content.split('\n')
-		let current_array_key = null
 
 		// Unescape backslashes from quoted strings
 		const unescape = (str) => str.replace(/\\\\/g, '\\')
 
-		for (const line of lines) {
-			// Array item: - "value" or - value (unquoted)
-			const array_item_quoted = line.match(/^\s*-\s*["'](.*)["']\s*$/)
-			const array_item_unquoted = line.match(/^\s*-\s+(.+?)\s*$/)
-			const array_item_match =
-				array_item_quoted || array_item_unquoted
-			if (array_item_match && current_array_key) {
-				const value = array_item_quoted
-					? unescape(array_item_match[1])
-					: array_item_match[1]
-				props[current_array_key].push(value)
+		// Parse a value - handles JSON, numbers, booleans, and strings
+		const parse_value = (str) => {
+			const trimmed = str.trim()
+			// Try JSON first (arrays and objects)
+			if (trimmed.startsWith('[') || trimmed.startsWith('{')) {
+				try {
+					return JSON.parse(trimmed)
+				} catch (e) {
+					// Fall through to string
+				}
+			}
+			if (trimmed === 'true') return true
+			if (trimmed === 'false') return false
+			if (/^-?\d+\.?\d*$/.test(trimmed)) return parseFloat(trimmed)
+			return trimmed
+		}
+
+		for (const line of block_content.split('\n')) {
+			// Key with quoted value: key: "value"
+			const prop_quoted = line.match(/^(\w+):\s*["'](.*)["']\s*$/)
+			if (prop_quoted) {
+				props[prop_quoted[1]] = unescape(prop_quoted[2])
 				continue
 			}
 
-			// Key with value: key: "value"
-			const prop_match = line.match(/^\s*(\w+):\s*["'](.*)["']\s*$/)
-			if (prop_match) {
-				props[prop_match[1]] = unescape(prop_match[2])
-				current_array_key = null
-				continue
-			}
-
-			// Key without value (starts array): key:
-			const array_start_match = line.match(/^\s*(\w+):\s*$/)
-			if (array_start_match) {
-				current_array_key = array_start_match[1]
-				props[current_array_key] = []
+			// Key with unquoted value: key: value (handles JSON, numbers, booleans)
+			const prop_unquoted = line.match(/^(\w+):\s*(.+?)\s*$/)
+			if (prop_unquoted) {
+				props[prop_unquoted[1]] = parse_value(prop_unquoted[2])
 				continue
 			}
 		}
@@ -205,9 +205,18 @@ function generate_component_slide(
 			const img_var = key === 'src' ? 'slideImage' : 'slideImageProp'
 			imports.push(`import ${img_var} from '${value}'`)
 			processed_props[key] = { type: 'variable', value: img_var }
-		} else if (Array.isArray(value)) {
-			// Array prop - serialize as JSON
-			processed_props[key] = { type: 'array', value }
+		} else if (
+			Array.isArray(value) ||
+			(typeof value === 'object' && value !== null)
+		) {
+			// Array or object prop - serialize as JSON
+			processed_props[key] = { type: 'json', value }
+		} else if (
+			typeof value === 'number' ||
+			typeof value === 'boolean'
+		) {
+			// Number or boolean - use JS expression
+			processed_props[key] = { type: 'expression', value }
 		} else {
 			processed_props[key] = { type: 'string', value }
 		}
@@ -225,8 +234,11 @@ function generate_component_slide(
 					if (prop.type === 'variable') {
 						return `${key}={${prop.value}}`
 					}
-					if (prop.type === 'array') {
+					if (prop.type === 'json') {
 						return `${key}={${JSON.stringify(prop.value)}}`
+					}
+					if (prop.type === 'expression') {
+						return `${key}={${prop.value}}`
 					}
 					return `${key}="${prop.value}"`
 				})

@@ -54,7 +54,6 @@ repetitive refactor that would have taken me weeks to do manually.
 
 ---
 
-
 ```component:image-caption
 src: "$lib/assets/the_duality_of_ai_usage.jpeg"
 alt: "The duality of AI usage meme"
@@ -71,12 +70,7 @@ caption: "The duality of AI usage meme"
 name: "Scott Spence"
 title: "SvelteKit TypeScript Developer"
 image: "$lib/assets/mug-face.png"
-points:
-  - Svelte LDN meetup organiser
-  - Application Team Lead
-  - Does AI stuff at XtendOps
-  - Dad 👨‍👩‍👧
-  - Cat dad 😺
+points: ["Svelte LDN meetup organiser", "Application Team Lead", "Does AI stuff at XtendOps", "Dad 👨‍👩‍👧", "Cat dad 😺"]
 ```
 
 > notes:
@@ -88,78 +82,49 @@ points:
 
 ```component:bullet-points
 title: "The Setup"
-points:
-  - Monorepo with legacy UI package
-  - Dependency mismatch causing cascade of errors
-  - svelte-check spitting out thousands of lines
+points: ["Monorepo with legacy UI package", "Dependency mismatch causing cascade of errors", "svelte-check spitting out thousands of lines"]
 ```
 
 ---
 
 ```component:bullet-points
 title: "The CLI Output From Hell"
-points:
-  - svelte-check vomiting thousands of errors
-  - Scroll... scroll... scroll... more errors
-  - "Found 2,847 errors in 377 files"
-  - Terminal buffer couldn't even hold it all
+points: ["svelte-check vomiting thousands of errors", "Scroll... scroll... scroll... more errors", "Found 2,847 errors in 377 files", "Terminal buffer couldn't even hold it all"]
 ```
 
 ---
 
 ```component:bullet-points
 title: "Why This Wasn't Fixable Manually"
-points:
-  - 377 files affected
-  - Each fix could introduce new errors
-  - Time estimate: weeks of tedious work
-  - Human attention span: not built for this
+points: ["377 files affected", "Each fix could introduce new errors", "Time estimate: weeks of tedious work", "Human attention span: not built for this"]
 ```
 
 ---
 
 ```component:bullet-points
 title: "The Breakthrough"
-points:
-  - "What if I just... fed the errors to Claude?"
-  - Copy 50 lines of errors → paste → get fixes
-  - It actually worked
-  - Repeat until svelte-check passes
+points: ["What if I just... fed the errors to Claude?", "Copy 50 lines of errors → paste → get fixes", "It actually worked", "Repeat until svelte-check passes"]
 ```
 
 ---
 
 ```component:bullet-points
 title: "The Loop"
-points:
-  - Run svelte-check
-  - Copy first 50 errors
-  - Paste to Claude → get fixes
-  - Apply fixes → commit
-  - Repeat until green
+points: ["Run svelte-check", "Copy first 50 errors", "Paste to Claude → get fixes", "Apply fixes → commit", "Repeat until green"]
 ```
 
 ---
 
 ```component:bullet-points
 title: "Iteration Reality"
-points:
-  - Session resets every few hours
-  - Context limits hit repeatedly
-  - 50 lines at a time = manageable chunks
-  - 30 commits over 4.6 days
+points: ["Session resets every few hours", "Context limits hit repeatedly", "50 lines at a time = manageable chunks", "30 commits over 4.6 days"]
 ```
 
 ---
 
 ```component:bullet-points
 title: "PR #5361: Remove UI Package"
-points:
-  - 377 files changed
-  - 60 hours of coding
-  - 12,225 lines added
-  - 9,020 lines deleted
-  - The enabler for everything else
+points: ["377 files changed", "60 hours of coding", "12,225 lines added", "9,020 lines deleted", "The enabler for everything else"]
 ```
 
 ---
@@ -176,64 +141,42 @@ commits: 30
 
 ```component:unlock-chain
 title: "The Unlock Chain"
-items:
-  - "#5361|Remove UI"
-  - "#5375|shadcn-svelte"
-  - "#5381|Auth optimization"
+items: ["#5361|Remove UI", "#5375|shadcn-svelte", "#5381|Auth optimization"]
 ```
 
 ---
 
 ```component:bullet-points
 title: "PR #5375: Vanilla shadcn-svelte"
-points:
-  - With UI package gone, could standardize
-  - 364 files changed
-  - 24 hours
-  - 37 commits in under a day
+points: ["With UI package gone, could standardize", "364 files changed", "24 hours", "37 commits in under a day"]
 ```
 
 ---
 
 ```component:bullet-points
 title: "PR #5381: The Dream Refactor"
-points:
-  - 18 months in the making
-  - Finally possible with clean foundation
-  - 122 files, 54 commits, 43 hours
-  - Auth optimization with remote functions
+points: ["18 months in the making", "Finally possible with clean foundation", "122 files, 54 commits, 43 hours", "Auth optimization with remote functions"]
 ```
 
 ---
 
 ```component:bullet-points
 title: "Before vs After"
-points:
-  - Before: Blocked by legacy UI package for 18 months
-  - Before: Custom styling scattered everywhere
-  - After: Vanilla shadcn-svelte components
-  - After: Performance optimizations finally possible
+points: ["Before: Blocked by legacy UI package for 18 months", "Before: Custom styling scattered everywhere", "After: Vanilla shadcn-svelte components", "After: Performance optimizations finally possible"]
 ```
 
 ---
 
 ```component:bullet-points
 title: "Time Freed = Time Earned"
-points:
-  - Foundation work finished
-  - Room to tackle performance
-  - The stuff I actually wanted to do
+points: ["Foundation work finished", "Room to tackle performance", "The stuff I actually wanted to do"]
 ```
 
 ---
 
 ```component:bullet-points
 title: "Performance Wins"
-points:
-  - Auth optimization with remote functions
-  - Session caching reducing DB round trips
-  - Progressive loading for agent data
-  - Tab-based lazy loading
+points: ["Auth optimization with remote functions", "Session caching reducing DB round trips", "Progressive loading for agent data", "Tab-based lazy loading"]
 ```
 
 ---
@@ -259,30 +202,21 @@ commits: 128
 
 ```component:bullet-points
 title: "What This Actually Means"
-points:
-  - AI didn't replace me
-  - It enabled work at inhuman scale
-  - I focused on decisions, not drudgery
+points: ["AI didn't replace me", "It enabled work at inhuman scale", "I focused on decisions, not drudgery"]
 ```
 
 ---
 
 ```component:bullet-points
 title: "Augmentation, Not Replacement"
-points:
-  - I made all the architectural decisions
-  - Claude handled the tedious execution
-  - Still needed to understand every fix
-  - But didn't have to type it all manually
+points: ["I made all the architectural decisions", "Claude handled the tedious execution", "Still needed to understand every fix", "But didn't have to type it all manually"]
 ```
 
 ---
 
 ```component:stat-comparison
 title: "Same 10 Days"
-stats:
-  - "75h|Work refactor|text-blue-400"
-  - "21h|Personal projects|text-green-400"
+stats: ["74.5h|Work refactor|text-blue-400", "20.8h|Personal projects|text-green-400"]
 ```
 
 > notes:
@@ -293,13 +227,25 @@ stats:
 
 ---
 
+```component:area-chart
+title: "The 10-Day Grind"
+subtitle: "Work refactor vs Personal projects"
+data: [{"date":"2024-11-12","work":9.3,"personal":2.23},{"date":"2024-11-13","work":7.46,"personal":5.08},{"date":"2024-11-14","work":10.22,"personal":2.63},{"date":"2024-11-15","work":0.09,"personal":5.96},{"date":"2024-11-16","work":0,"personal":7.27},{"date":"2024-11-17","work":9.24,"personal":1.29},{"date":"2024-11-18","work":13.45,"personal":0.13},{"date":"2024-11-19","work":10.88,"personal":0.52},{"date":"2024-11-20","work":8.57,"personal":0.32},{"date":"2024-11-21","work":5.39,"personal":3.95}]
+series: [{"key":"work","color":"#3b82f6","label":"xo-monorepo"},{"key":"personal","color":"#22c55e","label":"Personal projects"}]
+fillOpacity: 0.4
+stats: [{"label":"Total","value":"104h"},{"label":"Average","value":"10.4h/day"},{"label":"Peak","value":"13.6h"}]
+```
+
+> notes:
+>
+> - Same data as bar chart, different visualization
+> - Shows the parallel nature of work and personal projects
+
+---
+
 ```component:bullet-points
 title: "Building Better Workflows"
-points:
-  - Skill evaluation framework (Nov 13)
-  - Cost calculator and metrics tracker
-  - Hook system for reliable skill activation (Nov 15)
-  - Testing what makes Claude work consistently
+points: ["Skill evaluation framework (Nov 13)", "Cost calculator and metrics tracker", "Hook system for reliable skill activation (Nov 15)", "Testing what makes Claude work consistently"]
 ```
 
 > notes:
@@ -312,11 +258,7 @@ points:
 
 ```component:simple-timeline
 title: "The Blog Post"
-events:
-  - "Nov 13|Built eval framework"
-  - "Nov 15|Created hook system"
-  - "Nov 16|Published|highlight"
-  - "Nov 22|4.5k readers"
+events: ["Nov 13|Built eval framework", "Nov 15|Created hook system", "Nov 16|Published|highlight", "Nov 22|4.5k readers"]
 ```
 
 > notes:
@@ -329,21 +271,14 @@ events:
 
 ```component:bullet-points
 title: "The Real Unlock"
-points:
-  - AI accelerated my work
-  - Understanding AI made it reliable
-  - Sharing knowledge amplified impact
-  - 875 files + viral blog post = same 10 days
+points: ["AI accelerated my work", "Understanding AI made it reliable", "Sharing knowledge amplified impact", "875 files + viral blog post = same 10 days"]
 ```
 
 ---
 
 ```component:key-takeaways
 title: "Impact Summary"
-points:
-  - AI handles tedious work so you focus on interesting problems
-  - Large-scale refactors become manageable with the right tools
-  - Building reliable workflows beats one-off solutions
+points: ["AI handles tedious work so you focus on interesting problems", "Large-scale refactors become manageable with the right tools", "Building reliable workflows beats one-off solutions"]
 ```
 
 ---
@@ -351,8 +286,5 @@ points:
 ```component:thank-you
 title: "Thank You!"
 subtitle: "Questions?"
-links:
-  - 🌐 scottspence.com
-  - 🦋 @scottspence.dev
-  - 💻 github.com/spences10
+links: ["🌐 scottspence.com", "🦋 @scottspence.dev", "💻 github.com/spences10"]
 ```
