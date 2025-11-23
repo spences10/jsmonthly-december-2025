@@ -11,6 +11,23 @@
 		Svg,
 		Tooltip,
 	} from 'layerchart'
+	import { onMount, tick } from 'svelte'
+
+	let mounted = $state(false)
+
+	onMount(async () => {
+		// Wait for DOM to fully settle before rendering chart
+		await tick()
+		// Additional delay to ensure reveal.js has finished setup
+		const waitForDOM = () => {
+			if (document.head) {
+				mounted = true
+			} else {
+				requestAnimationFrame(waitForDOM)
+			}
+		}
+		setTimeout(waitForDOM, 300)
+	})
 
 	interface DataPoint {
 		date: Date | string
@@ -100,7 +117,9 @@
 	const is_multi_series = $derived(series.length > 0)
 
 	// Get all y keys for the Chart component
-	const y_keys = $derived(is_multi_series ? series.map((s) => s.key) : y)
+	const y_keys = $derived(
+		is_multi_series ? series.map((s) => s.key) : y,
+	)
 
 	// Find peak data point for a series
 	const get_peak_index = (key: string) => {
@@ -127,116 +146,103 @@
 	{/if}
 </Transition>
 
-<Transition visible entry="scale-in" duration={0.8} delay={0.2}>
-	<div
-		class="bg-gray- pointer-events-auto relative z-10 mx-auto h-[650px] w-[1500px] rounded-lg p-6"
-	>
-		{#if processed_data.length > 0}
-			<Chart
-				data={processed_data}
-				{x}
-				xScale={use_time_scale ? scaleTime() : scaleLinear()}
-				y={y_keys}
-				yDomain={y_domain}
-				yNice
-				padding={{ left: 60, bottom: 40, top: 20, right: 20 }}
-				tooltip={{ mode: 'bisect-x' }}
-			>
-				<Svg>
-					<Axis
-						placement="left"
-						grid={show_grid}
-						rule
-						tickLabelProps={{ style: `font-size: ${axis_font_size}` }}
-					/>
-					<Axis
-						placement="bottom"
-						rule
-						format={format_x_axis}
-						ticks={processed_data.length}
-						tickLabelProps={{ style: `font-size: ${axis_font_size}` }}
-					/>
+<div class="relative mx-auto h-[650px] w-[1500px] rounded-lg p-6">
+	{#if mounted && processed_data.length > 0}
+		<Chart
+			data={processed_data}
+			{x}
+			xScale={use_time_scale ? scaleTime() : scaleLinear()}
+			y={y_keys}
+			yDomain={y_domain}
+			yNice
+			padding={{ left: 60, bottom: 40, top: 20, right: 20 }}
+			tooltip={{ mode: 'bisect-x' }}
+		>
+			<Svg>
+				<Axis
+					placement="left"
+					grid={show_grid}
+					rule
+					tickLabelProps={{ style: `font-size: ${axis_font_size}` }}
+				/>
+				<Axis
+					placement="bottom"
+					rule
+					format={format_x_axis}
+					ticks={processed_data.length}
+					tickLabelProps={{ style: `font-size: ${axis_font_size}` }}
+				/>
 
-					{#if is_multi_series}
-						{#each series as s}
-							<Area
-								y1={(d) => d[s.key]}
-								fill={s.color}
-								fillOpacity={fill_opacity}
-								line={{ stroke: s.color, class: 'stroke-2' }}
-							/>
-						{/each}
-
-						{#if show_highlight}
-							{#each series as s}
-								<Highlight
-									y={(d) => d[s.key]}
-									points={{ fill: s.color }}
-								/>
-							{/each}
-							<Highlight lines />
-						{/if}
-
-						{#if show_peak_label}
-							{#each series as s}
-								{@const peak_idx = get_peak_index(s.key)}
-								{#if peak_idx >= 0}
-									<Points
-										data={[processed_data[peak_idx]]}
-										y={(d) => d[s.key]}
-										r={6}
-										fill={s.color}
-										stroke="white"
-										strokeWidth={2}
-									/>
-								{/if}
-							{/each}
-						{/if}
-					{:else}
+				{#if is_multi_series}
+					{#each series as s}
 						<Area
-							line={{ class: `stroke-2 ${line_color}` }}
-							class={fill_color}
+							y1={(d) => d[s.key]}
+							fill={s.color}
+							fillOpacity={fill_opacity}
+							line={{ stroke: s.color, class: 'stroke-2' }}
 						/>
-						{#if show_highlight}
-							<Highlight points />
-							<Highlight lines />
-						{/if}
-					{/if}
-				</Svg>
+					{/each}
 
-				{#if show_tooltip}
-					<Tooltip.Root let:data>
-						<Tooltip.Header>
-							{#if data && data[x] instanceof Date}
-								{data[x].toLocaleDateString()}
-							{:else if data}
-								{data[x]}
+					{#if show_peak_label}
+						{#each series as s}
+							{@const peak_idx = get_peak_index(s.key)}
+							{#if peak_idx >= 0}
+								<Points
+									data={[processed_data[peak_idx]]}
+									y={(d) => d[s.key]}
+									r={6}
+									fill={s.color}
+									stroke="white"
+									strokeWidth={2}
+								/>
 							{/if}
-						</Tooltip.Header>
-						{#if is_multi_series}
-							<Tooltip.List>
-								{#each series as s}
-									<Tooltip.Item
-										label={s.label || s.key}
-										value={data?.[s.key]}
-									/>
-								{/each}
-							</Tooltip.List>
-						{:else}
-							<Tooltip.Item label={y_label || y} value={data?.[y]} />
-						{/if}
-					</Tooltip.Root>
+						{/each}
+					{/if}
+				{:else}
+					<Area
+						line={{ class: `stroke-2 ${line_color}` }}
+						class={fill_color}
+					/>
 				{/if}
-			</Chart>
-		{:else}
-			<div
-				class="flex h-full items-center justify-center text-gray-500"
-			>
-				No data provided
-			</div>
-		{/if}
-	</div>
-</Transition>
+
+				{#if show_highlight}
+					<Highlight points lines />
+				{/if}
+			</Svg>
+
+			{#if show_tooltip}
+				<Tooltip.Root>
+					{#snippet children(tooltipData)}
+						{#if tooltipData?.data}
+							{@const d = tooltipData.data}
+							<Tooltip.Header>
+								{format_date(d[x], date_format)}
+							</Tooltip.Header>
+							<Tooltip.List>
+								{#if is_multi_series}
+									{#each series as s}
+										<Tooltip.Item
+											label={s.label || s.key}
+											value={d[s.key]}
+										/>
+									{/each}
+								{:else}
+									<Tooltip.Item label={y} value={d[y]} />
+								{/if}
+							</Tooltip.List>
+						{/if}
+					{/snippet}
+				</Tooltip.Root>
+			{/if}
+		</Chart>
+	{:else}
+		<div
+			class="flex h-full items-center justify-center text-gray-500"
+		>
+			No data provided
+		</div>
+	{/if}
+</div>
 
 {#if is_multi_series}
 	<Transition visible entry="scale-in" duration={0.6} delay={0.4}>
