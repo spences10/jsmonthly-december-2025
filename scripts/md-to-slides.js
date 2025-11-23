@@ -1,6 +1,5 @@
 #!/usr/bin/env node
 
-import { execSync } from 'node:child_process'
 import {
 	existsSync,
 	mkdirSync,
@@ -347,8 +346,5 @@ slides.forEach((md, i) => {
 	writeFileSync(file, svelte + '\n')
 	console.log(`Created: src/slides/${num}/slide.svelte`)
 })
-
-// Sync SvelteKit to pick up new slides
-execSync('npx svelte-kit sync', { stdio: 'inherit' })
 
 console.log('\nDone! Slides created.')

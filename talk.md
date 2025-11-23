@@ -16,6 +16,14 @@ caption: "Svelte London WhatsApp chat"
 
 ---
 
+```component:image-caption
+src: "$lib/assets/svelte_london_whatsapp_chat_svaude.png"
+alt: "Svelte London WhatsApp chat Svaude"
+caption: "We like to ad `Sv` to everything"
+```
+
+---
+
 # I lied!
 
 It was 370 files in 11 hours, but I hadn't finished! 😅
@@ -143,6 +151,16 @@ points:
 
 ---
 
+```component:github-diffstat
+title: "PR #5361: The Numbers"
+added: 12225
+deleted: 9020
+files: 377
+commits: 30
+```
+
+---
+
 ```component:bullet-points
 title: "The Unlock"
 points:
@@ -220,6 +238,16 @@ points:
 
 ---
 
+```component:github-diffstat
+title: "Total Impact"
+added: 25477
+deleted: 19733
+files: 875
+commits: 128
+```
+
+---
+
 ```component:bullet-points
 title: "What This Actually Means"
 points:
@@ -241,18 +269,16 @@ points:
 
 ---
 
-```component:bullet-points
-title: "Meanwhile..."
-points:
-  - While doing the refactor at work...
-  - I was also building tools to improve Claude workflows
-  - Same 10 days, parallel tracks
+```component:parallel-timeline
+title: "Parallel Tracks: Same 10 Days"
 ```
 
 > notes:
 >
 > - This is the meta story
 > - Not just using AI, but improving how to use AI
+> - Click through to animate each day
+> - Work refactor on left, personal projects on right
 
 ---
 

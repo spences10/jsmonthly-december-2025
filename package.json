@@ -2,7 +2,8 @@
 	"name": "animotion",
 	"type": "module",
 	"scripts": {
-		"dev": "vite dev",
+		"dev": "node scripts/md-to-slides.js talk.md && vite dev",
+		"slides": "node scripts/md-to-slides.js talk.md",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
