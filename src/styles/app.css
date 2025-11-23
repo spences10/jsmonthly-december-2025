@@ -28,6 +28,14 @@
 	--r-heading-font: 'Atkinson Hyperlegible';
 	--r-code-font: 'Victor Mono Variable';
 	--r-link-color: oklch(50% 0.15 194);
+
+	/* Color palette */
+	--color-primary: #3b82f6; /* blue-500 - main brand/action */
+	--color-secondary: #22c55e; /* green-500 - secondary/alternative */
+	--color-success: #10b981; /* emerald-500 - complete, positive */
+	--color-warning: #f59e0b; /* amber-500 - caution, in-progress */
+	--color-danger: #ef4444; /* red-500 - error, destructive */
+	--color-muted: #6b7280; /* gray-500 - subtle text */
 	--ease: linear(
 		0 0%,
 		0.0036 9.62%,

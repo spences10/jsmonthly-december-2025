@@ -16,8 +16,16 @@
 	let {
 		title = '',
 		bars = [
-			{ label: 'Work refactor', value: 75, color: 'bg-blue-500' },
-			{ label: 'Personal projects', value: 21, color: 'bg-green-500' },
+			{
+				label: 'Work refactor',
+				value: 75,
+				color: 'bg-[var(--color-primary)]',
+			},
+			{
+				label: 'Personal projects',
+				value: 21,
+				color: 'bg-[var(--color-secondary)]',
+			},
 		],
 		unit = 'h',
 	}: Props = $props()
@@ -39,9 +47,12 @@
 				</p>
 
 				<!-- Bar -->
-				<div class="h-16 flex-1 overflow-hidden rounded-lg bg-gray-800">
+				<div
+					class="h-16 flex-1 overflow-hidden rounded-lg bg-gray-800"
+				>
 					<div
-						class="h-full rounded-lg {bar.color || 'bg-blue-500'}"
+						class="h-full rounded-lg {bar.color ||
+							'bg-[var(--color-primary)]'}"
 						style="width: {((bar.value || 0) / max) * 100}%;"
 					></div>
 				</div>

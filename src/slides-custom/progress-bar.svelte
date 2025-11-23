@@ -2,7 +2,7 @@
 	import { Action, Transition } from '@animotion/core'
 	import { tween } from '@animotion/motion'
 
-	let progress = tween({ width: 0, color: '#ef4444' })
+	let progress = tween({ width: 0, color: 'var(--color-danger)' })
 	let count = tween({ value: 0 })
 </script>
 
@@ -31,15 +31,21 @@
 	<Action
 		actions={[
 			async () => {
-				await progress.to({ width: 33, color: '#ef4444' })
+				await progress.to({ width: 33, color: 'var(--color-danger)' })
 				await count.to({ value: 125 })
 			},
 			async () => {
-				await progress.to({ width: 66, color: '#f59e0b' })
+				await progress.to({
+					width: 66,
+					color: 'var(--color-warning)',
+				})
 				await count.to({ value: 250 })
 			},
 			async () => {
-				await progress.to({ width: 100, color: '#10b981' })
+				await progress.to({
+					width: 100,
+					color: 'var(--color-success)',
+				})
 				await count.to({ value: 377 })
 			},
 		]}

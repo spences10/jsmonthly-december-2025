@@ -33,7 +33,7 @@
 		subtitle = '',
 		data = [],
 		thresholds = 10,
-		color = '#3b82f6',
+		color = 'var(--color-primary)',
 		show_tooltip = true,
 		format_x = (d: number) => d.toString(),
 	}: Props = $props()

@@ -71,9 +71,9 @@
 		x = 'date',
 		// Single series
 		y = 'value',
-		line_color = 'stroke-blue-500',
-		fill_color = 'fill-blue-500/30',
-		highlight_color = '#3b82f6',
+		line_color = 'stroke-[var(--color-primary)]',
+		fill_color = 'fill-[var(--color-primary)]/30',
+		highlight_color = 'var(--color-primary)',
 		// Multiple series
 		series = [],
 		fill_opacity = 0.3,

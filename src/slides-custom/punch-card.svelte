@@ -41,7 +41,7 @@
 		data = [],
 		hour_range = [6, 24],
 		r_range = [0, 20],
-		color = '#3b82f6',
+		color = 'var(--color-primary)',
 	}: Props = $props()
 
 	// Get unique dates sorted

@@ -127,7 +127,6 @@ title: "When The Work Happened"
 subtitle: "128 commits across 10 days"
 data: [{"date":"2025-11-12","hour":21,"count":5},{"date":"2025-11-12","hour":22,"count":3},{"date":"2025-11-13","hour":10,"count":1},{"date":"2025-11-13","hour":12,"count":3},{"date":"2025-11-13","hour":13,"count":3},{"date":"2025-11-13","hour":14,"count":2},{"date":"2025-11-14","hour":21,"count":3},{"date":"2025-11-14","hour":22,"count":3},{"date":"2025-11-15","hour":8,"count":2},{"date":"2025-11-15","hour":9,"count":1},{"date":"2025-11-17","hour":10,"count":2},{"date":"2025-11-17","hour":11,"count":2},{"date":"2025-11-17","hour":17,"count":2},{"date":"2025-11-17","hour":18,"count":4},{"date":"2025-11-17","hour":19,"count":4},{"date":"2025-11-17","hour":20,"count":6},{"date":"2025-11-17","hour":21,"count":1},{"date":"2025-11-17","hour":22,"count":4},{"date":"2025-11-17","hour":23,"count":1},{"date":"2025-11-18","hour":7,"count":1},{"date":"2025-11-18","hour":8,"count":2},{"date":"2025-11-18","hour":9,"count":2},{"date":"2025-11-18","hour":11,"count":3},{"date":"2025-11-18","hour":12,"count":3},{"date":"2025-11-18","hour":15,"count":2},{"date":"2025-11-18","hour":16,"count":2},{"date":"2025-11-18","hour":17,"count":1},{"date":"2025-11-18","hour":18,"count":5},{"date":"2025-11-18","hour":19,"count":5},{"date":"2025-11-18","hour":20,"count":6},{"date":"2025-11-19","hour":7,"count":1},{"date":"2025-11-19","hour":8,"count":1},{"date":"2025-11-19","hour":9,"count":1},{"date":"2025-11-19","hour":10,"count":1},{"date":"2025-11-19","hour":14,"count":4},{"date":"2025-11-19","hour":16,"count":2},{"date":"2025-11-19","hour":17,"count":1},{"date":"2025-11-19","hour":19,"count":1},{"date":"2025-11-19","hour":20,"count":1},{"date":"2025-11-19","hour":21,"count":2},{"date":"2025-11-20","hour":19,"count":6},{"date":"2025-11-20","hour":20,"count":5},{"date":"2025-11-20","hour":21,"count":3},{"date":"2025-11-20","hour":22,"count":2},{"date":"2025-11-20","hour":23,"count":2},{"date":"2025-11-21","hour":6,"count":1},{"date":"2025-11-21","hour":7,"count":3},{"date":"2025-11-21","hour":12,"count":1},{"date":"2025-11-21","hour":16,"count":2},{"date":"2025-11-21","hour":17,"count":2},{"date":"2025-11-21","hour":18,"count":1}]
 hour_range: [6, 24]
-color: "#3b82f6"
 ```
 
 > notes:
@@ -247,7 +246,7 @@ stats: ["74.5h|Work refactor|text-blue-400", "20.8h|Personal projects|text-green
 title: "The 10-Day Grind"
 subtitle: "Work refactor vs Personal projects"
 data: [{"date":"2024-11-12","work":9.3,"personal":2.23},{"date":"2024-11-13","work":7.46,"personal":5.08},{"date":"2024-11-14","work":10.22,"personal":2.63},{"date":"2024-11-15","work":0.09,"personal":5.96},{"date":"2024-11-16","work":0,"personal":7.27},{"date":"2024-11-17","work":9.24,"personal":1.29},{"date":"2024-11-18","work":13.45,"personal":0.13},{"date":"2024-11-19","work":10.88,"personal":0.52},{"date":"2024-11-20","work":8.57,"personal":0.32},{"date":"2024-11-21","work":5.39,"personal":3.95}]
-series: [{"key":"work","color":"#3b82f6","label":"xo-monorepo"},{"key":"personal","color":"#22c55e","label":"Personal projects"}]
+series: [{"key":"work","color":"var(--color-primary)","label":"xo-monorepo"},{"key":"personal","color":"var(--color-secondary)","label":"Personal projects"}]
 fill_opacity: 0.4
 show_tooltip: true
 show_highlight: true
@@ -266,7 +265,7 @@ title: "Peak Productivity Hours"
 subtitle: "Distribution of 128 commits by hour"
 data: [21,21,21,21,21,22,22,22,10,12,12,12,13,13,13,14,14,21,21,21,22,22,22,8,8,9,10,10,11,11,17,17,18,18,18,18,19,19,19,19,20,20,20,20,20,20,21,22,22,22,22,23,7,8,8,9,9,11,11,11,12,12,12,15,15,16,16,17,18,18,18,18,18,19,19,19,19,20,20,20,20,7,8,9,10,14,14,14,14,16,16,17,19,20,21,21,19,19,19,19,19,19,20,20,20,20,21,21,22,22,23,23,6,7,7,7,12,16,16,17,17,18]
 thresholds: 18
-color: "#f59e0b"
+color: "var(--color-warning)"
 ```
 
 > notes:
