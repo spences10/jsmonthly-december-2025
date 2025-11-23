@@ -7,7 +7,6 @@
 		Axis,
 		Chart,
 		Highlight,
-		Points,
 		Svg,
 		Tooltip,
 	} from 'layerchart'
@@ -19,14 +18,14 @@
 		// Wait for DOM to fully settle before rendering chart
 		await tick()
 		// Additional delay to ensure reveal.js has finished setup
-		const waitForDOM = () => {
+		const wait_for_dom = () => {
 			if (document.head) {
 				mounted = true
 			} else {
-				requestAnimationFrame(waitForDOM)
+				requestAnimationFrame(wait_for_dom)
 			}
 		}
-		setTimeout(waitForDOM, 300)
+		setTimeout(wait_for_dom, 300)
 	})
 
 	interface DataPoint {
@@ -48,6 +47,7 @@
 		y?: string
 		line_color?: string
 		fill_color?: string
+		highlight_color?: string
 		// Multiple series mode
 		series?: Series[]
 		fill_opacity?: number
@@ -59,7 +59,6 @@
 		show_tooltip?: boolean
 		show_highlight?: boolean
 		show_labels?: boolean
-		show_peak_label?: boolean
 		subtitle?: string
 		stats?: { label: string; value: string }[]
 		date_format?: string
@@ -72,8 +71,9 @@
 		x = 'date',
 		// Single series
 		y = 'value',
-		line_color = 'stroke-primary',
-		fill_color = 'fill-primary/30',
+		line_color = 'stroke-blue-500',
+		fill_color = 'fill-blue-500/30',
+		highlight_color = '#3b82f6',
 		// Multiple series
 		series = [],
 		fill_opacity = 0.3,
@@ -85,7 +85,6 @@
 		show_tooltip = false,
 		show_highlight = false,
 		show_labels = false,
-		show_peak_label = true,
 		subtitle = '',
 		stats = [],
 		date_format = 'MMM d',
@@ -120,21 +119,6 @@
 	const y_keys = $derived(
 		is_multi_series ? series.map((s) => s.key) : y,
 	)
-
-	// Find peak data point for a series
-	const get_peak_index = (key: string) => {
-		if (processed_data.length === 0) return -1
-		let max_idx = 0
-		for (let i = 1; i < processed_data.length; i++) {
-			if (
-				(processed_data[i][key] as number) >
-				(processed_data[max_idx][key] as number)
-			) {
-				max_idx = i
-			}
-		}
-		return max_idx
-	}
 </script>
 
 <Transition visible entry="scale-in" duration={0.6}>
@@ -182,22 +166,6 @@
 							line={{ stroke: s.color, class: 'stroke-2' }}
 						/>
 					{/each}
-
-					{#if show_peak_label}
-						{#each series as s}
-							{@const peak_idx = get_peak_index(s.key)}
-							{#if peak_idx >= 0}
-								<Points
-									data={[processed_data[peak_idx]]}
-									y={(d) => d[s.key]}
-									r={6}
-									fill={s.color}
-									stroke="white"
-									strokeWidth={2}
-								/>
-							{/if}
-						{/each}
-					{/if}
 				{:else}
 					<Area
 						line={{ class: `stroke-2 ${line_color}` }}
@@ -206,12 +174,20 @@
 				{/if}
 
 				{#if show_highlight}
-					<Highlight points lines />
+					<Highlight
+						points={{
+							fill: 'white',
+							stroke: highlight_color,
+							strokeWidth: 2,
+							r: 5,
+						}}
+						lines
+					/>
 				{/if}
 			</Svg>
 
 			{#if show_tooltip}
-				<Tooltip.Root>
+				<Tooltip.Root class="p-3 text-lg">
 					{#snippet children(tooltipData)}
 						{#if tooltipData?.data}
 							{@const d = tooltipData.data}
