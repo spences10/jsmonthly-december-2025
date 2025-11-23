@@ -54,14 +54,27 @@ repetitive refactor that would have taken me weeks to do manually.
 
 ---
 
+
+```component:image-caption
+src: "$lib/assets/the_duality_of_ai_usage.jpeg"
+alt: "The duality of AI usage meme"
+caption: "The duality of AI usage meme"
+```
+
+> notes:
+>
+> - This talk is basically this meme
+
+---
+
 ```component:about-me
 name: "Scott Spence"
 title: "SvelteKit TypeScript Developer"
 image: "$lib/assets/mug-face.png"
 points:
   - Svelte LDN meetup organiser
-  - Working with Svelte workshops
   - Application Team Lead
+  - Does AI stuff at XtendOps
   - Dad 👨‍👩‍👧
   - Cat dad 😺
 ```
@@ -161,13 +174,12 @@ commits: 30
 
 ---
 
-```component:bullet-points
-title: "The Unlock"
-points:
-  - PR #5361 merged
-  - Legacy UI package finally gone
-  - Clean foundation to build on
-  - Everything else became possible
+```component:unlock-chain
+title: "The Unlock Chain"
+items:
+  - "#5361|Remove UI"
+  - "#5375|shadcn-svelte"
+  - "#5381|Auth optimization"
 ```
 
 ---
@@ -226,14 +238,11 @@ points:
 
 ---
 
-```component:bullet-points
-title: "The Numbers"
-points:
-  - 137 hours of coding
-  - 128 commits across 4 PRs
-  - 875 files changed
-  - 10 days start to finish
-  - +25,477 / -19,733 lines
+```component:big-stat
+number: "875"
+label: "files changed"
+sublabel: "128 commits across 4 PRs in 10 days"
+color: "text-green-400"
 ```
 
 ---
@@ -269,16 +278,18 @@ points:
 
 ---
 
-```component:parallel-timeline
-title: "Parallel Tracks: Same 10 Days"
+```component:stat-comparison
+title: "Same 10 Days"
+stats:
+  - "75h|Work refactor|text-blue-400"
+  - "21h|Personal projects|text-green-400"
 ```
 
 > notes:
 >
 > - This is the meta story
 > - Not just using AI, but improving how to use AI
-> - Click through to animate each day
-> - Work refactor on left, personal projects on right
+> - Work refactor AND personal projects in parallel
 
 ---
 
@@ -299,13 +310,13 @@ points:
 
 ---
 
-```component:bullet-points
+```component:simple-timeline
 title: "The Blog Post"
-points:
-  - "Improving Claude Code Skills Activation Reliability"
-  - Published Nov 16 (mid-refactor!)
-  - 4,500 readers in 6 days
-  - 11,100 views
+events:
+  - "Nov 13|Built eval framework"
+  - "Nov 15|Created hook system"
+  - "Nov 16|Published|highlight"
+  - "Nov 22|4.5k readers"
 ```
 
 > notes:
