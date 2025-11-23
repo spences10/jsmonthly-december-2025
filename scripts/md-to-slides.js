@@ -1,5 +1,6 @@
 #!/usr/bin/env node
 
+import { execSync } from 'node:child_process'
 import {
 	existsSync,
 	mkdirSync,
@@ -303,7 +304,7 @@ function clear_slides_directory() {
 	let removed = 0
 
 	for (const entry of entries) {
-		// Only remove numbered directories (100, 200, etc.)
+		// Only remove numbered directories (10, 20, etc.)
 		if (entry.isDirectory() && /^\d+$/.test(entry.name)) {
 			const dir_path = join(SLIDES_DIR, entry.name)
 			rmSync(dir_path, { recursive: true, force: true })
@@ -332,9 +333,9 @@ clear_slides_directory()
 
 console.log(`Found ${slides.length} slides`)
 
-// Generate slides starting at 100, incrementing by 100
+// Generate slides starting at 10, incrementing by 10
 slides.forEach((md, i) => {
-	const num = (i + 1) * 100
+	const num = (i + 1) * 10
 	const dir = join(SLIDES_DIR, String(num))
 	const file = join(dir, 'slide.svelte')
 
@@ -346,5 +347,8 @@ slides.forEach((md, i) => {
 	writeFileSync(file, svelte + '\n')
 	console.log(`Created: src/slides/${num}/slide.svelte`)
 })
+
+// Sync SvelteKit to pick up new slides
+execSync('npx svelte-kit sync', { stdio: 'inherit' })
 
 console.log('\nDone! Slides created.')

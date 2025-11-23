@@ -1,4 +1,6 @@
-<h1 class="mx-52 text-center text-9xl font-bold">
-	How I Refactored 370 Files in 11 Hours
-</h1>
-<p class="text-5xl opacity-80">(Thanks Claude)</p>
+<script>
+	import BulletPoints from '../../slides-custom/bullet-points.svelte'
+</script>
+
+<BulletPoints title="Why This Wasn't Fixable Manually" points={["377 files affected","Each fix could introduce new errors","Time estimate: weeks of tedious work","Human attention span: not built for this"]} />
+
