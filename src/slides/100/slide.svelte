@@ -2,5 +2,5 @@
 	import BulletPoints from '../../slides-custom/bullet-points.svelte'
 </script>
 
-<BulletPoints title="Why This Wasn't Fixable Manually" points={["377 files affected","Each fix could introduce new errors","Time estimate: weeks of tedious work","Human attention span: not built for this"]} />
+<BulletPoints title="The Setup" points={["Monorepo with legacy UI package","Dependency mismatch causing cascade of errors","svelte-check spitting out thousands of lines"]} />
 

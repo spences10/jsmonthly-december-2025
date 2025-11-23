@@ -2,5 +2,5 @@
 	import BulletPoints from '../../slides-custom/bullet-points.svelte'
 </script>
 
-<BulletPoints title="The Unlock" points={["PR #5361 merged","Legacy UI package finally gone","Clean foundation to build on","Everything else became possible"]} />
+<BulletPoints title="Iteration Reality" points={["Session resets every few hours","Context limits hit repeatedly","50 lines at a time = manageable chunks","30 commits over 4.6 days"]} />
 

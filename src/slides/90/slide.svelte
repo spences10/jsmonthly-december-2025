@@ -1,6 +1,15 @@
 <script>
-	import BulletPoints from '../../slides-custom/bullet-points.svelte'
+	import AboutMe from '../../slides-custom/about-me.svelte'
+	import { Notes } from '@animotion/core'
+	import slideImageProp from '$lib/assets/mug-face.png'
 </script>
 
-<BulletPoints title="The CLI Output From Hell" points={["svelte-check vomiting thousands of errors","Scroll... scroll... scroll... more errors","Found 2,847 errors in 377 files","Terminal buffer couldn't even hold it all"]} />
+<AboutMe name="Scott Spence" title="SvelteKit TypeScript Developer" image={slideImageProp} points={["Svelte LDN meetup organiser","Application Team Lead","Does AI stuff at XtendOps","Dad 👨‍👩‍👧","Cat dad 😺"]} />
+
+<Notes>
+	<ul>
+		<li>Mention working at company XtendOps</li>
+		<li>Been using Claude Code since early access</li>
+	</ul>
+</Notes>
 

@@ -1,15 +1,6 @@
 <script>
-	import BulletPoints from '../../slides-custom/bullet-points.svelte'
-	import { Notes } from '@animotion/core'
+	import BigStat from '../../slides-custom/big-stat.svelte'
 </script>
 
-<BulletPoints title="Building Better Workflows" points={["Skill evaluation framework (Nov 13)","Cost calculator and metrics tracker","Hook system for reliable skill activation (Nov 15)","Testing what makes Claude work consistently"]} />
-
-<Notes>
-	<ul>
-		<li>svelte-claude-skills repo</li>
-		<li>Measuring activation rates, quality of outputs</li>
-		<li>Finding patterns that work vs don't</li>
-	</ul>
-</Notes>
+<BigStat number="875" label="files changed" sublabel="128 commits across 4 PRs in 10 days" color="text-green-400" />
 

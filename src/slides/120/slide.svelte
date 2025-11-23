@@ -2,5 +2,5 @@
 	import BulletPoints from '../../slides-custom/bullet-points.svelte'
 </script>
 
-<BulletPoints title="The Loop" points={["Run svelte-check","Copy first 50 errors","Paste to Claude → get fixes","Apply fixes → commit","Repeat until green"]} />
+<BulletPoints title="Why This Wasn't Fixable Manually" points={["377 files affected","Each fix could introduce new errors","Time estimate: weeks of tedious work","Human attention span: not built for this"]} />
 

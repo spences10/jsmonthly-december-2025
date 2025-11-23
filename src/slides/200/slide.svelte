@@ -2,5 +2,5 @@
 	import BulletPoints from '../../slides-custom/bullet-points.svelte'
 </script>
 
-<BulletPoints title="Performance Wins" points={["Auth optimization with remote functions","Session caching reducing DB round trips","Progressive loading for agent data","Tab-based lazy loading"]} />
+<BulletPoints title="PR #5375: Vanilla shadcn-svelte" points={["With UI package gone, could standardize","364 files changed","24 hours","37 commits in under a day"]} />
 

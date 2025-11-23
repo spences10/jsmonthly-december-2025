@@ -1,13 +1,11 @@
 <script>
-	import TitleSlide from '../../slides-custom/title-slide.svelte'
 	import { Notes } from '@animotion/core'
 </script>
 
-<TitleSlide title="How I Refactored 875 files over 128 commits, in 10 days" subtitle="(Thanks Claude)" />
+<h1 class="text-9xl font-bold text-center">so!</h1>
 
 <Notes>
 	<ul>
-		<li>Doesn't really roll off the tongue does it</li>
+		<li>This talk should be titled</li>
 	</ul>
 </Notes>
-

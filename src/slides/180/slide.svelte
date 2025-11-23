@@ -1,6 +1,6 @@
 <script>
-	import BulletPoints from '../../slides-custom/bullet-points.svelte'
+	import GithubDiffstat from '../../slides-custom/github-diffstat.svelte'
 </script>
 
-<BulletPoints title="Before vs After" points={["Before: Blocked by legacy UI package for 18 months","Before: Custom styling scattered everywhere","After: Vanilla shadcn-svelte components","After: Performance optimizations finally possible"]} />
+<GithubDiffstat title="PR #5361: The Numbers" added={12225} deleted={9020} files={377} commits={30} />
 

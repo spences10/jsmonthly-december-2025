@@ -1,6 +1,6 @@
 <script>
-	import KeyTakeaways from '../../slides-custom/key-takeaways.svelte'
+	import BulletPoints from '../../slides-custom/bullet-points.svelte'
 </script>
 
-<KeyTakeaways title="Impact Summary" points={["AI handles tedious work so you focus on interesting problems","Large-scale refactors become manageable with the right tools","Building reliable workflows beats one-off solutions"]} />
+<BulletPoints title="Augmentation, Not Replacement" points={["I made all the architectural decisions","Claude handled the tedious execution","Still needed to understand every fix","But didn't have to type it all manually"]} />
 
