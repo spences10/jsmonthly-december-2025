@@ -9,19 +9,20 @@
 
 <Transition visible entry="scale-in" duration={0.6} delay={0.2}>
 	<div
-		class="overflow-hidden rounded-lg p-8 text-left font-mono text-2xl leading-relaxed transition-transform duration-500"
+		class="overflow-hidden rounded-lg p-8 text-left font-mono text-2xl leading-relaxed transition-all duration-700 {step >= 1 ? 'max-w-4xl max-h-48' : 'max-h-[900px]'}"
 		class:scale-125={step === 2}
 		class:scale-150={step === 3}
 		class:scale-[1.75]={step >= 4}
 		style="background-color: #011627;"
 	>
-		<Transition visible order={2} delay={0.6}>
-			<div
-				class="overflow-hidden transition-all duration-700 ease-in-out {step >= 1 ? 'max-h-0 opacity-0 mb-0' : 'max-h-[500px] opacity-100 mb-6'}"
-			>
-				<p style="color: #82AAFF;">
-					/apps/xoos-sveltekit/src/routes/settings/cp-tab-secrets/secret-list.svelte:2:80
-				</p>
+		<div
+			class="overflow-hidden transition-all duration-700 ease-in-out {step >= 1 ? 'max-h-0 opacity-0' : 'max-h-[1500px] opacity-100'}"
+		>
+			<Transition visible order={2} delay={0.6}>
+				<div class="mb-6">
+					<p style="color: #82AAFF;">
+						/apps/xoos-sveltekit/src/routes/settings/cp-tab-secrets/secret-list.svelte:2:80
+					</p>
 				<p class="mt-2">
 					<span class="font-bold" style="color: #EF5350;">
 						Error:
@@ -43,9 +44,7 @@
 		</Transition>
 
 		<Transition visible order={3} delay={0.8}>
-			<div
-				class="overflow-hidden transition-all duration-700 ease-in-out {step >= 1 ? 'max-h-0 opacity-0 mb-0' : 'max-h-[500px] opacity-100 mb-6'}"
-			>
+			<div class="mb-6">
 				<p style="color: #82AAFF;">
 					/apps/xoos-sveltekit/src/routes/settings/cp-tab-secrets/add-secrets.svelte:3:24
 				</p>
@@ -71,9 +70,7 @@
 		</Transition>
 
 		<Transition visible order={4} delay={1.0}>
-			<div
-				class="overflow-hidden transition-all duration-700 ease-in-out {step >= 1 ? 'max-h-0 opacity-0 mb-0' : 'max-h-[500px] opacity-100 mb-6'}"
-			>
+			<div class="mb-6">
 				<p style="color: #82AAFF;">
 					/apps/xoos-sveltekit/src/routes/settings/control-panel/ai-agent-settings-cp-secrets.svelte:11:9
 				</p>
@@ -90,6 +87,7 @@
 				<p class="ml-8" style="color: #637777;">} from 'ui';</p>
 			</div>
 		</Transition>
+	</div>
 
 		<Transition visible order={5} delay={1.2}>
 			<div class="pt-4" style="border-top: 1px solid #1d3b53;">
