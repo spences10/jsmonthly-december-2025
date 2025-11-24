@@ -1,31 +1,148 @@
 <script lang="ts">
-	import { Transition } from '@animotion/core'
+	import { Action, Transition } from '@animotion/core'
+
+	let step = $state(0)
+	let hide_elements = $state(false)
+
+	$effect(() => {
+		if (step === 0) {
+			hide_elements = false
+		}
+	})
+
+	function handle_transition_end() {
+		if (step >= 1) {
+			hide_elements = true
+		}
+	}
 </script>
 
-<!-- Terminal/Command Slide -->
-<!-- Use for: CLI commands, terminal output -->
-<!-- Animation: Lines appear sequentially using order prop for typing effect -->
-
-<Transition visible entry="scale-in" duration={0.6}>
-	<h2 class="mb-12 text-6xl font-bold">Running the Refactor</h2>
-</Transition>
+<!-- Terminal Error Output Slide -->
+<!-- Shows TypeScript compilation errors -->
 
 <Transition visible entry="scale-in" duration={0.6} delay={0.2}>
-	<div class="rounded-lg bg-gray-900 p-8 font-mono text-3xl text-left">
-		<Transition visible order={1} delay={0.4}>
-			<p class="text-green-400">$ claude refactor --files 377</p>
-		</Transition>
-		<Transition visible order={2} delay={0.6}>
-			<p class="mt-4 text-gray-400">→ Analyzing codebase...</p>
-		</Transition>
-		<Transition visible order={3} delay={0.8}>
-			<p class="text-gray-400">→ Refactoring files...</p>
-		</Transition>
-		<Transition visible order={4} delay={1.0}>
-			<p class="text-gray-400">→ Running tests...</p>
-		</Transition>
+	<div
+		class="overflow-hidden rounded-lg p-8 text-left font-mono text-2xl leading-relaxed transition-transform duration-500"
+		class:scale-125={step === 2}
+		class:scale-150={step === 3}
+		class:scale-[1.75]={step >= 4}
+		style="background-color: #011627;"
+	>
+		{#if !hide_elements}
+			<Transition visible order={2} delay={0.6}>
+				<div
+					class="mb-6 overflow-hidden transition-all duration-700 ease-in-out"
+					class:opacity-0={step >= 1}
+					class:-translate-y-8={step >= 1}
+					class:max-h-0={step >= 1}
+					class:mb-0={step >= 1}
+					style="max-height: {step >= 1 ? '0' : '500px'};"
+					ontransitionend={handle_transition_end}
+				>
+					<p style="color: #82AAFF;">
+						/apps/xoos-sveltekit/src/routes/settings/cp-tab-secrets/secret-list.svelte:2:80
+					</p>
+					<p class="mt-2">
+						<span class="font-bold" style="color: #EF5350;">
+							Error:
+						</span>
+						<span style="color: #d6deeb;">
+							Cannot find module 'ui' or its corresponding type
+							declarations. (ts)
+						</span>
+					</p>
+					<p style="color: #637777;">&lt;script lang="ts"&gt;</p>
+					<p class="ml-8" style="color: #637777;">
+						import {'{'} Table, TableBody, TableCell, TableHead, TableHeader,
+						TableRow } from 'ui';
+					</p>
+					<p class="ml-8" style="color: #637777;">
+						// import type {'{'} Secrets } from 'types/settings';
+					</p>
+				</div>
+			</Transition>
+
+			<Transition visible order={3} delay={0.8}>
+				<div
+					class="mb-6 overflow-hidden transition-all duration-700 ease-in-out"
+					class:opacity-0={step >= 1}
+					class:-translate-y-8={step >= 1}
+					class:max-h-0={step >= 1}
+					class:mb-0={step >= 1}
+					style="max-height: {step >= 1 ? '0' : '500px'};"
+				>
+					<p style="color: #82AAFF;">
+						/apps/xoos-sveltekit/src/routes/settings/cp-tab-secrets/add-secrets.svelte:3:24
+					</p>
+					<p class="mt-2">
+						<span class="font-bold" style="color: #EF5350;">
+							Error:
+						</span>
+						<span style="color: #d6deeb;">
+							Cannot find module 'ui' or its corresponding type
+							declarations. (ts)
+						</span>
+					</p>
+					<p class="ml-8" style="color: #637777;">
+						import {'{'} enhance } from '$app/forms';
+					</p>
+					<p class="ml-8" style="color: #637777;">
+						import {'{'} Input } from 'ui';
+					</p>
+					<p class="ml-8" style="color: #637777;">
+						import {'{'} Button } from '$lib/components/ui/button';
+					</p>
+				</div>
+			</Transition>
+
+			<Transition visible order={4} delay={1.0}>
+				<div
+					class="mb-6 overflow-hidden transition-all duration-700 ease-in-out"
+					class:opacity-0={step >= 1}
+					class:-translate-y-8={step >= 1}
+					class:max-h-0={step >= 1}
+					class:mb-0={step >= 1}
+					style="max-height: {step >= 1 ? '0' : '500px'};"
+				>
+					<p style="color: #82AAFF;">
+						/apps/xoos-sveltekit/src/routes/settings/control-panel/ai-agent-settings-cp-secrets.svelte:11:9
+					</p>
+					<p class="mt-2">
+						<span class="font-bold" style="color: #EF5350;">
+							Error:
+						</span>
+						<span style="color: #d6deeb;">
+							Cannot find module 'ui' or its corresponding type
+							declarations. (ts)
+						</span>
+					</p>
+					<p class="ml-16" style="color: #C5E478;">toast</p>
+					<p class="ml-8" style="color: #637777;">} from 'ui';</p>
+				</div>
+			</Transition>
+		{/if}
+
 		<Transition visible order={5} delay={1.2}>
-			<p class="mt-4 text-green-400">✓ Complete in 11 hours</p>
+			<div class="pt-4" style="border-top: 1px solid #1d3b53;">
+				<p style="color: #EF5350;">
+					svelte-check found 928 errors and 0 warnings in 227 files
+				</p>
+				<p class="mt-2">
+					<span
+						class="rounded px-2 py-1"
+						style="background-color: #EF5350; color: #011627;"
+					>
+						ELIFECYCLE
+					</span>
+					<span class="ml-2" style="color: #d6deeb;">
+						Command failed with exit code 1.
+					</span>
+				</p>
+			</div>
 		</Transition>
 	</div>
 </Transition>
+
+<Action
+	actions={[() => (step = 0), () => (step = 1), () => (step = 2), () => (step = 3), () => (step = 4)]}
+/>
