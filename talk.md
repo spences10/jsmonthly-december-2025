@@ -39,7 +39,7 @@ It was 370 files in 11 hours, but I hadn't finished! 😅
 ---
 
 ```component:title-slide
-title: "How I Refactored 875 files over 128 commits, in 10 days"
+title: "How I Refactored 875 files over 180 commits, in 10 days"
 subtitle: "(Thanks Claude)"
 ```
 
@@ -80,6 +80,12 @@ points: ["Svelte LDN meetup organiser", "Application Team Lead", "Does AI stuff 
 
 ---
 
+```component:bluesky-embed
+
+```
+
+---
+
 ```component:bullet-points
 title: "The Setup"
 points: ["Monorepo with legacy UI package", "Dependency mismatch causing cascade of errors", "svelte-check spitting out thousands of lines"]
@@ -90,6 +96,12 @@ points: ["Monorepo with legacy UI package", "Dependency mismatch causing cascade
 ```component:bullet-points
 title: "The CLI Output From Hell"
 points: ["svelte-check vomiting thousands of errors", "Scroll... scroll... scroll... more errors", "Found 2,847 errors in 377 files", "Terminal buffer couldn't even hold it all"]
+```
+
+---
+
+```component:terminal-output
+
 ```
 
 ---
@@ -124,8 +136,8 @@ points: ["Session resets every few hours", "Context limits hit repeatedly", "50 
 
 ```component:punch-card
 title: "When The Work Happened"
-subtitle: "128 commits across 10 days"
-data: [{"date":"2025-11-12","hour":21,"count":5},{"date":"2025-11-12","hour":22,"count":3},{"date":"2025-11-13","hour":10,"count":1},{"date":"2025-11-13","hour":12,"count":3},{"date":"2025-11-13","hour":13,"count":3},{"date":"2025-11-13","hour":14,"count":2},{"date":"2025-11-14","hour":21,"count":3},{"date":"2025-11-14","hour":22,"count":3},{"date":"2025-11-15","hour":8,"count":2},{"date":"2025-11-15","hour":9,"count":1},{"date":"2025-11-17","hour":10,"count":2},{"date":"2025-11-17","hour":11,"count":2},{"date":"2025-11-17","hour":17,"count":2},{"date":"2025-11-17","hour":18,"count":4},{"date":"2025-11-17","hour":19,"count":4},{"date":"2025-11-17","hour":20,"count":6},{"date":"2025-11-17","hour":21,"count":1},{"date":"2025-11-17","hour":22,"count":4},{"date":"2025-11-17","hour":23,"count":1},{"date":"2025-11-18","hour":7,"count":1},{"date":"2025-11-18","hour":8,"count":2},{"date":"2025-11-18","hour":9,"count":2},{"date":"2025-11-18","hour":11,"count":3},{"date":"2025-11-18","hour":12,"count":3},{"date":"2025-11-18","hour":15,"count":2},{"date":"2025-11-18","hour":16,"count":2},{"date":"2025-11-18","hour":17,"count":1},{"date":"2025-11-18","hour":18,"count":5},{"date":"2025-11-18","hour":19,"count":5},{"date":"2025-11-18","hour":20,"count":6},{"date":"2025-11-19","hour":7,"count":1},{"date":"2025-11-19","hour":8,"count":1},{"date":"2025-11-19","hour":9,"count":1},{"date":"2025-11-19","hour":10,"count":1},{"date":"2025-11-19","hour":14,"count":4},{"date":"2025-11-19","hour":16,"count":2},{"date":"2025-11-19","hour":17,"count":1},{"date":"2025-11-19","hour":19,"count":1},{"date":"2025-11-19","hour":20,"count":1},{"date":"2025-11-19","hour":21,"count":2},{"date":"2025-11-20","hour":19,"count":6},{"date":"2025-11-20","hour":20,"count":5},{"date":"2025-11-20","hour":21,"count":3},{"date":"2025-11-20","hour":22,"count":2},{"date":"2025-11-20","hour":23,"count":2},{"date":"2025-11-21","hour":6,"count":1},{"date":"2025-11-21","hour":7,"count":3},{"date":"2025-11-21","hour":12,"count":1},{"date":"2025-11-21","hour":16,"count":2},{"date":"2025-11-21","hour":17,"count":2},{"date":"2025-11-21","hour":18,"count":1}]
+subtitle: "180 commits across 10 days (work + personal)"
+data: [{"date":"2025-11-12","hour":13,"count":1},{"date":"2025-11-12","hour":17,"count":1},{"date":"2025-11-12","hour":18,"count":1},{"date":"2025-11-12","hour":19,"count":6},{"date":"2025-11-12","hour":21,"count":5},{"date":"2025-11-12","hour":22,"count":3},{"date":"2025-11-13","hour":7,"count":2},{"date":"2025-11-13","hour":9,"count":3},{"date":"2025-11-13","hour":10,"count":3},{"date":"2025-11-13","hour":12,"count":3},{"date":"2025-11-13","hour":13,"count":3},{"date":"2025-11-13","hour":14,"count":2},{"date":"2025-11-14","hour":21,"count":3},{"date":"2025-11-14","hour":22,"count":9},{"date":"2025-11-14","hour":23,"count":2},{"date":"2025-11-15","hour":8,"count":1},{"date":"2025-11-15","hour":12,"count":4},{"date":"2025-11-15","hour":14,"count":1},{"date":"2025-11-15","hour":20,"count":1},{"date":"2025-11-16","hour":19,"count":3},{"date":"2025-11-16","hour":20,"count":2},{"date":"2025-11-17","hour":11,"count":6},{"date":"2025-11-17","hour":12,"count":1},{"date":"2025-11-17","hour":17,"count":2},{"date":"2025-11-17","hour":18,"count":4},{"date":"2025-11-17","hour":19,"count":4},{"date":"2025-11-17","hour":20,"count":6},{"date":"2025-11-17","hour":21,"count":1},{"date":"2025-11-17","hour":22,"count":4},{"date":"2025-11-17","hour":23,"count":2},{"date":"2025-11-18","hour":7,"count":1},{"date":"2025-11-18","hour":8,"count":2},{"date":"2025-11-18","hour":9,"count":2},{"date":"2025-11-18","hour":11,"count":3},{"date":"2025-11-18","hour":12,"count":3},{"date":"2025-11-18","hour":15,"count":2},{"date":"2025-11-18","hour":16,"count":2},{"date":"2025-11-18","hour":17,"count":2},{"date":"2025-11-18","hour":18,"count":7},{"date":"2025-11-18","hour":19,"count":5},{"date":"2025-11-18","hour":20,"count":6},{"date":"2025-11-18","hour":22,"count":2},{"date":"2025-11-19","hour":7,"count":1},{"date":"2025-11-19","hour":8,"count":1},{"date":"2025-11-19","hour":9,"count":1},{"date":"2025-11-19","hour":10,"count":1},{"date":"2025-11-19","hour":14,"count":4},{"date":"2025-11-19","hour":16,"count":2},{"date":"2025-11-19","hour":17,"count":1},{"date":"2025-11-19","hour":19,"count":1},{"date":"2025-11-19","hour":20,"count":1},{"date":"2025-11-19","hour":21,"count":4},{"date":"2025-11-20","hour":7,"count":2},{"date":"2025-11-20","hour":16,"count":1},{"date":"2025-11-20","hour":19,"count":12},{"date":"2025-11-20","hour":20,"count":5},{"date":"2025-11-20","hour":21,"count":3},{"date":"2025-11-20","hour":22,"count":2},{"date":"2025-11-20","hour":23,"count":2},{"date":"2025-11-21","hour":11,"count":1},{"date":"2025-11-21","hour":12,"count":2},{"date":"2025-11-21","hour":16,"count":2},{"date":"2025-11-21","hour":17,"count":3},{"date":"2025-11-21","hour":18,"count":1},{"date":"2025-11-21","hour":22,"count":1}]
 hour_range: [6, 24]
 ```
 
@@ -134,6 +146,41 @@ hour_range: [6, 24]
 > - Notice the late night sessions
 > - Nov 17-18 was intense - that's when #5375 happened
 > - Early mornings on Nov 21 finishing up
+
+---
+
+```component:dual-bars
+title: "But Here's What Was Really Happening"
+subtitle: "Commits vs Coding Hours"
+data: [{"date":"2025-11-12","commits":17,"hours":11.53},{"date":"2025-11-13","commits":16,"hours":12.53},{"date":"2025-11-14","commits":14,"hours":12.86},{"date":"2025-11-15","commits":7,"hours":6.09},{"date":"2025-11-16","commits":5,"hours":7.27},{"date":"2025-11-17","commits":30,"hours":10.53},{"date":"2025-11-18","commits":30,"hours":13.58},{"date":"2025-11-19","commits":14,"hours":11.41},{"date":"2025-11-20","commits":27,"hours":8.89},{"date":"2025-11-21","commits":10,"hours":9.33}]
+y_primary: "hours"
+y_secondary: "commits"
+y_label: "Hours"
+primary_label: "Coding Hours"
+secondary_label: "Commits"
+primary_opacity: 0.3
+secondary_opacity: 0.6
+```
+
+> notes:
+>
+> - Coding ALL DAY, not just evenings
+> - Peak: Nov 18 = 13.6 hours
+> - Average: 10.4h per day
+> - The commits show WHEN I shipped, not when I worked
+
+---
+
+# AI Didn't Make This Fast
+
+It Made Impossible Work Possible
+
+> notes:
+>
+> - Not quick AI fixes
+> - Sustained, iterative work with Claude all day
+> - Evening commits = proven solutions in batches
+> - This reinforces "Augmentation, Not Replacement"
 
 ---
 
@@ -199,7 +246,7 @@ points: ["Auth optimization with remote functions", "Session caching reducing DB
 ```component:big-stat
 number: "875"
 label: "files changed"
-sublabel: "128 commits across 4 PRs in 10 days"
+sublabel: "180 commits (123 work + 57 personal) in 10 days"
 color: "text-green-400"
 ```
 
@@ -210,7 +257,7 @@ title: "Total Impact"
 added: 25477
 deleted: 19733
 files: 875
-commits: 128
+commits: 123
 ```
 
 ---
@@ -245,7 +292,7 @@ stats: ["74.5h|Work refactor|text-blue-400", "20.8h|Personal projects|text-green
 ```component:area-chart
 title: "The 10-Day Grind"
 subtitle: "Work refactor vs Personal projects"
-data: [{"date":"2024-11-12","work":9.3,"personal":2.23},{"date":"2024-11-13","work":7.46,"personal":5.08},{"date":"2024-11-14","work":10.22,"personal":2.63},{"date":"2024-11-15","work":0.09,"personal":5.96},{"date":"2024-11-16","work":0,"personal":7.27},{"date":"2024-11-17","work":9.24,"personal":1.29},{"date":"2024-11-18","work":13.45,"personal":0.13},{"date":"2024-11-19","work":10.88,"personal":0.52},{"date":"2024-11-20","work":8.57,"personal":0.32},{"date":"2024-11-21","work":5.39,"personal":3.95}]
+data: [{"date":"2025-11-12","work":9.3,"personal":2.23},{"date":"2025-11-13","work":7.46,"personal":5.08},{"date":"2025-11-14","work":10.22,"personal":2.63},{"date":"2025-11-15","work":0.09,"personal":5.96},{"date":"2025-11-16","work":0,"personal":7.27},{"date":"2025-11-17","work":9.24,"personal":1.29},{"date":"2025-11-18","work":13.45,"personal":0.13},{"date":"2025-11-19","work":10.88,"personal":0.52},{"date":"2025-11-20","work":8.57,"personal":0.32},{"date":"2025-11-21","work":5.39,"personal":3.95}]
 series: [{"key":"work","color":"var(--color-primary)","label":"xo-monorepo"},{"key":"personal","color":"var(--color-secondary)","label":"Personal projects"}]
 fill_opacity: 0.4
 show_tooltip: true
@@ -262,8 +309,8 @@ stats: [{"label":"Total","value":"104h"},{"label":"Average","value":"10.4h/day"}
 
 ```component:histogram
 title: "Peak Productivity Hours"
-subtitle: "Distribution of 128 commits by hour"
-data: [21,21,21,21,21,22,22,22,10,12,12,12,13,13,13,14,14,21,21,21,22,22,22,8,8,9,10,10,11,11,17,17,18,18,18,18,19,19,19,19,20,20,20,20,20,20,21,22,22,22,22,23,7,8,8,9,9,11,11,11,12,12,12,15,15,16,16,17,18,18,18,18,18,19,19,19,19,20,20,20,20,7,8,9,10,14,14,14,14,16,16,17,19,20,21,21,19,19,19,19,19,19,20,20,20,20,21,21,22,22,23,23,6,7,7,7,12,16,16,17,17,18]
+subtitle: "Distribution of 180 commits by hour"
+data: [13,17,18,19,19,19,19,19,19,21,21,21,21,21,22,22,22,7,7,9,9,9,10,10,10,12,12,12,13,13,13,14,14,21,21,21,22,22,22,22,22,22,22,22,22,23,23,8,12,12,12,12,14,20,19,19,19,20,20,11,11,11,11,11,11,12,17,17,18,18,18,18,19,19,19,19,20,20,20,20,20,20,21,22,22,22,22,23,23,7,8,8,9,9,11,11,11,12,12,12,15,15,16,16,17,17,18,18,18,18,18,18,18,19,19,19,19,19,20,20,20,20,20,20,22,22,7,8,9,10,14,14,14,14,16,16,17,19,20,21,21,21,21,7,7,16,19,19,19,19,19,19,19,19,19,19,19,19,20,20,20,20,20,21,21,21,22,22,23,23,11,12,12,16,16,17,17,17,18,22]
 thresholds: 18
 color: "var(--color-warning)"
 ```
@@ -286,6 +333,16 @@ points: ["Skill evaluation framework (Nov 13)", "Cost calculator and metrics tra
 > - svelte-claude-skills repo
 > - Measuring activation rates, quality of outputs
 > - Finding patterns that work vs don't
+
+---
+
+# Don't trust it!
+
+> notes:
+>
+> - alignment this is why only 50 lines at a time
+> - Session limits in Claude
+> - Constantly verifying outputs
 
 ---
 
