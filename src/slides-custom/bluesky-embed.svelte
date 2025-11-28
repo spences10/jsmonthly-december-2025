@@ -1,6 +1,13 @@
 <script lang="ts">
 	import { Transition } from '@animotion/core'
 	import { Bluesky } from 'sveltekit-embed'
+
+	interface Props {
+		post_id: string
+		scale?: number
+	}
+
+	let { post_id, scale = 1.5 }: Props = $props()
 </script>
 
 <!-- Bluesky Post Embed Slide -->
@@ -13,13 +20,9 @@
      5. Replace the post_id below
 -->
 
-<Transition visible entry="scale-in" duration={0.6} class="w-full">
-	<h2 class="text-center text-6xl font-bold">From Bluesky</h2>
-</Transition>
-
-<div style="width: 100%; display: flex; justify-content: center; transform: scale(1.5);">
+<div style="width: 100%; display: flex; justify-content: center; transform: scale({scale});">
 	<Bluesky
-		post_id="did:plc:fger3nuzbr624qn6qkm63kuf/app.bsky.feed.post/3m5k4gnasnq2t"
+		{post_id}
 		iframe_styles="border-radius: 12px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); width: 600px;"
 	/>
 </div>

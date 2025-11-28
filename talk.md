@@ -50,6 +50,7 @@ subtitle: "(Thanks Claude)"
 ---
 
 This is a story about how I used AI to massively accelerate a tedious,
+
 repetitive refactor that would have taken me weeks to do manually.
 
 ---
@@ -84,8 +85,24 @@ points: ["Svelte LDN meetup organiser", "Application Team Lead", "Does AI stuff 
 
 ---
 
-```component:bluesky-embed
+# Not a doomer
 
+---
+
+# Not a booster
+
+---
+
+# A user
+
+---
+
+# AI === Tool
+
+---
+
+```component:bluesky-embed
+post_id: "did:plc:fger3nuzbr624qn6qkm63kuf/app.bsky.feed.post/3m5k4gnasnq2t"
 ```
 
 ---
@@ -114,9 +131,14 @@ points: ["Remove ui dependency", "Run svelte-check", "Proffit??"]
 
 ---
 
-```component:bullet-points
+```component:numbered-grid
 title: "Why This Wasn't Fixable Manually"
-points: ["377 files affected", "Each fix could introduce new errors", "Time estimate: weeks of tedious work", "Human attention span: not built for this"]
+items: [
+  { number: "1", heading: "377 Files", content: "Massive scale across entire codebase" },
+  { number: "2", heading: "Cascading Errors", content: "Each fix could introduce new problems" },
+  { number: "3", heading: "Weeks of Work", content: "Time estimate: endless tedious manual changes" },
+  { number: "4", heading: "Human Limits", content: "Attention span not built for this kind of repetition" }
+]
 ```
 
 ---
@@ -205,6 +227,29 @@ points: ["'Skill(research) for svelte 5 runes'", "Ensure correct implementation"
 
 ---
 
+```component:bluesky-embed
+post_id: "did:plc:nlvjelw3dy3pddq7qoglleko/app.bsky.feed.post/3m5mt5kevzk27"
+scale: 1.2
+```
+
+---
+
+```component:bluesky-embed
+post_id: "did:plc:fger3nuzbr624qn6qkm63kuf/app.bsky.feed.post/3m5niro3h2c2f"
+scale: 1.2
+
+```
+
+---
+
+```component:bluesky-embed
+post_id: "did:plc:nlvjelw3dy3pddq7qoglleko/app.bsky.feed.post/3m5nru3in5k27"
+scale: 2
+
+```
+
+---
+
 ```component:github-diffstat
 title: "PR #5361: The Numbers"
 added: 12225
@@ -273,6 +318,24 @@ implementation!"
 
 ---
 
+# This is my catharsis
+
+---
+
+```component:claude-terminal
+user_input: ["\"Migrated 160 files from 'ui' package → local $lib/components/ui/*\"",
+"",
+"  you did fucking what?",
+"",
+"  that ui package is the old svelte 4 fucking iplemtnation of schadcn-svelte!!"]
+show_thinking: true
+thinking_file: "claude-terminal.svelte"
+user_reply: ""
+status_text: 'accept-edits'
+```
+
+---
+
 ```component:bullet-points
 title: "PR #5375: Vanilla shadcn-svelte (Take 2)"
 points: ["Reverted the disaster, started fresh", "364 files changed", "24 hours", "37 commits (after disaster recovery)", "Route-by-route quality validation"]
@@ -280,9 +343,15 @@ points: ["Reverted the disaster, started fresh", "364 files changed", "24 hours"
 
 ---
 
-```component:bullet-points
+```component:title-with-list
 title: "The Workflow: Route-by-Route Validation"
-points: ["Different from #5361's batch processing", "Visit each route in browser", "Check against official shadcn-svelte docs", "Verify tokens, contrast, dark mode", "No 'good enough' - authentic or nothing"]
+items: [
+  { text: "Different from #5361's batch processing" },
+  { text: "Visit each route in browser" },
+  { text: "Check against official shadcn-svelte docs" },
+  { text: "Verify tokens, contrast, dark mode" },
+  { text: "No 'good enough' - authentic or nothing" }
+]
 ```
 
 > notes:
@@ -377,9 +446,14 @@ Repeated across 5 sessions
 
 ---
 
-```component:bullet-points
+```component:title-with-list
 title: "The Workflow: Performance Investigation"
-points: ["Different from batch processing and validation", "Performance.now() timing around all hooks", "Wrote performance-logs.jsonl for analysis", "Read logs, identify bottlenecks, implement solutions"]
+items: [
+  { text: "Different from batch processing and validation" },
+  { text: "Performance.now() timing around all hooks" },
+  { text: "Wrote performance-logs.jsonl for analysis" },
+  { text: "Read logs, identify bottlenecks, implement solutions" }
+]
 ```
 
 > notes:
@@ -469,9 +543,19 @@ points: ["Quick polish pass", "7 commits, 9 hours", "Fixed loading states", "Wra
 
 ---
 
-```component:bullet-points
+```component:two-column-grid
 title: "Before vs After"
-points: ["Before: Blocked by legacy UI package for 18 months", "Before: Custom styling scattered everywhere", "After: Vanilla shadcn-svelte components", "After: Performance optimizations finally possible"]
+gradient_title: false
+left_title: "Before"
+left_items: [
+  { main: "Blocked", sub: "Legacy UI package for 18 months" },
+  { main: "Scattered", sub: "Custom styling everywhere" }
+]
+right_title: "After"
+right_items: [
+  { main: "Clean", sub: "Vanilla shadcn-svelte components" },
+  { main: "Unlocked", sub: "Performance optimizations finally possible" }
+]
 ```
 
 ---
@@ -483,9 +567,26 @@ points: ["Foundation work finished", "Room to tackle performance", "The stuff I 
 
 ---
 
-```component:bullet-points
+```component:three-column-features
 title: "Performance Wins"
-points: ["Auth optimization with remote functions", "Session caching reducing DB round trips", "Progressive loading for agent data", "Tab-based lazy loading"]
+gradient_title: true
+items: [
+  {
+    icon: "🔐",
+    heading: "Auth Optimization",
+    description: "Remote functions reducing overhead"
+  },
+  {
+    icon: "💾",
+    heading: "Session Caching",
+    description: "Fewer DB round trips"
+  },
+  {
+    icon: "⚡",
+    heading: "Progressive Loading",
+    description: "Tab-based lazy loading for agent data"
+  }
+]
 ```
 
 ---
@@ -570,9 +671,28 @@ color: "var(--color-warning)"
 
 ---
 
-```component:bullet-points
+```component:three-column-cards
 title: "Building Better Workflows"
-points: ["Skill evaluation framework (Nov 13)", "Cost calculator and metrics tracker", "Hook system for reliable skill activation (Nov 15)", "Testing what makes Claude work consistently"]
+items: [
+  {
+    number: "1",
+    heading: "Evaluation",
+    points: ["Skill evaluation framework", "Cost calculator", "Metrics tracker"],
+    conclusion: "Nov 13: Measuring quality"
+  },
+  {
+    number: "2",
+    heading: "Automation",
+    points: ["Hook system for reliable activation", "Testing consistency"],
+    conclusion: "Nov 15: Making it reliable"
+  },
+  {
+    number: "3",
+    heading: "Results",
+    points: ["Patterns that work vs don't", "Repeatable workflows"],
+    conclusion: "Finding what makes Claude work"
+  }
+]
 ```
 
 > notes:
