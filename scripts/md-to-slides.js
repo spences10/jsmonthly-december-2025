@@ -10,6 +10,7 @@ import {
 } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { marked } from 'marked'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 const SLIDES_DIR = join(__dirname, '..', 'src', 'slides')
@@ -50,7 +51,14 @@ function parse_component_reference(md) {
 				try {
 					return JSON.parse(trimmed)
 				} catch (e) {
-					// Fall through to string
+					// If JSON.parse fails, try converting JS object notation to JSON
+					// Replace unquoted keys with quoted keys: key: "value" → "key": "value"
+					try {
+						const json_str = trimmed.replace(/(\w+):/g, '"$1":')
+						return JSON.parse(json_str)
+					} catch (e2) {
+						// Fall through to string
+					}
 				}
 			}
 			if (trimmed === 'true') return true
@@ -59,20 +67,76 @@ function parse_component_reference(md) {
 			return trimmed
 		}
 
-		for (const line of block_content.split('\n')) {
+		const lines = block_content.split('\n')
+		let i = 0
+
+		while (i < lines.length) {
+			const line = lines[i]
+
 			// Key with quoted value: key: "value"
 			const prop_quoted = line.match(/^(\w+):\s*["'](.*)["']\s*$/)
 			if (prop_quoted) {
 				props[prop_quoted[1]] = unescape(prop_quoted[2])
+				i++
 				continue
 			}
 
-			// Key with unquoted value: key: value (handles JSON, numbers, booleans)
+			// Key with unquoted value that might be multi-line JSON or backtick template
 			const prop_unquoted = line.match(/^(\w+):\s*(.+?)\s*$/)
 			if (prop_unquoted) {
-				props[prop_unquoted[1]] = parse_value(prop_unquoted[2])
+				const key = prop_unquoted[1]
+				let value = prop_unquoted[2].trim()
+
+				// Check if this is a backtick template literal (multi-line string)
+				if (value.startsWith('`')) {
+					// Check if it closes on the same line
+					const closes_on_same_line = value.slice(1).includes('`')
+
+					if (!closes_on_same_line) {
+						// Multi-line template literal
+						i++
+						while (i < lines.length && !lines[i].includes('`')) {
+							value += '\n' + lines[i]
+							i++
+						}
+						if (i < lines.length) {
+							value += '\n' + lines[i] // Include closing backtick line
+							i++
+						}
+					} else {
+						i++
+					}
+
+					// Remove backticks and store as string
+					props[key] = value.slice(1, value.lastIndexOf('`'))
+					continue
+				}
+
+				// Check if this is the start of a multi-line JSON structure
+				if ((value.startsWith('[') || value.startsWith('{')) &&
+				    !value.endsWith(']') && !value.endsWith('}')) {
+					// Accumulate lines until we find the closing bracket
+					const opening = value.startsWith('[') ? '[' : '{'
+					const closing = value.startsWith('[') ? ']' : '}'
+					let depth = (value.match(/[\[{]/g) || []).length - (value.match(/[\]}]/g) || []).length
+
+					i++
+					while (i < lines.length && depth > 0) {
+						const next_line = lines[i]
+						value += '\n' + next_line
+						depth += (next_line.match(/[\[{]/g) || []).length
+						depth -= (next_line.match(/[\]}]/g) || []).length
+						i++
+					}
+				} else {
+					i++
+				}
+
+				props[key] = parse_value(value)
 				continue
 			}
+
+			i++
 		}
 
 		return { name: component_name, props }
@@ -217,8 +281,19 @@ function generate_component_slide(
 		) {
 			// Number or boolean - use JS expression
 			processed_props[key] = { type: 'expression', value }
+		} else if (
+			typeof value === 'string' &&
+			(value.trim().startsWith('[') || value.trim().startsWith('{'))
+		) {
+			// String that looks like JSON/JS code - output as raw expression
+			processed_props[key] = { type: 'raw', value }
 		} else {
-			processed_props[key] = { type: 'string', value }
+			// Check if string contains quotes or newlines - use template literal
+			if (typeof value === 'string' && (value.includes('"') || value.includes("'") || value.includes('\n'))) {
+				processed_props[key] = { type: 'template', value }
+			} else {
+				processed_props[key] = { type: 'string', value }
+			}
 		}
 	}
 
@@ -239,6 +314,14 @@ function generate_component_slide(
 					}
 					if (prop.type === 'expression') {
 						return `${key}={${prop.value}}`
+					}
+					if (prop.type === 'raw') {
+						return `${key}={${prop.value}}`
+					}
+					if (prop.type === 'template') {
+						// Escape backticks in the value
+						const escaped = prop.value.replace(/`/g, '\\`').replace(/\$/g, '\\$')
+						return `${key}={\`${escaped}\`}`
 					}
 					return `${key}="${prop.value}"`
 				})
@@ -274,37 +357,28 @@ function markdown_to_svelte(md, index) {
 		)
 	}
 
-	const lines = content.split('\n')
-	let html = ''
+	// Use marked to convert markdown to HTML
+	let html = marked.parse(content, { async: false })
 
-	for (const line of lines) {
-		const trimmed = line.trim()
+	// Add Tailwind classes to common elements
+	html = html
+		.replace(/<h1>/g, '<h1 class="text-9xl font-bold text-center">')
+		.replace(/<h2>/g, '<h2 class="text-8xl font-bold">')
+		.replace(/<p>/g, '<p class="mt-8 text-4xl">')
+		// Handle subtitles in parentheses
+		.replace(/<p class="mt-8 text-4xl">\((.*?)\)<\/p>/g, '<p class="text-5xl opacity-80">($1)</p>')
 
-		// Headers
-		if (trimmed.startsWith('## ')) {
-			html += `<h2 class="text-8xl font-bold">${trimmed.slice(3)}</h2>\n`
-		} else if (trimmed.startsWith('# ')) {
-			html += `<h1 class="text-9xl font-bold text-center">${trimmed.slice(2)}</h1>\n`
-		}
-		// Paragraphs (non-empty lines that aren't headers)
-		else if (trimmed.length > 0 && !trimmed.startsWith('<!--')) {
-			// Check if it looks like a subtitle (in parentheses)
-			if (trimmed.startsWith('(') && trimmed.endsWith(')')) {
-				html += `<p class="text-5xl opacity-80">${trimmed}</p>\n`
-			} else {
-				html += `<p class="mt-8 text-4xl">${trimmed}</p>\n`
-			}
-		}
-	}
+	// Remove wrapping <p> tags if the slide only contains headers
+	html = html.trim()
 
 	// Add notes if present
 	if (has_notes) {
 		const notes_html = notes_to_html(notes)
 		const script = `<script>\n\timport { Notes } from '@animotion/core'\n</script>\n\n`
-		return script + html.trim() + '\n\n' + notes_html
+		return script + html + '\n\n' + notes_html
 	}
 
-	return html.trim()
+	return html
 }
 
 // Clear all existing slide directories (numbered folders only)

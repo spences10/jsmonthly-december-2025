@@ -26,7 +26,7 @@ caption: "We like to ad `Sv` to everything"
 
 # I lied!
 
-It was 370 files in 11 hours, but I hadn't finished! 😅
+It _was_ 370 files in 11 hours, but I hadn't finished! 😅
 
 ---
 
@@ -63,6 +63,9 @@ caption: "The duality of AI usage meme"
 > notes:
 >
 > - This talk is basically this meme
+> - I'll be discussing some of the approaches I took
+> - Both the good and the bad
+> - Let's establish some credibility first
 
 ---
 
@@ -77,6 +80,7 @@ points: ["Svelte LDN meetup organiser", "Application Team Lead", "Does AI stuff 
 >
 > - Mention working at company XtendOps
 > - Been using Claude Code since early access
+> - Here's a hint of the initial problem
 
 ---
 
@@ -91,11 +95,15 @@ title: "The Setup"
 points: ["Monorepo with legacy UI package", "Dependency mismatch causing cascade of errors", "svelte-check spitting out thousands of lines"]
 ```
 
+> notes:
+>
+> - ui package was ok my making
+
 ---
 
 ```component:bullet-points
-title: "The CLI Output From Hell"
-points: ["svelte-check vomiting thousands of errors", "Scroll... scroll... scroll... more errors", "Found 2,847 errors in 377 files", "Terminal buffer couldn't even hold it all"]
+title: "The decoupling"
+points: ["Remove ui dependency", "Run svelte-check", "Proffit??"]
 ```
 
 ---
@@ -134,43 +142,6 @@ points: ["Session resets every few hours", "Context limits hit repeatedly", "50 
 
 ---
 
-```component:punch-card
-title: "When The Work Happened"
-subtitle: "180 commits across 10 days (work + personal)"
-data: [{"date":"2025-11-12","hour":13,"count":1},{"date":"2025-11-12","hour":17,"count":1},{"date":"2025-11-12","hour":18,"count":1},{"date":"2025-11-12","hour":19,"count":6},{"date":"2025-11-12","hour":21,"count":5},{"date":"2025-11-12","hour":22,"count":3},{"date":"2025-11-13","hour":7,"count":2},{"date":"2025-11-13","hour":9,"count":3},{"date":"2025-11-13","hour":10,"count":3},{"date":"2025-11-13","hour":12,"count":3},{"date":"2025-11-13","hour":13,"count":3},{"date":"2025-11-13","hour":14,"count":2},{"date":"2025-11-14","hour":21,"count":3},{"date":"2025-11-14","hour":22,"count":9},{"date":"2025-11-14","hour":23,"count":2},{"date":"2025-11-15","hour":8,"count":1},{"date":"2025-11-15","hour":12,"count":4},{"date":"2025-11-15","hour":14,"count":1},{"date":"2025-11-15","hour":20,"count":1},{"date":"2025-11-16","hour":19,"count":3},{"date":"2025-11-16","hour":20,"count":2},{"date":"2025-11-17","hour":11,"count":6},{"date":"2025-11-17","hour":12,"count":1},{"date":"2025-11-17","hour":17,"count":2},{"date":"2025-11-17","hour":18,"count":4},{"date":"2025-11-17","hour":19,"count":4},{"date":"2025-11-17","hour":20,"count":6},{"date":"2025-11-17","hour":21,"count":1},{"date":"2025-11-17","hour":22,"count":4},{"date":"2025-11-17","hour":23,"count":2},{"date":"2025-11-18","hour":7,"count":1},{"date":"2025-11-18","hour":8,"count":2},{"date":"2025-11-18","hour":9,"count":2},{"date":"2025-11-18","hour":11,"count":3},{"date":"2025-11-18","hour":12,"count":3},{"date":"2025-11-18","hour":15,"count":2},{"date":"2025-11-18","hour":16,"count":2},{"date":"2025-11-18","hour":17,"count":2},{"date":"2025-11-18","hour":18,"count":7},{"date":"2025-11-18","hour":19,"count":5},{"date":"2025-11-18","hour":20,"count":6},{"date":"2025-11-18","hour":22,"count":2},{"date":"2025-11-19","hour":7,"count":1},{"date":"2025-11-19","hour":8,"count":1},{"date":"2025-11-19","hour":9,"count":1},{"date":"2025-11-19","hour":10,"count":1},{"date":"2025-11-19","hour":14,"count":4},{"date":"2025-11-19","hour":16,"count":2},{"date":"2025-11-19","hour":17,"count":1},{"date":"2025-11-19","hour":19,"count":1},{"date":"2025-11-19","hour":20,"count":1},{"date":"2025-11-19","hour":21,"count":4},{"date":"2025-11-20","hour":7,"count":2},{"date":"2025-11-20","hour":16,"count":1},{"date":"2025-11-20","hour":19,"count":12},{"date":"2025-11-20","hour":20,"count":5},{"date":"2025-11-20","hour":21,"count":3},{"date":"2025-11-20","hour":22,"count":2},{"date":"2025-11-20","hour":23,"count":2},{"date":"2025-11-21","hour":11,"count":1},{"date":"2025-11-21","hour":12,"count":2},{"date":"2025-11-21","hour":16,"count":2},{"date":"2025-11-21","hour":17,"count":3},{"date":"2025-11-21","hour":18,"count":1},{"date":"2025-11-21","hour":22,"count":1}]
-hour_range: [6, 24]
-```
-
-> notes:
->
-> - Notice the late night sessions
-> - Nov 17-18 was intense - that's when #5375 happened
-> - Early mornings on Nov 21 finishing up
-
----
-
-```component:dual-bars
-title: "But Here's What Was Really Happening"
-subtitle: "Commits vs Coding Hours"
-data: [{"date":"2025-11-12","commits":17,"hours":11.53},{"date":"2025-11-13","commits":16,"hours":12.53},{"date":"2025-11-14","commits":14,"hours":12.86},{"date":"2025-11-15","commits":7,"hours":6.09},{"date":"2025-11-16","commits":5,"hours":7.27},{"date":"2025-11-17","commits":30,"hours":10.53},{"date":"2025-11-18","commits":30,"hours":13.58},{"date":"2025-11-19","commits":14,"hours":11.41},{"date":"2025-11-20","commits":27,"hours":8.89},{"date":"2025-11-21","commits":10,"hours":9.33}]
-y_primary: "hours"
-y_secondary: "commits"
-y_label: "Hours"
-primary_label: "Coding Hours"
-secondary_label: "Commits"
-primary_opacity: 0.3
-secondary_opacity: 0.6
-```
-
-> notes:
->
-> - Coding ALL DAY, not just evenings
-> - Peak: Nov 18 = 13.6 hours
-> - Average: 10.4h per day
-> - The commits show WHEN I shipped, not when I worked
-
----
-
 # AI Didn't Make This Fast
 
 It Made Impossible Work Possible
@@ -191,34 +162,310 @@ points: ["377 files changed", "60 hours of coding", "12,225 lines added", "9,020
 
 ---
 
+```component:bullet-points
+title: "The Workflow: Batch Processing"
+points: ["Created svelte-check.md tracking file", "Take top 50 errors", "Paste to Claude → apply fixes", "Delete those lines, repeat", "33 iterations in one session"]
+```
+
+> notes:
+>
+> - Not random fixes - systematic elimination
+> - Tracking file kept state between sessions
+> - 'do NOT run svelte-check!' - manual tracking only
+> - Pattern emerged: batch size matters
+
+---
+
+# The 16.5 Hour Marathon
+
+Nov 12-13: One continuous session, 33 conversations
+
+> notes:
+>
+> - Started evening of Nov 12
+> - Went through the night
+> - Ended afternoon Nov 13
+> - This wasn't AI making it fast - this was AI making it POSSIBLE
+> - Human couldn't maintain focus on 2,847 errors
+> - But 50 at a time? Manageable
+
+---
+
+```component:bullet-points
+title: "Quality Control During Marathon"
+points: ["'Skill(research) for svelte 5 runes'", "Ensure correct implementation", "NOT pattern matching", "Research before every fix"]
+```
+
+> notes:
+>
+> - Even in marathon mode, quality mattered
+> - Used research skill to verify Svelte 5 patterns
+> - Avoid blindly applying fixes
+> - Understand each change
+
+---
+
 ```component:github-diffstat
 title: "PR #5361: The Numbers"
 added: 12225
 deleted: 9020
 files: 377
-commits: 30
+commits: 20
 ```
+
+---
+
+```component:punch-card
+title: "PR #5361: When It Happened"
+subtitle: "Nov 12-17: 30 commits over 4.6 days"
+data: [{"date":"2025-11-12","hour":21,"count":5},{"date":"2025-11-12","hour":22,"count":3},{"date":"2025-11-13","hour":7,"count":2},{"date":"2025-11-13","hour":10,"count":1},{"date":"2025-11-13","hour":12,"count":3},{"date":"2025-11-13","hour":13,"count":3},{"date":"2025-11-13","hour":14,"count":2},{"date":"2025-11-14","hour":21,"count":3},{"date":"2025-11-14","hour":22,"count":3},{"date":"2025-11-15","hour":8,"count":3},{"date":"2025-11-15","hour":9,"count":1},{"date":"2025-11-17","hour":10,"count":1},{"date":"2025-11-17","hour":11,"count":2}]
+hour_range: [6, 24]
+```
+
+> notes:
+>
+> - The marathon: Nov 12 evening through Nov 13 afternoon
+> - 16.5 hours shown in the punch card
+> - Late night commits = fixing batches of 50 errors
+
+---
+
+```component:dual-bars
+title: "PR #5361: Work vs Commits"
+subtitle: "Coding hours vs shipped commits"
+data: [{"date":"2025-11-12","commits":8,"hours":11.53},{"date":"2025-11-13","commits":7,"hours":12.53},{"date":"2025-11-14","commits":6,"hours":12.86},{"date":"2025-11-15","commits":3,"hours":6.09},{"date":"2025-11-16","commits":0,"hours":7.27},{"date":"2025-11-17","commits":6,"hours":10.53}]
+y_primary: "hours"
+y_secondary: "commits"
+y_label: "Hours"
+primary_label: "Coding Hours"
+secondary_label: "Commits"
+primary_opacity: 0.3
+secondary_opacity: 0.6
+```
+
+> notes:
+>
+> - Nov 12-13: Marathon coding, 8+7 commits
+> - Nov 14: Still high hours (12.86h), fewer commits as work got
+>   harder
+> - Nov 16: 7.27h coding but 0 commits (working on personal projects)
+> - Total: 60.81 hours across this PR
 
 ---
 
 ```component:unlock-chain
 title: "The Unlock Chain"
-items: ["#5361|Remove UI", "#5375|shadcn-svelte", "#5381|Auth optimization"]
+items: ["#5361|Remove UI", "#5375|shadcn-svelte", "#5381|Performance", "#5397|Polish"]
+```
+
+---
+
+# The Disaster
+
+"you did fucking what? that ui package is the old svelte 4 fucking
+implementation!"
+
+> notes:
+>
+> - Claude migrated 160 files to the WRONG shadcn-svelte version
+> - Had to revert everything and start over
+> - This is why you verify AI outputs!
+
+---
+
+```component:bullet-points
+title: "PR #5375: Vanilla shadcn-svelte (Take 2)"
+points: ["Reverted the disaster, started fresh", "364 files changed", "24 hours", "37 commits (after disaster recovery)", "Route-by-route quality validation"]
 ```
 
 ---
 
 ```component:bullet-points
-title: "PR #5375: Vanilla shadcn-svelte"
-points: ["With UI package gone, could standardize", "364 files changed", "24 hours", "37 commits in under a day"]
+title: "The Workflow: Route-by-Route Validation"
+points: ["Different from #5361's batch processing", "Visit each route in browser", "Check against official shadcn-svelte docs", "Verify tokens, contrast, dark mode", "No 'good enough' - authentic or nothing"]
 ```
+
+> notes:
+>
+> - After the disaster, trust but verify EVERYTHING
+> - 15 routes: /quality, /evals, /reporting, /agent-view,
+>   /smart-agents, /login, etc.
+> - Constant questions: "is that vanilla schadcn-svelte?"
+> - "doesn't feel very schadcn-svelte" → research and fix
+> - Visual validation, not just compile errors
 
 ---
 
 ```component:bullet-points
-title: "PR #5381: The Dream Refactor"
-points: ["18 months in the making", "Finally possible with clean foundation", "122 files, 54 commits, 43 hours", "Auth optimization with remote functions"]
+title: "Quality Enforcement Philosophy"
+points: ["'are they vanilla schadcn-svelte?'", "'is that correct against official docs?'", "15 routes systematically validated", "No shortcuts, no 'good enough'"]
 ```
+
+> notes:
+>
+> - Quote: "implement shadcn-svelte into the implementation, not the
+>   other way around"
+> - Found components "pretending to be shadcn-svelte"
+> - Nav was "just a mishmash of things"
+> - Strip it all, start authentic
+
+---
+
+```component:github-diffstat
+title: "PR #5375: The Numbers"
+added: 4776
+deleted: 4528
+files: 364
+commits: 37
+```
+
+---
+
+```component:punch-card
+title: "PR #5375: When It Happened"
+subtitle: "Nov 17-18: 37 commits in 1.5 days"
+data: [{"date":"2025-11-17","hour":11,"count":4},{"date":"2025-11-17","hour":12,"count":1},{"date":"2025-11-17","hour":17,"count":2},{"date":"2025-11-17","hour":18,"count":4},{"date":"2025-11-17","hour":19,"count":4},{"date":"2025-11-17","hour":20,"count":6},{"date":"2025-11-17","hour":21,"count":1},{"date":"2025-11-17","hour":22,"count":4},{"date":"2025-11-17","hour":23,"count":2},{"date":"2025-11-18","hour":7,"count":1},{"date":"2025-11-18","hour":8,"count":2},{"date":"2025-11-18","hour":9,"count":2},{"date":"2025-11-18","hour":11,"count":3},{"date":"2025-11-18","hour":12,"count":3},{"date":"2025-11-18","hour":15,"count":2},{"date":"2025-11-18","hour":16,"count":2},{"date":"2025-11-18","hour":17,"count":2},{"date":"2025-11-18","hour":18,"count":7},{"date":"2025-11-18","hour":19,"count":5},{"date":"2025-11-18","hour":20,"count":6},{"date":"2025-11-18","hour":22,"count":2}]
+hour_range: [6, 24]
+```
+
+> notes:
+>
+> - Nov 17: Started fresh after disaster, all day + evening
+> - Nov 18: The PEAK day - 13.58 hours coding
+> - Route by route validation throughout
+
+---
+
+```component:dual-bars
+title: "PR #5375: Work vs Commits"
+subtitle: "Post-disaster recovery sprint"
+data: [{"date":"2025-11-17","commits":24,"hours":10.53},{"date":"2025-11-18","commits":30,"hours":13.58}]
+y_primary: "hours"
+y_secondary: "commits"
+y_label: "Hours"
+primary_label: "Coding Hours"
+secondary_label: "Commits"
+primary_opacity: 0.3
+secondary_opacity: 0.6
+```
+
+> notes:
+>
+> - Most intense 2 days of the entire 10-day period
+> - Nov 18: 30 commits in a single day (peak productivity)
+> - 13.58 hours = longest coding day
+> - High commit rate because of systematic route-by-route approach
+
+---
+
+```component:bullet-points
+title: "PR #5381: The Performance Crisis"
+points: ["18 months in the making", "Finally possible with clean foundation", "122 files, 20 commits, 43 hours", "But first... a reckoning"]
+```
+
+---
+
+# "I'm super pissed off with this slow loading"
+
+Repeated across 5 sessions
+
+> notes:
+>
+> - SvelteKit is super fast
+> - But 3 years of accumulated rot
+> - Time to strip everything
+
+---
+
+```component:bullet-points
+title: "The Workflow: Performance Investigation"
+points: ["Different from batch processing and validation", "Performance.now() timing around all hooks", "Wrote performance-logs.jsonl for analysis", "Read logs, identify bottlenecks, implement solutions"]
+```
+
+> notes:
+>
+> - Not fixing errors or validating UI
+> - Scientific method: measure, identify, optimize
+> - "let's add performance.now logging throughout"
+> - Log rotation to avoid clogging devices
+> - Made problems visible before solving them
+
+---
+
+```component:bullet-points
+title: "The Bottleneck Discovery"
+points: ["Systematic route investigation", "fetchAgents: 803ms ❌ (TOO SLOW)", "Total request: 2,838ms including render", "Solution: MongoDB database indexes"]
+```
+
+> notes:
+>
+> - parallelQueries: 221ms ✅ (acceptable)
+> - fetchAgents: 803ms ❌ (THE PROBLEM)
+> - Created database-indexes.md documentation
+> - Multiple indexes needed for optimization
+
+---
+
+```component:github-diffstat
+title: "PR #5381: The Numbers"
+added: 8269
+deleted: 6054
+files: 122
+commits: 54
+```
+
+---
+
+```component:punch-card
+title: "PR #5381: When It Happened"
+subtitle: "Nov 18-21: 54 commits over 3 days"
+data: [{"date":"2025-11-18","hour":15,"count":2},{"date":"2025-11-18","hour":16,"count":2},{"date":"2025-11-18","hour":17,"count":2},{"date":"2025-11-18","hour":22,"count":2},{"date":"2025-11-19","hour":7,"count":1},{"date":"2025-11-19","hour":8,"count":1},{"date":"2025-11-19","hour":9,"count":1},{"date":"2025-11-19","hour":10,"count":1},{"date":"2025-11-19","hour":14,"count":4},{"date":"2025-11-19","hour":16,"count":2},{"date":"2025-11-19","hour":17,"count":1},{"date":"2025-11-19","hour":19,"count":1},{"date":"2025-11-19","hour":20,"count":1},{"date":"2025-11-19","hour":21,"count":4},{"date":"2025-11-20","hour":7,"count":2},{"date":"2025-11-20","hour":16,"count":1},{"date":"2025-11-20","hour":19,"count":12},{"date":"2025-11-20","hour":20,"count":5},{"date":"2025-11-20","hour":21,"count":3},{"date":"2025-11-20","hour":22,"count":2},{"date":"2025-11-20","hour":23,"count":2},{"date":"2025-11-21","hour":11,"count":1},{"date":"2025-11-21","hour":12,"count":2},{"date":"2025-11-21","hour":16,"count":2},{"date":"2025-11-21","hour":17,"count":3},{"date":"2025-11-21","hour":18,"count":1}]
+hour_range: [6, 24]
+```
+
+> notes:
+>
+> - Nov 18 afternoon: started after #5375 completion
+> - Nov 19: steady investigation and optimization
+> - Nov 20: Big push (27 commits) - implementing solutions
+> - Nov 21: final touches before wrapping up
+
+---
+
+```component:dual-bars
+title: "PR #5381: Work vs Commits"
+subtitle: "Performance investigation and optimization"
+data: [{"date":"2025-11-18","commits":8,"hours":13.58},{"date":"2025-11-19","commits":14,"hours":11.41},{"date":"2025-11-20","commits":27,"hours":8.89},{"date":"2025-11-21","commits":9,"hours":9.33}]
+y_primary: "hours"
+y_secondary: "commits"
+y_label: "Hours"
+primary_label: "Coding Hours"
+secondary_label: "Commits"
+primary_opacity: 0.3
+secondary_opacity: 0.6
+```
+
+> notes:
+>
+> - Nov 18: overlapped with end of #5375 (13.58h total)
+> - Nov 19: Investigation day (11.41h, steady commits)
+> - Nov 20: Implementation day (27 commits, shipping solutions)
+> - Nov 21: Wrapping up (9.33h)
+> - Total: 43.21 hours across this PR
+
+---
+
+```component:bullet-points
+title: "PR #5397: Layout Effect Refactor"
+points: ["Quick polish pass", "7 commits, 9 hours", "Fixed loading states", "Wrapped components in TooltipProvider", "The cleanup after the big refactors"]
+```
+
+> notes:
+>
+> - Nov 21: wrapping up loose ends
+> - Not every PR is a marathon
+> - Sometimes you just need to tidy up
+> - Added Spinner component for loading states
 
 ---
 
@@ -340,9 +587,10 @@ points: ["Skill evaluation framework (Nov 13)", "Cost calculator and metrics tra
 
 > notes:
 >
-> - alignment this is why only 50 lines at a time
-> - Session limits in Claude
-> - Constantly verifying outputs
+> - Remember the 160-file disaster? That's why verification matters
+> - 50 lines at a time = manageable, verifiable chunks
+> - Session limits force breaks = built-in verification points
+> - Constantly checking outputs against real behavior
 
 ---
 
@@ -366,9 +614,109 @@ points: ["AI accelerated my work", "Understanding AI made it reliable", "Sharing
 
 ---
 
+# Three Different Workflows
+
+> notes:
+>
+> - PR #5361: Batch processing (systematic error elimination)
+> - PR #5375: Route-by-route validation (visual quality enforcement)
+> - PR #5381: Scientific investigation (measure, identify, optimize)
+> - Each PR needed a different approach
+> - AI adapted to the workflow, not the other way around
+
+---
+
+```component:bullet-points
+title: "The Complete Picture"
+points: ["4 work PRs across 10 days", "128 commits to production", "137 hours tracked (git duration)", "104 hours actual coding time", "Plus 57 personal commits"]
+```
+
+> notes:
+>
+> - Work: xo-monorepo refactor (74.5h)
+> - Personal: svelte-claude-skills (20.8h), blog, other projects
+> - Not just doing more - doing impossible work
+> - While building better tools to do it
+
+---
+
+```component:github-diffstat
+title: "Final Totals: Work Refactor"
+added: 25477
+deleted: 19733
+files: 875
+commits: 128
+```
+
+> notes:
+>
+> - This is just the work PRs
+> - 6 PRs total (#5361, #5373, #5375, #5381, #5388, #5397)
+> - Primary 4 PRs shown in detail today
+> - The foundation for everything that follows
+
+---
+
+```component:big-stat
+number: "180"
+label: "total commits"
+sublabel: "128 work + 57 personal across 10 days"
+color: "text-purple-400"
+```
+
+> notes:
+>
+> - This is the full achievement
+> - Professional AND personal growth
+> - Refactoring at work
+> - Building better AI tools at home
+> - Publishing knowledge to community
+> - All in parallel
+
+---
+
+```component:punch-card
+title: "When The Work Happened"
+subtitle: "180 commits across 10 days (work + personal)"
+data: [{"date":"2025-11-12","hour":13,"count":1},{"date":"2025-11-12","hour":17,"count":1},{"date":"2025-11-12","hour":18,"count":1},{"date":"2025-11-12","hour":19,"count":6},{"date":"2025-11-12","hour":21,"count":5},{"date":"2025-11-12","hour":22,"count":3},{"date":"2025-11-13","hour":7,"count":2},{"date":"2025-11-13","hour":9,"count":3},{"date":"2025-11-13","hour":10,"count":3},{"date":"2025-11-13","hour":12,"count":3},{"date":"2025-11-13","hour":13,"count":3},{"date":"2025-11-13","hour":14,"count":2},{"date":"2025-11-14","hour":21,"count":3},{"date":"2025-11-14","hour":22,"count":9},{"date":"2025-11-14","hour":23,"count":2},{"date":"2025-11-15","hour":8,"count":1},{"date":"2025-11-15","hour":12,"count":4},{"date":"2025-11-15","hour":14,"count":1},{"date":"2025-11-15","hour":20,"count":1},{"date":"2025-11-16","hour":19,"count":3},{"date":"2025-11-16","hour":20,"count":2},{"date":"2025-11-17","hour":11,"count":6},{"date":"2025-11-17","hour":12,"count":1},{"date":"2025-11-17","hour":17,"count":2},{"date":"2025-11-17","hour":18,"count":4},{"date":"2025-11-17","hour":19,"count":4},{"date":"2025-11-17","hour":20,"count":6},{"date":"2025-11-17","hour":21,"count":1},{"date":"2025-11-17","hour":22,"count":4},{"date":"2025-11-17","hour":23,"count":2},{"date":"2025-11-18","hour":7,"count":1},{"date":"2025-11-18","hour":8,"count":2},{"date":"2025-11-18","hour":9,"count":2},{"date":"2025-11-18","hour":11,"count":3},{"date":"2025-11-18","hour":12,"count":3},{"date":"2025-11-18","hour":15,"count":2},{"date":"2025-11-18","hour":16,"count":2},{"date":"2025-11-18","hour":17,"count":2},{"date":"2025-11-18","hour":18,"count":7},{"date":"2025-11-18","hour":19,"count":5},{"date":"2025-11-18","hour":20,"count":6},{"date":"2025-11-18","hour":22,"count":2},{"date":"2025-11-19","hour":7,"count":1},{"date":"2025-11-19","hour":8,"count":1},{"date":"2025-11-19","hour":9,"count":1},{"date":"2025-11-19","hour":10,"count":1},{"date":"2025-11-19","hour":14,"count":4},{"date":"2025-11-19","hour":16,"count":2},{"date":"2025-11-19","hour":17,"count":1},{"date":"2025-11-19","hour":19,"count":1},{"date":"2025-11-19","hour":20,"count":1},{"date":"2025-11-19","hour":21,"count":4},{"date":"2025-11-20","hour":7,"count":2},{"date":"2025-11-20","hour":16,"count":1},{"date":"2025-11-20","hour":19,"count":12},{"date":"2025-11-20","hour":20,"count":5},{"date":"2025-11-20","hour":21,"count":3},{"date":"2025-11-20","hour":22,"count":2},{"date":"2025-11-20","hour":23,"count":2},{"date":"2025-11-21","hour":11,"count":1},{"date":"2025-11-21","hour":12,"count":2},{"date":"2025-11-21","hour":16,"count":2},{"date":"2025-11-21","hour":17,"count":3},{"date":"2025-11-21","hour":18,"count":1},{"date":"2025-11-21","hour":22,"count":1}]
+hour_range: [6, 24]
+```
+
+> notes:
+>
+> - Notice the late night sessions
+> - Nov 17-18 was intense - that's when #5375 happened
+> - Early mornings on Nov 21 finishing up
+> - The complete timeline across all 10 days
+
+---
+
+```component:dual-bars
+title: "But Here's What Was Really Happening"
+subtitle: "Commits vs Coding Hours"
+data: [{"date":"2025-11-12","commits":17,"hours":11.53},{"date":"2025-11-13","commits":16,"hours":12.53},{"date":"2025-11-14","commits":14,"hours":12.86},{"date":"2025-11-15","commits":7,"hours":6.09},{"date":"2025-11-16","commits":5,"hours":7.27},{"date":"2025-11-17","commits":30,"hours":10.53},{"date":"2025-11-18","commits":30,"hours":13.58},{"date":"2025-11-19","commits":14,"hours":11.41},{"date":"2025-11-20","commits":27,"hours":8.89},{"date":"2025-11-21","commits":10,"hours":9.33}]
+y_primary: "hours"
+y_secondary: "commits"
+y_label: "Hours"
+primary_label: "Coding Hours"
+secondary_label: "Commits"
+primary_opacity: 0.3
+secondary_opacity: 0.6
+```
+
+> notes:
+>
+> - Coding ALL DAY, not just evenings
+> - Peak: Nov 18 = 13.6 hours
+> - Average: 10.4h per day
+> - The commits show WHEN I shipped, not when I worked
+> - Full 10-day picture of work + personal combined
+
+---
+
 ```component:key-takeaways
 title: "Impact Summary"
-points: ["AI handles tedious work so you focus on interesting problems", "Large-scale refactors become manageable with the right tools", "Building reliable workflows beats one-off solutions"]
+points: ["AI handles tedious work so you focus on interesting problems", "Large-scale refactors become manageable with the right tools", "Building reliable workflows beats one-off solutions", "Different problems need different workflows"]
 ```
 
 ---

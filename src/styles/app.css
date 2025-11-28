@@ -36,6 +36,29 @@
 	--color-warning: #f59e0b; /* amber-500 - caution, in-progress */
 	--color-danger: #ef4444; /* red-500 - error, destructive */
 	--color-muted: #6b7280; /* gray-500 - subtle text */
+
+	/* Gradient utilities for slide components */
+	--gradient-primary: linear-gradient(
+		135deg,
+		color-mix(in srgb, var(--color-primary) 40%, transparent) 0%,
+		color-mix(in srgb, var(--color-primary) 60%, transparent) 100%
+	);
+	--gradient-success: linear-gradient(
+		135deg,
+		color-mix(in srgb, var(--color-success) 30%, transparent) 0%,
+		color-mix(in srgb, var(--color-success) 50%, transparent) 100%
+	);
+	--gradient-warning: linear-gradient(
+		135deg,
+		color-mix(in srgb, var(--color-warning) 30%, transparent) 0%,
+		color-mix(in srgb, var(--color-warning) 50%, transparent) 100%
+	);
+	--gradient-danger: linear-gradient(
+		135deg,
+		color-mix(in srgb, var(--color-danger) 30%, transparent) 0%,
+		color-mix(in srgb, var(--color-danger) 50%, transparent) 100%
+	);
+
 	--ease: linear(
 		0 0%,
 		0.0036 9.62%,
@@ -129,4 +152,25 @@ html {
 	to {
 		rotate: 360deg;
 	}
+}
+
+/* Gradient utility classes for slide components */
+.gradient-primary {
+	background: var(--gradient-primary);
+	backdrop-filter: blur(10px);
+}
+
+.gradient-success {
+	background: var(--gradient-success);
+	backdrop-filter: blur(10px);
+}
+
+.gradient-warning {
+	background: var(--gradient-warning);
+	backdrop-filter: blur(10px);
+}
+
+.gradient-danger {
+	background: var(--gradient-danger);
+	backdrop-filter: blur(10px);
 }
