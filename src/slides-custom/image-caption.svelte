@@ -40,7 +40,7 @@
 
 	{#if caption}
 		<Transition visible entry="scale-in" duration={0.6} delay={0.4}>
-			<p class="mt-8 text-3xl opacity-70">{caption}</p>
+			<p class="mt-2 text-3xl opacity-70">{caption}</p>
 		</Transition>
 	{/if}
 </div>

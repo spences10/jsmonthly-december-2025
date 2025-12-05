@@ -17,6 +17,15 @@ caption: "Svelte London WhatsApp chat"
 ---
 
 ```component:image-caption
+src: "$lib/assets/merry-christmas.gif"
+alt: "Merry Christmas"
+caption: "Merry Christmas"
+scale: 1.8
+```
+
+---
+
+```component:image-caption
 src: "$lib/assets/svelte_london_whatsapp_chat_svaude.png"
 alt: "Svelte London WhatsApp chat Svaude"
 caption: "We like to ad `Sv` to everything"
@@ -109,7 +118,7 @@ post_id: "did:plc:fger3nuzbr624qn6qkm63kuf/app.bsky.feed.post/3m5k4gnasnq2t"
 
 ```component:bullet-points
 title: "The Setup"
-points: ["Monorepo with legacy UI package", "Dependency mismatch causing cascade of errors", "svelte-check spitting out thousands of lines"]
+points: ["Monorepo with legacy UI package", "Dependency mismatch causing cascade of errors", "svelte-check spitting out lots errors"]
 ```
 
 > notes:
@@ -154,6 +163,12 @@ points: ["What if I just... fed the errors to Claude?", "Copy 50 lines of errors
 title: "The Loop"
 points: ["Run svelte-check", "Copy first 50 errors", "Paste to Claude → get fixes", "Apply fixes → commit", "Repeat until green"]
 ```
+
+---
+
+# Yes!
+
+## Tests as well
 
 ---
 
