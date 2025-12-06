@@ -228,9 +228,21 @@ It Made Impossible Work Possible
 
 ---
 
-```component:bullet-points
-title: "PR #5361: Remove UI Package"
-points: ["377 files changed", "60 hours of coding", "12,225 lines added", "9,020 lines deleted", "The enabler for everything else"]
+```component:github-pr
+org: "xtendops-developers"
+repo: "xo-monorepo"
+pr_number: 5361
+pr_title: "refactor: ♻️ Remove ui package"
+author: "spences10"
+branch: "ui-blitz_Scott_CU-86dumbb4x"
+base_branch: "main"
+status: "merged"
+date: "4 weeks ago"
+conversation: 6
+commits: 30
+checks: 15
+files_changed: "300+"
+scale: 2
 ```
 
 ---
@@ -380,9 +392,21 @@ status_text: 'accept-edits'
 
 ---
 
-```component:bullet-points
-title: "PR #5375: Vanilla shadcn-svelte (Take 2)"
-points: ["Reverted the disaster, started fresh", "364 files changed", "24 hours", "37 commits (after disaster recovery)", "Route-by-route quality validation"]
+```component:github-pr
+org: "xtendops-developers"
+repo: "xo-monorepo"
+pr_number: 5375
+pr_title: "refactor: ♻️ vanilla schadcn-svelte implementation"
+author: "spences10"
+branch: "Convert-XOOS-to-use-Vanilla-Schadcn_Scott_CU-86dyf228u"
+base_branch: "main"
+status: "merged"
+date: "4 weeks ago"
+conversation: 6
+commits: 37
+checks: 15
+files_changed: "300+"
+scale: 2
 ```
 
 ---
@@ -471,9 +495,21 @@ secondary_opacity: 0.6
 
 ---
 
-```component:bullet-points
-title: "PR #5381: The Performance Crisis"
-points: ["18 months in the making", "Finally possible with clean foundation", "122 files, 20 commits, 43 hours", "But first... a reckoning"]
+```component:github-pr
+org: "xtendops-developers"
+repo: "xo-monorepo"
+pr_number: 5381
+pr_title: "feat(auth): optimize user authentication with remote functions"
+author: "spences10"
+branch: "Optimisation-Of-XOOS-loading_Scott_CU-86dyft9ph"
+base_branch: "main"
+status: "merged"
+date: "2 weeks ago"
+conversation: 14
+commits: 54
+checks: 32
+files_changed: "122"
+scale: 1.8
 ```
 
 ---
@@ -521,6 +557,30 @@ points: ["Systematic route investigation", "fetchAgents: 803ms ❌ (TOO SLOW)", 
 > - fetchAgents: 803ms ❌ (THE PROBLEM)
 > - Created database-indexes.md documentation
 > - Multiple indexes needed for optimization
+
+---
+
+```component:three-column-features
+title: "Performance Wins"
+gradient_title: true
+items: [
+  {
+    icon: "🔐",
+    heading: "Auth Optimization",
+    description: "Remote functions reducing overhead"
+  },
+  {
+    icon: "💾",
+    heading: "Session Caching",
+    description: "Fewer DB round trips"
+  },
+  {
+    icon: "⚡",
+    heading: "Progressive Loading",
+    description: "Tab-based lazy loading for agent data"
+  }
+]
+```
 
 ---
 
@@ -611,30 +671,6 @@ points: ["Foundation work finished", "Room to tackle performance", "The stuff I 
 
 ---
 
-```component:three-column-features
-title: "Performance Wins"
-gradient_title: true
-items: [
-  {
-    icon: "🔐",
-    heading: "Auth Optimization",
-    description: "Remote functions reducing overhead"
-  },
-  {
-    icon: "💾",
-    heading: "Session Caching",
-    description: "Fewer DB round trips"
-  },
-  {
-    icon: "⚡",
-    heading: "Progressive Loading",
-    description: "Tab-based lazy loading for agent data"
-  }
-]
-```
-
----
-
 ```component:big-stat
 number: "875"
 label: "files changed"
@@ -649,7 +685,7 @@ title: "Total Impact"
 added: 25477
 deleted: 19733
 files: 875
-commits: 123
+commits: 128
 ```
 
 ---
@@ -801,23 +837,6 @@ points: ["4 work PRs across 10 days", "128 commits to production", "137 hours tr
 > - Personal: svelte-claude-skills (20.8h), blog, other projects
 > - Not just doing more - doing impossible work
 > - While building better tools to do it
-
----
-
-```component:github-diffstat
-title: "Final Totals: Work Refactor"
-added: 25477
-deleted: 19733
-files: 875
-commits: 128
-```
-
-> notes:
->
-> - This is just the work PRs
-> - 6 PRs total (#5361, #5373, #5375, #5381, #5388, #5397)
-> - Primary 4 PRs shown in detail today
-> - The foundation for everything that follows
 
 ---
 

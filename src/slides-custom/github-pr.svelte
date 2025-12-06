@@ -1,5 +1,22 @@
 <script lang="ts">
 	import { Transition } from '@animotion/core'
+	import {
+		ArrowLeft,
+		BookOpen,
+		BookText,
+		CircleDot,
+		CirclePlay,
+		CircleSlash,
+		Eye,
+		FileText,
+		GitCommit,
+		GitMerge,
+		GitPullRequest,
+		GitPullRequestClosed,
+		LayoutGrid,
+		MessageSquare,
+		Settings,
+	} from '@lucide/svelte'
 
 	interface Props {
 		org: string
@@ -28,10 +45,10 @@
 		base_branch = 'main',
 		status = 'merged',
 		date = '3 weeks ago',
-		conversation = 0,
-		commits = 0,
-		checks = 0,
-		files_changed = '',
+		conversation = 6,
+		commits = 30,
+		checks = 15,
+		files_changed = '300+',
 		scale = 1,
 	}: Props = $props()
 
@@ -74,82 +91,31 @@
 			>
 				<span
 					class="flex items-center gap-1 border-b-2 border-[#0d1117] pb-2"
-					><svg
-						class="h-4 w-4"
-						fill="currentColor"
-						viewBox="0 0 16 16"
-						><path
-							d="M0 1.75A.75.75 0 0 1 .75 1h4.253c1.227 0 2.317.59 3 1.501A3.743 3.743 0 0 1 11.006 1h4.245a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-.75.75h-4.507a2.25 2.25 0 0 0-1.591.659l-.622.621a.75.75 0 0 1-1.06 0l-.622-.621A2.25 2.25 0 0 0 5.258 13H.75a.75.75 0 0 1-.75-.75Zm7.251 10.324.004-5.073-.002-2.253A2.25 2.25 0 0 0 5.003 2.5H1.5v9h3.757a3.75 3.75 0 0 1 1.994.574ZM8.755 4.75l-.004 7.322a3.752 3.752 0 0 1 1.992-.572H14.5v-9h-3.495a2.25 2.25 0 0 0-2.25 2.25Z"
-						/></svg
-					>Code</span
+					><BookOpen class="h-4 w-4" />Code</span
 				>
 				<span
 					class="flex items-center gap-1 border-b-2 border-[#0d1117] pb-2"
-					><svg
-						class="h-4 w-4"
-						fill="currentColor"
-						viewBox="0 0 16 16"
-						><path
-							d="M8 9.5a1.5 1.5 0 1 0 0-3 1.5 1.5 0 0 0 0 3Z"
-						/><path
-							d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Z"
-						/></svg
-					>Issues</span
+					><CircleDot class="h-4 w-4" />Issues</span
 				>
 				<span
 					class="flex items-center gap-1 border-b-2 border-orange-500 pb-2 text-white"
-					><svg
-						class="h-4 w-4"
-						fill="currentColor"
-						viewBox="0 0 16 16"
-						><path
-							d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"
-						/></svg
-					>Pull requests</span
+					><GitPullRequest class="h-4 w-4" />Pull requests</span
 				>
 				<span
 					class="flex items-center gap-1 border-b-2 border-[#0d1117] pb-2"
-					><svg
-						class="h-4 w-4"
-						fill="currentColor"
-						viewBox="0 0 16 16"
-						><path
-							d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm4.879-2.773 4.264 2.559a.25.25 0 0 1 0 .428l-4.264 2.559A.25.25 0 0 1 6 10.559V5.442a.25.25 0 0 1 .379-.215Z"
-						/></svg
-					>Actions</span
+					><CirclePlay class="h-4 w-4" />Actions</span
 				>
 				<span
 					class="flex items-center gap-1 border-b-2 border-[#0d1117] pb-2"
-					><svg
-						class="h-4 w-4"
-						fill="currentColor"
-						viewBox="0 0 16 16"
-						><path
-							d="M1.75 0h12.5C15.216 0 16 .784 16 1.75v12.5A1.75 1.75 0 0 1 14.25 16H1.75A1.75 1.75 0 0 1 0 14.25V1.75C0 .784.784 0 1.75 0ZM1.5 1.75v12.5c0 .138.112.25.25.25h12.5a.25.25 0 0 0 .25-.25V1.75a.25.25 0 0 0-.25-.25H1.75a.25.25 0 0 0-.25.25ZM11.75 3a.75.75 0 0 1 .75.75v7.5a.75.75 0 0 1-1.5 0v-7.5a.75.75 0 0 1 .75-.75Zm-8.25.75a.75.75 0 0 1 1.5 0v5.5a.75.75 0 0 1-1.5 0ZM8 3a.75.75 0 0 1 .75.75v3.5a.75.75 0 0 1-1.5 0v-3.5A.75.75 0 0 1 8 3Z"
-						/></svg
-					>Projects</span
+					><LayoutGrid class="h-4 w-4" />Projects</span
 				>
 				<span
 					class="flex items-center gap-1 border-b-2 border-[#0d1117] pb-2"
-					><svg
-						class="h-4 w-4"
-						fill="currentColor"
-						viewBox="0 0 16 16"
-						><path
-							d="M0 1.75A.75.75 0 0 1 .75 1h4.253c1.227 0 2.317.59 3 1.501A3.743 3.743 0 0 1 11.006 1h4.245a.75.75 0 0 1 .75.75v10.5a.75.75 0 0 1-.75.75h-4.507a2.25 2.25 0 0 0-1.591.659l-.622.621a.75.75 0 0 1-1.06 0l-.622-.621A2.25 2.25 0 0 0 5.258 13H.75a.75.75 0 0 1-.75-.75Zm7.251 10.324.004-5.073-.002-2.253A2.25 2.25 0 0 0 5.003 2.5H1.5v9h3.757a3.75 3.75 0 0 1 1.994.574ZM8.755 4.75l-.004 7.322a3.752 3.752 0 0 1 1.992-.572H14.5v-9h-3.495a2.25 2.25 0 0 0-2.25 2.25Z"
-						/></svg
-					>Wiki</span
+					><BookText class="h-4 w-4" />Wiki</span
 				>
 				<span
 					class="flex items-center gap-1 border-b-2 border-[#0d1117] pb-2"
-					><svg
-						class="h-4 w-4"
-						fill="currentColor"
-						viewBox="0 0 16 16"
-						><path
-							d="M8 0a7.992 7.992 0 0 0-6.583 12.535 1 1 0 0 0 .167.169c.178.149.365.289.558.42l.145.1c.293.196.6.374.917.532l.162.081c.321.154.651.29.99.406l.168.054a8.014 8.014 0 0 0 1.044.263l.159.029c.357.057.722.088 1.092.1h.266a8.114 8.114 0 0 0 1.092-.1l.16-.029c.35-.06.694-.14 1.028-.243l.168-.054c.34-.116.67-.252.99-.406l.163-.081c.316-.158.623-.336.916-.532l.145-.1c.193-.131.38-.271.558-.42a.999.999 0 0 0 .167-.17A7.993 7.993 0 0 0 8 0Zm-.001 2c-.001 0-2.73.001-4.285 2.386C2.179 6.6 2.052 9.167 3.11 11.453c.26-.312.553-.596.873-.846a5.766 5.766 0 0 1 4.014-1.607 5.766 5.766 0 0 1 4.014 1.607c.32.25.614.534.873.846 1.058-2.286.93-4.853-.605-7.067C10.724 2.001 8.001 2 8 2Zm0 9c-1.3 0-2.494.447-3.445 1.19C5.857 13.33 6.892 14 8 14s2.143-.67 3.445-1.81A5.766 5.766 0 0 0 8 11Zm0-3.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3Z"
-						/></svg
-					>Settings</span
+					><Settings class="h-4 w-4" />Settings</span
 				>
 			</div>
 
@@ -166,32 +132,11 @@
 							.bg} flex items-center gap-1 rounded-full px-3 py-1 text-sm font-medium text-white"
 					>
 						{#if status === 'merged'}
-							<svg
-								class="h-4 w-4"
-								fill="currentColor"
-								viewBox="0 0 16 16"
-								><path
-									d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218ZM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm8.5-4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM5 3.25a.75.75 0 1 0 0 .005V3.25Z"
-								/></svg
-							>
+							<GitMerge class="h-4 w-4" />
 						{:else if status === 'open'}
-							<svg
-								class="h-4 w-4"
-								fill="currentColor"
-								viewBox="0 0 16 16"
-								><path
-									d="M1.5 3.25a2.25 2.25 0 1 1 3 2.122v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.25 2.25 0 0 1 1.5 3.25Zm5.677-.177L9.573.677A.25.25 0 0 1 10 .854V2.5h1A2.5 2.5 0 0 1 13.5 5v5.628a2.251 2.251 0 1 1-1.5 0V5a1 1 0 0 0-1-1h-1v1.646a.25.25 0 0 1-.427.177L7.177 3.427a.25.25 0 0 1 0-.354ZM3.75 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm8.25.75a.75.75 0 1 0 1.5 0 .75.75 0 0 0-1.5 0Z"
-								/></svg
-							>
+							<GitPullRequest class="h-4 w-4" />
 						{:else}
-							<svg
-								class="h-4 w-4"
-								fill="currentColor"
-								viewBox="0 0 16 16"
-								><path
-									d="M3.25 1A2.25 2.25 0 0 1 4 5.372v5.256a2.251 2.251 0 1 1-1.5 0V5.372A2.251 2.251 0 0 1 3.25 1Zm9.5 5.5a.75.75 0 0 1 .75.75v3.378a2.251 2.251 0 1 1-1.5 0V7.25a.75.75 0 0 1 .75-.75Zm-2.03-5.273a.75.75 0 0 1 1.06 0l.97.97.97-.97a.748.748 0 0 1 1.265.332.75.75 0 0 1-.205.729l-.97.97.97.97a.751.751 0 0 1-.018 1.042.751.751 0 0 1-1.042.018l-.97-.97-.97.97a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734l.97-.97-.97-.97a.75.75 0 0 1 0-1.06ZM3.25 2.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm0 9.5a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Zm9.5 0a.75.75 0 1 0 0 1.5.75.75 0 0 0 0-1.5Z"
-								/></svg
-							>
+							<GitPullRequestClosed class="h-4 w-4" />
 						{/if}
 						{status_config[status].text}
 					</span>
@@ -201,37 +146,16 @@
 						class="rounded border border-gray-600 bg-[#1f2937] px-2 py-0.5 font-mono text-sm text-[#58a6ff]"
 						>{base_branch}</span
 					>
-					<svg
-						class="h-4 w-4 text-gray-500"
-						fill="currentColor"
-						viewBox="0 0 16 16"
-						><path
-							d="M7.78 12.53a.75.75 0 0 1-1.06 0L2.47 8.28a.75.75 0 0 1 0-1.06l4.25-4.25a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042L4.81 7h7.44a.75.75 0 0 1 0 1.5H4.81l2.97 2.97a.75.75 0 0 1 0 1.06Z"
-						/></svg
-					>
+					<ArrowLeft class="h-4 w-4 text-gray-500" />
 					<span
 						class="rounded border border-gray-600 bg-[#1f2937] px-2 py-0.5 font-mono text-sm text-[#58a6ff] {status ===
 						'merged'
 							? 'line-through'
 							: ''}">{branch}</span
 					>
-					<svg
-						class="h-4 w-4 text-gray-500"
-						fill="currentColor"
-						viewBox="0 0 16 16"
-						><path
-							d="M5.45 5.154A4.25 4.25 0 0 0 9.25 7.5h1.378a2.251 2.251 0 1 1 0 1.5H9.25A5.734 5.734 0 0 1 5 7.123v3.505a2.25 2.25 0 1 1-1.5 0V5.372a2.25 2.25 0 1 1 1.95-.218ZM4.25 13.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5Zm8.5-4.5a.75.75 0 1 0 0-1.5.75.75 0 0 0 0 1.5ZM5 3.25a.75.75 0 1 0 0 .005V3.25Z"
-						/></svg
-					>
+					<GitMerge class="h-4 w-4 text-gray-500" />
 					<span class="text-gray-400">{date}</span>
-					<svg
-						class="h-4 w-4 text-gray-500"
-						fill="currentColor"
-						viewBox="0 0 16 16"
-						><path
-							d="M8 2c1.981 0 3.671.992 4.933 2.078 1.27 1.091 2.187 2.345 2.637 3.023a1.62 1.62 0 0 1 0 1.798c-.45.678-1.367 1.932-2.637 3.023C11.67 13.008 9.981 14 8 14c-1.981 0-3.671-.992-4.933-2.078C1.797 10.83.88 9.576.43 8.898a1.62 1.62 0 0 1 0-1.798c.45-.677 1.367-1.931 2.637-3.022C4.33 2.992 6.019 2 8 2ZM1.679 7.932a.12.12 0 0 0 0 .136c.411.622 1.241 1.75 2.366 2.717C5.176 11.758 6.527 12.5 8 12.5c1.473 0 2.825-.742 3.955-1.715 1.124-.967 1.954-2.096 2.366-2.717a.12.12 0 0 0 0-.136c-.412-.621-1.242-1.75-2.366-2.717C10.824 4.242 9.473 3.5 8 3.5c-1.473 0-2.824.742-3.955 1.715-1.124.967-1.954 2.096-2.366 2.717ZM8 10a2 2 0 1 1-.001-3.999A2 2 0 0 1 8 10Z"
-						/></svg
-					>
+					<Eye class="h-4 w-4 text-gray-500" />
 				</div>
 			</div>
 
@@ -239,53 +163,28 @@
 			<div class="flex gap-8 px-6 py-3 text-base text-gray-400">
 				<span
 					class="flex items-center gap-1 border-b-2 border-orange-500 pb-2 text-white"
-					><svg
-						class="h-4 w-4"
-						fill="currentColor"
-						viewBox="0 0 16 16"
-						><path
-							d="M1.75 1h8.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 10.25 10H7.061l-2.574 2.573A1.458 1.458 0 0 1 2 11.543V10h-.25A1.75 1.75 0 0 1 0 8.25v-5.5C0 1.784.784 1 1.75 1ZM1.5 2.75v5.5c0 .138.112.25.25.25h1a.75.75 0 0 1 .75.75v2.19l2.72-2.72a.749.749 0 0 1 .53-.22h3.5a.25.25 0 0 0 .25-.25v-5.5a.25.25 0 0 0-.25-.25h-8.5a.25.25 0 0 0-.25.25Zm13 2a.25.25 0 0 0-.25-.25h-.5a.75.75 0 0 1 0-1.5h.5c.966 0 1.75.784 1.75 1.75v5.5A1.75 1.75 0 0 1 14.25 12H14v1.543a1.458 1.458 0 0 1-2.487 1.03L9.22 12.28a.749.749 0 0 1 .326-1.275.749.749 0 0 1 .734.215l2.22 2.22v-2.19a.75.75 0 0 1 .75-.75h1a.25.25 0 0 0 .25-.25Z"
-						/></svg
-					>Conversation
+					><MessageSquare class="h-4 w-4" />Conversation
 					<span class="rounded-full bg-gray-700 px-2 py-0.5 text-xs"
 						>{conversation}</span
 					></span
 				>
-				<span class="flex items-center gap-1"
-					><svg
-						class="h-4 w-4"
-						fill="currentColor"
-						viewBox="0 0 16 16"
-						><path
-							d="M11.93 8.5a4.002 4.002 0 0 1-7.86 0H.75a.75.75 0 0 1 0-1.5h3.32a4.002 4.002 0 0 1 7.86 0h3.32a.75.75 0 0 1 0 1.5Zm-1.43-.75a2.5 2.5 0 1 0-5 0 2.5 2.5 0 0 0 5 0Z"
-						/></svg
-					>Commits
+				<span
+					class="flex items-center gap-1 border-b-2 border-transparent pb-2"
+					><GitCommit class="h-4 w-4" />Commits
 					<span class="rounded-full bg-gray-700 px-2 py-0.5 text-xs"
 						>{commits}</span
 					></span
 				>
-				<span class="flex items-center gap-1"
-					><svg
-						class="h-4 w-4"
-						fill="currentColor"
-						viewBox="0 0 16 16"
-						><path
-							d="M8 0a8 8 0 1 1 0 16A8 8 0 0 1 8 0ZM1.5 8a6.5 6.5 0 1 0 13 0 6.5 6.5 0 0 0-13 0Zm9.78-2.22-5.5 5.5a.749.749 0 0 1-1.275-.326.749.749 0 0 1 .215-.734l5.5-5.5a.751.751 0 0 1 1.042.018.751.751 0 0 1 .018 1.042Z"
-						/></svg
-					>Checks
+				<span
+					class="flex items-center gap-1 border-b-2 border-transparent pb-2"
+					><CircleSlash class="h-4 w-4" />Checks
 					<span class="rounded-full bg-gray-700 px-2 py-0.5 text-xs"
 						>{checks}</span
 					></span
 				>
-				<span class="flex items-center gap-1"
-					><svg
-						class="h-4 w-4"
-						fill="currentColor"
-						viewBox="0 0 16 16"
-						><path
-							d="M2 1.75C2 .784 2.784 0 3.75 0h6.586c.464 0 .909.184 1.237.513l2.914 2.914c.329.328.513.773.513 1.237v9.586A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .138.112.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.062V4.25c0 .138.112.25.25.25h2.688l-.011-.013-2.914-2.914-.013-.011Z"
-						/></svg
-					>Files changed
+				<span
+					class="flex items-center gap-1 border-b-2 border-transparent pb-2"
+					><FileText class="h-4 w-4" />Files changed
 					<span class="rounded-full bg-gray-700 px-2 py-0.5 text-xs"
 						>{files_changed}</span
 					></span
