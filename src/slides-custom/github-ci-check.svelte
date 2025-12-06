@@ -38,7 +38,7 @@
 
 <Transition visible class="w-full max-w-2xl mx-auto" duration={0.6}>
 	<div
-		class="rounded-lg overflow-hidden border border-[#30363d] bg-[#0d1117] font-mono text-sm origin-center"
+		class="rounded-sm overflow-hidden border border-[#30363d] bg-[#0d1117] font-mono text-sm origin-center"
 		style="transform: scale({scale})"
 	>
 		<!-- File header -->
