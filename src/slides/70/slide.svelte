@@ -1,2 +1,13 @@
-<p class="mt-8 text-4xl">This is a story about how I used AI to massively accelerate a tedious,</p>
-<p class="mt-8 text-4xl">repetitive refactor that would have taken me weeks to do manually.</p>
+<script>
+	import TitleSlide from '../../slides-custom/title-slide.svelte'
+	import { Notes } from '@animotion/core'
+</script>
+
+<TitleSlide title="How I Refactored 875 files in 10 days" subtitle="(Thanks Claude)" />
+
+<Notes>
+	<ul>
+		<li>Doesn't really roll off the tongue does it</li>
+	</ul>
+</Notes>
+

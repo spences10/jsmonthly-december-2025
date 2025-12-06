@@ -1,6 +1,16 @@
 <script>
-	import BulletPoints from '../../slides-custom/bullet-points.svelte'
+	import AboutMe from '../../slides-custom/about-me.svelte'
+	import { Notes } from '@animotion/core'
+	import slideImageProp from '$lib/assets/mug-face.png'
 </script>
 
-<BulletPoints title="The Setup" points={["Monorepo with legacy UI package","Dependency mismatch causing cascade of errors","svelte-check spitting out thousands of lines"]} />
+<AboutMe name="Scott Spence" title="SvelteKit TypeScript Developer" image={slideImageProp} points={["Svelte LDN meetup organiser","Team Lead","Does AI stuff at XtendOps","Dad 👨‍👩‍👧","Cat dad 😺"]} />
+
+<Notes>
+	<ul>
+		<li>Mention working at company XtendOps</li>
+		<li>Been using Claude Code since early access</li>
+		<li>Before I start out on the story, a couple of things to clarify</li>
+	</ul>
+</Notes>
 

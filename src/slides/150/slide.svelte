@@ -1,6 +1,17 @@
 <script>
-	import BulletPoints from '../../slides-custom/bullet-points.svelte'
+	import BlueskyEmbed from '../../slides-custom/bluesky-embed.svelte'
+	import { Notes } from '@animotion/core'
 </script>
 
-<BulletPoints title="Iteration Reality" points={["Session resets every few hours","Context limits hit repeatedly","50 lines at a time = manageable chunks","30 commits over 4.6 days"]} />
+<BlueskyEmbed post_id="did:plc:fger3nuzbr624qn6qkm63kuf/app.bsky.feed.post/3m5k4gnasnq2t" />
+
+<Notes>
+	<ul>
+		<li>Chris head of technology @XtendOps</li>
+		<li>ui package was of my making</li>
+		<li>Intention was to use this package across multiple projects</li>
+		<li>Reality was it was used in only one project</li>
+		<li>Issue since ~ spring time, maybe before</li>
+	</ul>
+</Notes>
 

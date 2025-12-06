@@ -1,14 +1,2 @@
-<script>
-	import ImageCaption from '../../slides-custom/image-caption.svelte'
-	import { Notes } from '@animotion/core'
-	import slideImage from '$lib/assets/the_duality_of_ai_usage.jpeg'
-</script>
-
-<ImageCaption src={slideImage} alt="The duality of AI usage meme" caption="The duality of AI usage meme" />
-
-<Notes>
-	<ul>
-		<li>This talk is basically this meme</li>
-	</ul>
-</Notes>
-
+<p class="mt-8 text-4xl">This is a story about how I used AI to do a tedious,</p>
+<p class="mt-8 text-4xl">repetitive refactor that would have taken me weeks to do manually.</p>

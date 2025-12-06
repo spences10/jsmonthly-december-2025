@@ -1,6 +1,6 @@
 <script>
-	import BulletPoints from '../../slides-custom/bullet-points.svelte'
+	import BlueskyEmbed from '../../slides-custom/bluesky-embed.svelte'
 </script>
 
-<BulletPoints title="The Real Unlock" points={["AI accelerated my work","Understanding AI made it reliable","Sharing knowledge amplified impact","875 files + viral blog post = same 10 days"]} />
+<BlueskyEmbed post_id="did:plc:nlvjelw3dy3pddq7qoglleko/app.bsky.feed.post/3m5nru3in5k27" scale={2} />
 

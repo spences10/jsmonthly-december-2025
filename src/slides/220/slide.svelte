@@ -1,6 +1,11 @@
 <script>
-	import BulletPoints from '../../slides-custom/bullet-points.svelte'
+	import NumberedGrid from '../../slides-custom/numbered-grid.svelte'
 </script>
 
-<BulletPoints title="Before vs After" points={["Before: Blocked by legacy UI package for 18 months","Before: Custom styling scattered everywhere","After: Vanilla shadcn-svelte components","After: Performance optimizations finally possible"]} />
+<NumberedGrid title={`Why This Wasn't Fixable Manually`} items={[
+  { number: "1", heading: "377 Files", content: "Massive scale across entire codebase" },
+  { number: "2", heading: "Cascading Errors", content: "Each fix could introduce new problems" },
+  { number: "3", heading: "Weeks of Work", content: "Time estimate: endless tedious manual changes" },
+  { number: "4", heading: "Human Limits", content: "Attention span not built for this kind of repetition" }
+]} scale={1.5} />
 

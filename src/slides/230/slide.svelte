@@ -2,5 +2,5 @@
 	import BulletPoints from '../../slides-custom/bullet-points.svelte'
 </script>
 
-<BulletPoints title="Time Freed = Time Earned" points={["Foundation work finished","Room to tackle performance","The stuff I actually wanted to do"]} />
+<BulletPoints title="Claude, this is your job now!" points={["Copy 50 lines of errors","Feed the errors to Claude","Repeat until svelte-check passes"]} />
 

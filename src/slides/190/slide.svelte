@@ -1,6 +1,6 @@
 <script>
-	import UnlockChain from '../../slides-custom/unlock-chain.svelte'
+	import BulletPoints from '../../slides-custom/bullet-points.svelte'
 </script>
 
-<UnlockChain title="The Unlock Chain" items={["#5361|Remove UI","#5375|shadcn-svelte","#5381|Auth optimization"]} />
+<BulletPoints title="The decoupling" points={["Remove ui dependency","Run svelte-check","Proffit??"]} />
 

@@ -1,6 +1,6 @@
 <script>
-	import GithubDiffstat from '../../slides-custom/github-diffstat.svelte'
+	import GithubRepo from '../../slides-custom/github-repo.svelte'
 </script>
 
-<GithubDiffstat title="PR #5361: The Numbers" added={12225} deleted={9020} files={377} commits={30} />
+<GithubRepo repo="ghostdevv/svelte-check-action" scale={1.5} />
 

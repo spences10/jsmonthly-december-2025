@@ -1,6 +1,6 @@
 <script>
-	import KeyTakeaways from '../../slides-custom/key-takeaways.svelte'
+	import GithubDiffstat from '../../slides-custom/github-diffstat.svelte'
 </script>
 
-<KeyTakeaways title="Impact Summary" points={["AI handles tedious work so you focus on interesting problems","Large-scale refactors become manageable with the right tools","Building reliable workflows beats one-off solutions"]} />
+<GithubDiffstat title="PR #5361: The Numbers" added={12225} deleted={9020} files={377} commits={20} />
 

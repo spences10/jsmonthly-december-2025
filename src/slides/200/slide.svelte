@@ -1,6 +1,6 @@
 <script>
-	import BulletPoints from '../../slides-custom/bullet-points.svelte'
+	import GitDiff from '../../slides-custom/git-diff.svelte'
 </script>
 
-<BulletPoints title="PR #5375: Vanilla shadcn-svelte" points={["With UI package gone, could standardize","364 files changed","24 hours","37 commits in under a day"]} />
+<GitDiff title="The Change" lines={[{"content":"<script lang=\"ts\">","type":"normal"},{"content":"  import { Button, Card, Input } from 'ui'","type":"removed"},{"content":"  import { Button, Card, Input } from '$lib/components/ui'","type":"added"},{"content":"</script>","type":"normal"}]} scale={2.5} />
 

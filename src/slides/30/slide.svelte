@@ -1,7 +1,7 @@
 <script>
 	import ImageCaption from '../../slides-custom/image-caption.svelte'
-	import slideImage from '$lib/assets/svelte_london_whatsapp_chat_svaude.png'
+	import slideImage from '$lib/assets/merry-christmas.gif'
 </script>
 
-<ImageCaption src={slideImage} alt="Svelte London WhatsApp chat Svaude" caption="We like to ad `Sv` to everything" />
+<ImageCaption src={slideImage} alt="Merry Christmas" caption="Merry Christmas" scale={1.8} />
 

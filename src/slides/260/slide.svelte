@@ -1,6 +1,6 @@
 <script>
-	import GithubDiffstat from '../../slides-custom/github-diffstat.svelte'
+	import BulletPoints from '../../slides-custom/bullet-points.svelte'
 </script>
 
-<GithubDiffstat title="Total Impact" added={25477} deleted={19733} files={875} commits={128} />
+<BulletPoints title="Iteration" points={["200k token limit","50 lines at a time = manageable chunks","3-5 cycles per session","Well defined task means Claude stays on track"]} />
 

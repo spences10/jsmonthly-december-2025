@@ -1,15 +1,6 @@
 <script>
-	import SimpleTimeline from '../../slides-custom/simple-timeline.svelte'
-	import { Notes } from '@animotion/core'
+	import BlueskyEmbed from '../../slides-custom/bluesky-embed.svelte'
 </script>
 
-<SimpleTimeline title="The Blog Post" events={["Nov 13|Built eval framework","Nov 15|Created hook system","Nov 16|Published|highlight","Nov 22|4.5k readers"]} />
-
-<Notes>
-	<ul>
-		<li>Shared what I learned about making Claude reliable</li>
-		<li>People clearly wanted this information</li>
-		<li>Community hungry for practical AI workflows</li>
-	</ul>
-</Notes>
+<BlueskyEmbed post_id="did:plc:fger3nuzbr624qn6qkm63kuf/app.bsky.feed.post/3m5niro3h2c2f" scale={1.2} />
 
