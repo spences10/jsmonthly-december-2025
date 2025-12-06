@@ -8,18 +8,24 @@
 
 	let {
 		title = '',
-		events = ['Nov 12|Started', 'Nov 16|Blog published|highlight', 'Nov 21|Done'],
+		events = [
+			'Nov 12|Started',
+			'Nov 16|Blog published|highlight',
+			'Nov 21|Done',
+		],
 	}: Props = $props()
 
 	// Parse pipe-separated events
-	const parsed_events = events.map((e) => {
-		const parts = e.split('|')
-		return {
-			date: parts[0],
-			text: parts[1],
-			highlight: parts[2] === 'highlight',
-		}
-	})
+	const parsed_events = $derived(
+		events.map((e) => {
+			const parts = e.split('|')
+			return {
+				date: parts[0],
+				text: parts[1],
+				highlight: parts[2] === 'highlight',
+			}
+		}),
+	)
 
 	let step = $state(0)
 </script>

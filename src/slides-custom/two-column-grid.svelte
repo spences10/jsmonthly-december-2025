@@ -16,7 +16,7 @@
 		],
 	} = $props()
 
-	const columns = [
+	const columns = $derived([
 		{
 			title: left_title,
 			items: left_items,
@@ -29,7 +29,7 @@
 			gradient: 'gradient-danger',
 			delay: 0.4,
 		},
-	]
+	])
 </script>
 
 <!-- AI Excels vs Struggles Comparison Slide -->

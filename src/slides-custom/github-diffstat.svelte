@@ -36,15 +36,15 @@
 	})
 
 	// Calculate the 5-block ratio (like GitHub does)
-	const total = added + deleted
-	const added_ratio = added / total
-	const deleted_ratio = deleted / total
+	const total = $derived(added + deleted)
+	const added_ratio = $derived(added / total)
+	const deleted_ratio = $derived(deleted / total)
 
 	// 5 blocks total
-	const added_blocks = Math.round(added_ratio * 5)
-	const deleted_blocks = Math.round(deleted_ratio * 5)
+	const added_blocks = $derived(Math.round(added_ratio * 5))
+	const deleted_blocks = $derived(Math.round(deleted_ratio * 5))
 	// Neutral fills any rounding gaps
-	const neutral_blocks = 5 - added_blocks - deleted_blocks
+	const neutral_blocks = $derived(5 - added_blocks - deleted_blocks)
 
 	function format_number(n: number): string {
 		return n.toLocaleString()
