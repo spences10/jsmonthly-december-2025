@@ -48,7 +48,7 @@ It _was_ 370 files in 11 hours, but I hadn't finished! 😅
 ---
 
 ```component:title-slide
-title: "How I Refactored 875 files over 180 commits, in 10 days"
+title: "How I Refactored 875 files in 10 days"
 subtitle: "(Thanks Claude)"
 ```
 
@@ -58,7 +58,7 @@ subtitle: "(Thanks Claude)"
 
 ---
 
-This is a story about how I used AI to massively accelerate a tedious,
+This is a story about how I used AI to do a tedious,
 
 repetitive refactor that would have taken me weeks to do manually.
 
@@ -83,14 +83,14 @@ caption: "The duality of AI usage meme"
 name: "Scott Spence"
 title: "SvelteKit TypeScript Developer"
 image: "$lib/assets/mug-face.png"
-points: ["Svelte LDN meetup organiser", "Application Team Lead", "Does AI stuff at XtendOps", "Dad 👨‍👩‍👧", "Cat dad 😺"]
+points: ["Svelte LDN meetup organiser", "Team Lead", "Does AI stuff at XtendOps", "Dad 👨‍👩‍👧", "Cat dad 😺"]
 ```
 
 > notes:
 >
 > - Mention working at company XtendOps
 > - Been using Claude Code since early access
-> - Here's a hint of the initial problem
+> - Before I start out on the story, a couple of things to clarify
 
 ---
 
@@ -114,22 +114,56 @@ points: ["Svelte LDN meetup organiser", "Application Team Lead", "Does AI stuff 
 post_id: "did:plc:fger3nuzbr624qn6qkm63kuf/app.bsky.feed.post/3m5k4gnasnq2t"
 ```
 
+> notes:
+>
+> - Chris head of technology @XtendOps
+> - ui package was of my making
+> - Intention was to use this package across multiple projects
+> - Reality was it was used in only one project
+> - Issue since ~ spring time, maybe before
+
 ---
 
 ```component:bullet-points
 title: "The Setup"
-points: ["Monorepo with legacy UI package", "Dependency mismatch causing cascade of errors", "svelte-check spitting out lots errors"]
+points: ["Monorepo app on Svelte 5  using a Svelte 4 UI package", "Dependency mismatch causing issues", "False positives in CI"]
 ```
 
 > notes:
 >
-> - ui package was ok my making
+> - ui package was of my making
+
+---
+
+```component:github-ci-check
+
+```
+
+---
+
+```component:github-repo
+repo: "ghostdevv/svelte-check-action"
+scale: 1.5
+```
 
 ---
 
 ```component:bullet-points
 title: "The decoupling"
 points: ["Remove ui dependency", "Run svelte-check", "Proffit??"]
+```
+
+---
+
+```component:git-diff
+title: "The Change"
+lines: [
+  { "content": "<script lang=\"ts\">", "type": "normal" },
+  { "content": "  import { Button, Card, Input } from 'ui'", "type": "removed" },
+  { "content": "  import { Button, Card, Input } from '$lib/components/ui'", "type": "added" },
+  { "content": "</script>", "type": "normal" }
+]
+scale: 2.5
 ```
 
 ---
@@ -148,13 +182,14 @@ items: [
   { number: "3", heading: "Weeks of Work", content: "Time estimate: endless tedious manual changes" },
   { number: "4", heading: "Human Limits", content: "Attention span not built for this kind of repetition" }
 ]
+scale: 1.5
 ```
 
 ---
 
 ```component:bullet-points
-title: "The Breakthrough"
-points: ["What if I just... fed the errors to Claude?", "Copy 50 lines of errors → paste → get fixes", "It actually worked", "Repeat until svelte-check passes"]
+title: "Claude, this is your job now!"
+points: ["Copy 50 lines of errors", "Feed the errors to Claude", "Repeat until svelte-check passes"]
 ```
 
 ---
@@ -173,8 +208,9 @@ points: ["Run svelte-check", "Copy first 50 errors", "Paste to Claude → get fi
 ---
 
 ```component:bullet-points
-title: "Iteration Reality"
-points: ["Session resets every few hours", "Context limits hit repeatedly", "50 lines at a time = manageable chunks", "30 commits over 4.6 days"]
+title: "Iteration"
+points: ["200k token limit", "50 lines at a time = manageable chunks", "3-5 cycles per session", "Well defined task means Claude stays on track"]
+
 ```
 
 ---
@@ -310,13 +346,6 @@ secondary_opacity: 0.6
 >   harder
 > - Nov 16: 7.27h coding but 0 commits (working on personal projects)
 > - Total: 60.81 hours across this PR
-
----
-
-```component:unlock-chain
-title: "The Unlock Chain"
-items: ["#5361|Remove UI", "#5375|shadcn-svelte", "#5381|Performance", "#5397|Polish"]
-```
 
 ---
 
@@ -852,6 +881,13 @@ secondary_opacity: 0.6
 ```component:key-takeaways
 title: "Impact Summary"
 points: ["AI handles tedious work so you focus on interesting problems", "Large-scale refactors become manageable with the right tools", "Building reliable workflows beats one-off solutions", "Different problems need different workflows"]
+```
+
+---
+
+```component:github-repo
+repo: "animotionjs/animotion"
+scale: 1.5
 ```
 
 ---
