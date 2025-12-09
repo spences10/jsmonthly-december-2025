@@ -48,12 +48,11 @@
 				<div
 					class="gradient-primary relative flex h-full flex-col rounded-2xl p-6 text-left"
 				>
-					<div class="text-5xl font-bold opacity-20">
-						{item.number}
-					</div>
-
-					<h3 class="mt-4 mb-6 text-5xl font-bold">
-						{item.heading}
+					<h3
+						class="mb-6 flex items-baseline gap-4 text-5xl font-bold"
+					>
+						<span class="text-4xl opacity-40">{item.number}.</span>
+						<span>{item.heading}</span>
 					</h3>
 
 					<div class="flex-1 space-y-3">
