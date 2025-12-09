@@ -3,7 +3,7 @@
 
 	interface DiffLine {
 		content: string
-		type: 'normal' | 'removed' | 'added'
+		type: 'normal' | 'removed' | 'added' | 'ellipsis'
 	}
 
 	interface Props {
@@ -24,6 +24,8 @@
 				return 'background-color: rgba(239, 83, 80, 0.15); color: #EF5350;'
 			case 'added':
 				return 'background-color: rgba(197, 228, 120, 0.15); color: #C5E478;'
+			case 'ellipsis':
+				return 'color: #637777;'
 			default:
 				return 'color: #d6deeb;'
 		}

@@ -37,9 +37,11 @@
 		order={2}
 	>
 		<div class="mt-16 flex flex-col gap-4 text-3xl opacity-70">
-			{#if name}<p>{name}</p>{/if}
+			{#if name}<h3>{name}</h3>{/if}
 			{#if event || date}
-				<p>{event}{#if event && date}{' '}-{' '}{/if}{date}</p>
+				<p>
+					{event}{#if event && date}{' '}-{' '}{/if}{date}
+				</p>
 			{/if}
 		</div>
 	</Transition>
