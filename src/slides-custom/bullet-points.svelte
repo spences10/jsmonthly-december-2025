@@ -2,6 +2,13 @@
 	import { Transition } from '@animotion/core'
 
 	let { title = '', points = [], list_style = '-' } = $props()
+
+	function parse_inline_code(text: string): string {
+		return text.replace(
+			/`([^`]+)`/g,
+			'<code class="bg-gray-400 px-3 py-1 rounded-2xl font-mono text-[0.9em]">$1</code>',
+		)
+	}
 </script>
 
 <div class="flex flex-col items-start text-left">
@@ -20,7 +27,11 @@
 					duration={0.5}
 					delay={0.2 + i * 0.1}
 				>
-					<li>{list_style ? `${list_style} ` : ''}{point}</li>
+					<li>
+						{list_style
+							? `${list_style} `
+							: ''}{@html parse_inline_code(point)}
+					</li>
 				</Transition>
 			{/each}
 		</ul>
