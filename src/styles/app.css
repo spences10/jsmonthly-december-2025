@@ -19,6 +19,10 @@
 	box-sizing: border-box;
 }
 
+html {
+	font-size: 20px; /* bump from 16px default */
+}
+
 /* defaults */
 :root {
 	--r-background-color: oklch(98% 0.01 272);
