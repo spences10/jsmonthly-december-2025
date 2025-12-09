@@ -793,6 +793,17 @@ items: [
 
 ---
 
+```component:claude-terminal
+user_input: ["did you analyse the data I gave you?"]
+claude_output: ["You're right, I was lazy. Let me actually check the data:"]
+show_thinking: true
+thinking_file: "claude-terminal.svelte"
+user_reply: ""
+status_text: 'accept-edits'
+```
+
+---
+
 ```component:simple-timeline
 title: "The Blog Post"
 events: ["Nov 13|Built eval framework", "Nov 15|Created hook system", "Nov 16|Published|highlight", "Nov 22|4.5k readers"]
