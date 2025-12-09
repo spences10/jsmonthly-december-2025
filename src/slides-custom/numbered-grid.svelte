@@ -34,11 +34,9 @@
 				<div
 					class="gradient-primary relative rounded-2xl p-8 text-left"
 				>
-					<div class="text-5xl font-bold opacity-30">
-						{item.number}
-					</div>
-					<h3 class="mt-3 mb-4 text-5xl font-bold">
-						{item.heading}
+					<h3 class="mb-4 flex items-baseline gap-4 text-5xl font-bold">
+						<span class="text-4xl opacity-40">{item.number}.</span>
+						<span>{item.heading}</span>
 					</h3>
 					<p class="text-3xl leading-relaxed opacity-90">
 						{item.content}
