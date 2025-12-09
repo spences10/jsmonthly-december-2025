@@ -63,6 +63,10 @@ repetitive refactor that would have taken me weeks to do manually.
 
 ---
 
+# With a bonus ending!
+
+---
+
 ```component:image-caption
 src: "$lib/assets/the_duality_of_ai_usage.jpeg"
 alt: "The duality of AI usage meme"
@@ -93,19 +97,9 @@ points: ["Svelte LDN meetup organiser", "Engineering Lead", "Does AI stuff at Xt
 
 ---
 
-# Not a doomer
-
----
-
-# Not a booster
-
----
-
-# A user
-
----
-
-# AI === Tool
+```component:stacking-reveal
+items: ["Not a doomer", "Not a booster", "A user", "AI === Tool"]
+```
 
 ---
 
