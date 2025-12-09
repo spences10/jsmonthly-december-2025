@@ -4,7 +4,7 @@
 	import slideImageProp from '$lib/assets/mug-face.png'
 </script>
 
-<AboutMe name="Scott Spence" title="SvelteKit TypeScript Developer" image={slideImageProp} points={["Svelte LDN meetup organiser","Team Lead","Does AI stuff at XtendOps","Dad 👨‍👩‍👧","Cat dad 😺"]} />
+<AboutMe name="Scott Spence" title="SvelteKit TypeScript Developer" image={slideImageProp} points={["Svelte LDN meetup organiser","Engineering Lead","Does AI stuff at XtendOps","Dad 👨‍👩‍👧","Cat dad 😺"]} />
 
 <Notes>
 	<ul>

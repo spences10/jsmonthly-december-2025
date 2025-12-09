@@ -3,5 +3,5 @@
 	import slideImage from '$lib/assets/merry-christmas.gif'
 </script>
 
-<ImageCaption src={slideImage} alt="Merry Christmas" caption="Merry Christmas" scale={1.8} />
+<ImageCaption src={slideImage} alt="Merry Christmas" scale={1.8} />
 

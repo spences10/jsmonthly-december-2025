@@ -3,7 +3,7 @@
 	import { Notes } from '@animotion/core'
 </script>
 
-<TitleSlide title="How I Refactored 875 files in 10 days" subtitle="(Thanks Claude)" />
+<TitleSlide title="How I Refactored 875 files in 10 days and improved performance" subtitle="(Thanks Claude)" />
 
 <Notes>
 	<ul>

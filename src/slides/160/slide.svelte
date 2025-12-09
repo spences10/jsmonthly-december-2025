@@ -3,7 +3,7 @@
 	import { Notes } from '@animotion/core'
 </script>
 
-<BulletPoints title="The Setup" points={["Monorepo app on Svelte 5  using a Svelte 4 UI package","Dependency mismatch causing issues","False positives in CI"]} />
+<BulletPoints title="The Sitch" points={["Monorepo app on Svelte 5  using a Svelte 4 UI package","Dependency mismatch causing issues","False positives in CI"]} />
 
 <Notes>
 	<ul>

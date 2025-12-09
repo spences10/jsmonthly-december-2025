@@ -3,7 +3,7 @@
 </script>
 
 <h1 class="text-9xl font-bold text-center">AI Didn&#39;t Make This Fast</h1>
-<p class="mt-8 text-4xl">It Made Impossible Work Possible</p>
+<p class="mt-8 text-4xl">My job is now chief copy paster!</p>
 
 <Notes>
 	<ul>
