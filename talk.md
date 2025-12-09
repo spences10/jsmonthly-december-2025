@@ -19,7 +19,6 @@ caption: "Svelte London WhatsApp chat"
 ```component:image-caption
 src: "$lib/assets/merry-christmas.gif"
 alt: "Merry Christmas"
-caption: "Merry Christmas"
 scale: 1.8
 ```
 
@@ -48,7 +47,7 @@ It _was_ 370 files in 11 hours, but I hadn't finished! 😅
 ---
 
 ```component:title-slide
-title: "How I Refactored 875 files in 10 days"
+title: "How I Refactored 875 files in 10 days and improved performance"
 subtitle: "(Thanks Claude)"
 ```
 
@@ -83,7 +82,7 @@ caption: "The duality of AI usage meme"
 name: "Scott Spence"
 title: "SvelteKit TypeScript Developer"
 image: "$lib/assets/mug-face.png"
-points: ["Svelte LDN meetup organiser", "Team Lead", "Does AI stuff at XtendOps", "Dad 👨‍👩‍👧", "Cat dad 😺"]
+points: ["Svelte LDN meetup organiser", "Engineering Lead", "Does AI stuff at XtendOps", "Dad 👨‍👩‍👧", "Cat dad 😺"]
 ```
 
 > notes:
@@ -125,7 +124,7 @@ post_id: "did:plc:fger3nuzbr624qn6qkm63kuf/app.bsky.feed.post/3m5k4gnasnq2t"
 ---
 
 ```component:bullet-points
-title: "The Setup"
+title: "The Sitch"
 points: ["Monorepo app on Svelte 5  using a Svelte 4 UI package", "Dependency mismatch causing issues", "False positives in CI"]
 ```
 
@@ -149,8 +148,8 @@ scale: 1.5
 ---
 
 ```component:bullet-points
-title: "The decoupling"
-points: ["Remove ui dependency", "Run svelte-check", "Proffit??"]
+title: "The work"
+points: ["Remove ui dependency", "Add new ui components", "Run svelte-check", "Proffit??"]
 ```
 
 ---
@@ -242,6 +241,8 @@ conversation: 6
 commits: 30
 checks: 15
 files_changed: "300+"
+added: 12225
+deleted: 9020
 scale: 2
 ```
 
