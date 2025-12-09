@@ -9,7 +9,7 @@
 		CircleSlash,
 		Eye,
 		FileText,
-		GitCommit,
+		GitCommitHorizontal,
 		GitMerge,
 		GitPullRequest,
 		GitPullRequestClosed,
@@ -32,6 +32,8 @@
 		commits?: number
 		checks?: number
 		files_changed?: string
+		added?: number
+		deleted?: number
 		scale?: number
 	}
 
@@ -49,8 +51,22 @@
 		commits = 30,
 		checks = 15,
 		files_changed = '300+',
+		added = 0,
+		deleted = 0,
 		scale = 1,
 	}: Props = $props()
+
+	// Calculate the 5-block ratio (like GitHub does)
+	const total = $derived(added + deleted)
+	const added_ratio = $derived(total > 0 ? added / total : 0)
+	const deleted_ratio = $derived(total > 0 ? deleted / total : 0)
+	const added_blocks = $derived(Math.round(added_ratio * 5))
+	const deleted_blocks = $derived(Math.round(deleted_ratio * 5))
+	const neutral_blocks = $derived(5 - added_blocks - deleted_blocks)
+
+	function format_number(n: number): string {
+		return n.toLocaleString()
+	}
 
 	const status_config = {
 		merged: { bg: 'bg-purple-600', text: 'Merged', icon: 'merged' },
@@ -160,35 +176,63 @@
 			</div>
 
 			<!-- PR Tabs -->
-			<div class="flex gap-8 px-6 py-3 text-base text-gray-400">
-				<span
-					class="flex items-center gap-1 border-b-2 border-orange-500 pb-2 text-white"
-					><MessageSquare class="h-4 w-4" />Conversation
-					<span class="rounded-full bg-gray-700 px-2 py-0.5 text-xs"
-						>{conversation}</span
-					></span
-				>
-				<span
-					class="flex items-center gap-1 border-b-2 border-transparent pb-2"
-					><GitCommit class="h-4 w-4" />Commits
-					<span class="rounded-full bg-gray-700 px-2 py-0.5 text-xs"
-						>{commits}</span
-					></span
-				>
-				<span
-					class="flex items-center gap-1 border-b-2 border-transparent pb-2"
-					><CircleSlash class="h-4 w-4" />Checks
-					<span class="rounded-full bg-gray-700 px-2 py-0.5 text-xs"
-						>{checks}</span
-					></span
-				>
-				<span
-					class="flex items-center gap-1 border-b-2 border-transparent pb-2"
-					><FileText class="h-4 w-4" />Files changed
-					<span class="rounded-full bg-gray-700 px-2 py-0.5 text-xs"
-						>{files_changed}</span
-					></span
-				>
+			<div
+				class="flex items-center justify-between px-6 py-3 text-base text-gray-400"
+			>
+				<div class="flex gap-8">
+					<span
+						class="flex items-center gap-1 border-b-2 border-orange-500 pb-2 text-white"
+						><MessageSquare class="h-4 w-4" />Conversation
+						<span class="rounded-full bg-gray-700 px-2 py-0.5 text-xs"
+							>{conversation}</span
+						></span
+					>
+					<span
+						class="flex items-center gap-1 border-b-2 border-transparent pb-2"
+						><GitCommitHorizontal class="h-4 w-4" />Commits
+						<span class="rounded-full bg-gray-700 px-2 py-0.5 text-xs"
+							>{commits}</span
+						></span
+					>
+					<span
+						class="flex items-center gap-1 border-b-2 border-transparent pb-2"
+						><CircleSlash class="h-4 w-4" />Checks
+						<span class="rounded-full bg-gray-700 px-2 py-0.5 text-xs"
+							>{checks}</span
+						></span
+					>
+					<span
+						class="flex items-center gap-1 border-b-2 border-transparent pb-2"
+						><FileText class="h-4 w-4" />Files changed
+						<span class="rounded-full bg-gray-700 px-2 py-0.5 text-xs"
+							>{files_changed}</span
+						></span
+					>
+				</div>
+
+				<!-- Diffstat (right side) -->
+				{#if total > 0}
+					<div
+						class="ml-8 flex items-center gap-2 border-b-2 border-transparent pb-2 font-mono text-sm"
+					>
+						<span class="text-[#3fb950]">+{format_number(added)}</span
+						>
+						<span class="text-[#f85149]"
+							>−{format_number(deleted)}</span
+						>
+						<div class="flex items-center gap-0.5">
+							{#each Array(added_blocks) as _}
+								<div class="h-2 w-2 rounded-xs bg-[#3fb950]"></div>
+							{/each}
+							{#each Array(deleted_blocks) as _}
+								<div class="h-2 w-2 rounded-xs bg-[#f85149]"></div>
+							{/each}
+							{#each Array(neutral_blocks) as _}
+								<div class="h-2 w-2 rounded-xs bg-gray-500"></div>
+							{/each}
+						</div>
+					</div>
+				{/if}
 			</div>
 		</div>
 	</div>
