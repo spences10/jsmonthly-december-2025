@@ -176,7 +176,7 @@ scale: 2.5
 ```component:numbered-grid
 title: "Why This Wasn't Fixable Manually"
 items: [
-  { number: "1", heading: "377 Files", content: "Massive scale across entire codebase" },
+  { number: "1", heading: "Hundreds of Files", content: "Massive scale across entire app codebase" },
   { number: "2", heading: "Cascading Errors", content: "Each fix could introduce new problems" },
   { number: "3", heading: "Weeks of Work", content: "Time estimate: endless tedious manual changes" },
   { number: "4", heading: "Human Limits", content: "Attention span not built for this kind of repetition" }
@@ -207,7 +207,7 @@ points: ["Run svelte-check", "Copy first 50 errors", "Paste to Claude → get fi
 ---
 
 ```component:bullet-points
-title: "Iteration"
+title: "Iteration with Claude Code"
 points: ["200k token limit", "50 lines at a time = manageable chunks", "3-5 cycles per session", "Well defined task means Claude stays on track"]
 
 ```
@@ -216,7 +216,7 @@ points: ["200k token limit", "50 lines at a time = manageable chunks", "3-5 cycl
 
 # AI Didn't Make This Fast
 
-It Made Impossible Work Possible
+My job is now chief copy paster!
 
 > notes:
 >
@@ -243,7 +243,7 @@ checks: 15
 files_changed: "300+"
 added: 12225
 deleted: 9020
-scale: 2
+scale: 1.8
 ```
 
 ---
@@ -397,9 +397,9 @@ status_text: 'accept-edits'
 org: "xtendops-developers"
 repo: "xo-monorepo"
 pr_number: 5375
-pr_title: "refactor: ♻️ vanilla schadcn-svelte implementation"
+pr_title: "refactor: ♻️ vanilla schadcn-svelte"
 author: "spences10"
-branch: "Convert-XOOS-to-use-Vanilla-Schadcn_Scott_CU-86dyf228u"
+branch: "Convert-XOOS-to-use-Schadcn"
 base_branch: "main"
 status: "merged"
 date: "4 weeks ago"
@@ -407,7 +407,9 @@ conversation: 6
 commits: 37
 checks: 15
 files_changed: "300+"
-scale: 2
+added: 4776
+deleted: 4528
+scale: 1.8
 ```
 
 ---
@@ -502,14 +504,16 @@ repo: "xo-monorepo"
 pr_number: 5381
 pr_title: "feat(auth): optimize user authentication with remote functions"
 author: "spences10"
-branch: "Optimisation-Of-XOOS-loading_Scott_CU-86dyft9ph"
+branch: "Optimisation-Of-XOOS-loading"
 base_branch: "main"
 status: "merged"
-date: "3 weeks ago"
+date: "4 weeks ago"
 conversation: 14
 commits: 54
 checks: 32
 files_changed: "122"
+added: 8269
+deleted: 6054
 scale: 1.8
 ```
 

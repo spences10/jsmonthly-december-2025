@@ -185,7 +185,7 @@
 					>
 					<ArrowLeft class="h-4 w-4 text-gray-500" />
 					<span
-						class="rounded border border-gray-600 bg-[#1f2937] px-2 py-0.5 font-mono text-sm text-[#58a6ff] {status ===
+						class="truncate rounded border border-gray-600 bg-[#1f2937] px-2 py-0.5 font-mono text-sm text-[#58a6ff] {status ===
 						'merged'
 							? 'line-through'
 							: ''}">{branch}</span
