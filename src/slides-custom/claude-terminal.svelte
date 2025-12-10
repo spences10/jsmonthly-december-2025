@@ -12,6 +12,7 @@
 		claude_output?: string | string[]
 		show_thinking?: boolean
 		thinking_file?: string
+		thinking_on?: boolean
 		status_text?: 'shortcuts' | 'accept-edits' | 'plan-mode'
 		output_first?: boolean
 	}
@@ -27,6 +28,7 @@
 		claude_output,
 		show_thinking = false,
 		thinking_file = 'claude-terminal.svelte',
+		thinking_on = true,
 		status_text = 'shortcuts',
 		output_first = false,
 	}: Props = $props()
@@ -267,7 +269,7 @@
 
 		<!-- Bottom Status Bar -->
 		<div class="mt-auto pt-2" style="border-color: #576b7f;">
-			<div class="flex items-center justify-between text-lg">
+			<div class="flex items-start justify-between text-lg">
 				<div style="color: #637777;">
 					{#if status_text === 'shortcuts'}
 						? for shortcuts
@@ -281,12 +283,18 @@
 				{#if show_thinking}
 					<Transition visible order={3} delay={0.7}>
 						<div
-							class="flex items-center gap-2"
+							class="flex flex-col items-end"
 							style="color: #637777;"
 						>
-							<span style="color: #82AAFF;">⧉</span>
-							<span>In {thinking_file}</span>
-							<span>Thinking on (tab to toggle)</span>
+							<div class="flex items-center gap-2">
+								<span style="color: #afafff;">⧉</span>
+								<span>In {thinking_file}</span>
+							</div>
+							<span style="color: #596d6f;">
+								<span style={thinking_on ? 'color: #afafff;' : ''}>
+									Thinking {thinking_on ? 'on' : 'off'}
+								</span> (tab to toggle)
+							</span>
 						</div>
 					</Transition>
 				{/if}
