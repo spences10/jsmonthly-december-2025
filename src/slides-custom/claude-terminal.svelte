@@ -9,10 +9,11 @@
 		folder_location?: string
 		user_input?: string | string[]
 		user_reply?: string
-		claude_output?: string
+		claude_output?: string | string[]
 		show_thinking?: boolean
 		thinking_file?: string
 		status_text?: 'shortcuts' | 'accept-edits' | 'plan-mode'
+		output_first?: boolean
 	}
 
 	let {
@@ -27,6 +28,7 @@
 		show_thinking = false,
 		thinking_file = 'claude-terminal.svelte',
 		status_text = 'shortcuts',
+		output_first = false,
 	}: Props = $props()
 </script>
 
@@ -68,63 +70,166 @@
 
 		<!-- Main Content Area -->
 		<div class="mb-6 flex-1">
-			<!-- User Input -->
-			{#if user_input}
-				{#if Array.isArray(user_input)}
-					{#each user_input as input, index}
-						<Transition
-							visible
-							order={1 + index}
-							delay={0.3 + index * 0.15}
-						>
+			{#if output_first}
+				<!-- Claude Output First -->
+				{#if claude_output}
+					<div class="mb-8">
+						{#if Array.isArray(claude_output)}
+							{#each claude_output as output, index}
+								<Transition
+									visible
+									order={1 + index}
+									delay={0.3 + index * 0.15}
+								>
+									<div
+										class="text-2xl leading-relaxed whitespace-pre-wrap"
+										style="color: #d6deeb;"
+									>
+										{#if index === 0}<span>●&nbsp;</span>{:else}<span
+												>&nbsp;&nbsp;</span
+											>{/if}{output}
+									</div>
+								</Transition>
+							{/each}
+						{:else}
+							<Transition visible order={1} delay={0.3}>
+								<div
+									class="text-2xl leading-relaxed whitespace-pre-wrap"
+									style="color: #d6deeb;"
+								>
+									● {claude_output}
+								</div>
+							</Transition>
+						{/if}
+					</div>
+				{/if}
+
+				<!-- User Input Second -->
+				{#if user_input}
+					{#if Array.isArray(user_input)}
+						{#each user_input as input, index}
+							<Transition
+								visible
+								order={2 + index}
+								delay={0.5 + index * 0.15}
+							>
+								<div class="">
+									<div
+										class="inline-flex items-end gap-2"
+										style="color: #d6deeb; background: #3a3a3a;"
+									>
+										{#if index === 0}
+											<span class="text-2xl">&gt;</span>
+										{/if}
+										<div
+											class="text-2xl leading-normal"
+											style="color: #d6deeb; background: #3a3a3a;"
+										>
+											{input}
+										</div>
+									</div>
+								</div>
+							</Transition>
+						{/each}
+					{:else}
+						<Transition visible order={2} delay={0.5}>
 							<div class="">
 								<div
 									class="inline-flex items-end gap-2"
 									style="color: #d6deeb; background: #3a3a3a;"
 								>
-									{#if index === 0}
-										<span class="text-2xl">&gt;</span>
-									{/if}
+									<span class="text-2xl">&gt;</span>
 									<div
 										class="text-2xl leading-normal"
 										style="color: #d6deeb; background: #3a3a3a;"
 									>
-										{input}
+										{user_input}
 									</div>
 								</div>
 							</div>
 						</Transition>
-					{/each}
-				{:else}
-					<Transition visible order={1} delay={0.3}>
-						<div class="">
-							<div
-								class="inline-flex items-end gap-2"
-								style="color: #d6deeb; background: #3a3a3a;"
-							>
-								<span class="text-2xl">&gt;</span>
-								<div
-									class="text-2xl leading-normal"
-									style="color: #d6deeb; background: #3a3a3a;"
-								>
-									{user_input}
-								</div>
-							</div>
-						</div>
-					</Transition>
+					{/if}
 				{/if}
-			{/if}
-
-			<!-- Claude Output -->
-			{#if claude_output}
-				<Transition visible order={2} delay={0.5}>
-					<div
-						class="text-2xl leading-relaxed whitespace-pre-wrap"
-						style="color: #d6deeb;"
-					>
-						● {claude_output}
+			{:else}
+				<!-- User Input First (default) -->
+				{#if user_input}
+					<div class="mb-8">
+						{#if Array.isArray(user_input)}
+							{#each user_input as input, index}
+								<Transition
+									visible
+									order={1 + index}
+									delay={0.3 + index * 0.15}
+								>
+									<div class="">
+										<div
+											class="inline-flex items-end gap-2"
+											style="color: #d6deeb; background: #3a3a3a;"
+										>
+											{#if index === 0}
+												<span class="text-2xl">&gt;</span>
+											{/if}
+											<div
+												class="text-2xl leading-normal"
+												style="color: #d6deeb; background: #3a3a3a;"
+											>
+												{input}
+											</div>
+										</div>
+									</div>
+								</Transition>
+							{/each}
+						{:else}
+							<Transition visible order={1} delay={0.3}>
+								<div class="">
+									<div
+										class="inline-flex items-end gap-2"
+										style="color: #d6deeb; background: #3a3a3a;"
+									>
+										<span class="text-2xl">&gt;</span>
+										<div
+											class="text-2xl leading-normal"
+											style="color: #d6deeb; background: #3a3a3a;"
+										>
+											{user_input}
+										</div>
+									</div>
+								</div>
+							</Transition>
+						{/if}
 					</div>
-				</Transition>
+				{/if}
+
+				<!-- Claude Output Second -->
+				{#if claude_output}
+					{#if Array.isArray(claude_output)}
+						{#each claude_output as output, index}
+							<Transition
+								visible
+								order={2 + index}
+								delay={0.5 + index * 0.15}
+							>
+								<div
+									class="text-2xl leading-relaxed whitespace-pre-wrap"
+									style="color: #d6deeb;"
+								>
+									{#if index === 0}<span>●&nbsp;</span>{:else}<span
+											>&nbsp;&nbsp;</span
+										>{/if}{output}
+								</div>
+							</Transition>
+						{/each}
+					{:else}
+						<Transition visible order={2} delay={0.5}>
+							<div
+								class="text-2xl leading-relaxed whitespace-pre-wrap"
+								style="color: #d6deeb;"
+							>
+								● {claude_output}
+							</div>
+						</Transition>
+					{/if}
+				{/if}
 			{/if}
 		</div>
 
