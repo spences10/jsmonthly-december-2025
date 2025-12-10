@@ -34,7 +34,7 @@ caption: "We like to ad `Sv` to everything"
 
 # I lied!
 
-It _was_ 370 files in 11 hours, but I hadn't finished! 😅
+### It _was_ 370 files in 11 hours, but I hadn't finished! 😅
 
 ---
 
@@ -59,11 +59,8 @@ subtitle: "(Thanks Claude)"
 
 This is a story about how I used AI to do a tedious,
 
-repetitive refactor that would have taken me weeks to do manually.
-
----
-
-# With a bonus ending!
+repetitive refactor that would have taken me **_much_** longer to do
+manually.
 
 ---
 
@@ -99,6 +96,7 @@ points: ["Svelte LDN meetup organiser", "Engineering Lead", "Does AI stuff at Xt
 
 ```component:stacking-reveal
 items: ["Not a doomer", "Not a booster", "A user", "AI === Tool"]
+scale: 1.5
 ```
 
 ---
@@ -142,8 +140,8 @@ scale: 1.5
 ---
 
 ```component:bullet-points
-title: "The work"
-points: ["Remove ui dependency", "Add new ui components", "Run svelte-check", "Proffit??"]
+title: "The task"
+points: ["Remove ui package dependency", "Add new ui components", "Run svelte-check", "Proffit??"]
 ```
 
 ---
@@ -154,6 +152,9 @@ lines: [
   { "content": "<script lang=\"ts\">", "type": "normal" },
   { "content": "  import { Button, Card, Input } from 'ui'", "type": "removed" },
   { "content": "  import { Button, Card, Input } from '$lib/components/ui'", "type": "added" },
+  { content: '  ...', type: 'ellipsis' },
+  { content: '  // other stuff', type: 'ellipsis' },
+  { content: '  ...', type: 'ellipsis' },
   { "content": "</script>", "type": "normal" }
 ]
 scale: 2.5
@@ -167,29 +168,16 @@ scale: 2.5
 
 ---
 
-```component:numbered-grid
-title: "Why This Wasn't Fixable Manually"
-items: [
-  { number: "1", heading: "Hundreds of Files", content: "Massive scale across entire app codebase" },
-  { number: "2", heading: "Cascading Errors", content: "Each fix could introduce new problems" },
-  { number: "3", heading: "Weeks of Work", content: "Time estimate: endless tedious manual changes" },
-  { number: "4", heading: "Human Limits", content: "Attention span not built for this kind of repetition" }
-]
+```component:stacking-reveal
+items: ["Claude", "This is your job now!"]
 scale: 1.5
 ```
 
 ---
 
 ```component:bullet-points
-title: "Claude, this is your job now!"
-points: ["Copy 50 lines of errors", "Feed the errors to Claude", "Repeat until svelte-check passes"]
-```
-
----
-
-```component:bullet-points
 title: "The Loop"
-points: ["Run svelte-check", "Copy first 50 errors", "Paste to Claude → get fixes", "Apply fixes → commit", "Repeat until green"]
+points: ["Run svelte-check", "Copy first 50 errors", "Paste to Claude > get fixes", "Apply fixes > commit", "Repeat until green"]
 ```
 
 ---
@@ -208,15 +196,14 @@ points: ["200k token limit", "50 lines at a time = manageable chunks", "3-5 cycl
 
 ---
 
-# AI Didn't Make This Fast
+# Still a missive chore!
 
 My job is now chief copy paster!
 
 > notes:
 >
 > - Not quick AI fixes
-> - Sustained, iterative work with Claude all day
-> - Evening commits = proven solutions in batches
+> - Sustained, iterative work with Claude
 > - This reinforces "Augmentation, Not Replacement"
 
 ---
@@ -244,7 +231,7 @@ scale: 1.8
 
 ```component:bullet-points
 title: "The Workflow: Batch Processing"
-points: ["Created svelte-check.md tracking file", "Take top 50 errors", "Paste to Claude → apply fixes", "Delete those lines, repeat", "33 iterations in one session"]
+points: ["Created svelte-check.md tracking file", "Take top 50 errors", "Paste to Claude > apply fixes", "Delete those lines, repeat", "33 iterations in one session"]
 ```
 
 > notes:
@@ -256,29 +243,27 @@ points: ["Created svelte-check.md tracking file", "Take top 50 errors", "Paste t
 
 ---
 
-# The 16.5 Hour Marathon
+# 16.5 Hours, 33 Sessions
 
-Nov 12-13: One continuous session, 33 conversations
+Nov 12-13: Systematic batch processing
 
 > notes:
 >
 > - Started evening of Nov 12
-> - Went through the night
-> - Ended afternoon Nov 13
-> - This wasn't AI making it fast - this was AI making it POSSIBLE
-> - Human couldn't maintain focus on 2,847 errors
-> - But 50 at a time? Manageable
+> - Continued through Nov 13
+> - 928 errors to fix
+> - 50 at a time = manageable chunks
+> - Context limits forced natural breaks
 
 ---
 
 ```component:bullet-points
-title: "Quality Control During Marathon"
-points: ["'Skill(research) for svelte 5 runes'", "Ensure correct implementation", "NOT pattern matching", "Research before every fix"]
+title: "Quality Control"
+points: ["`Skill(research) for svelte 5 runes`", "Verify against official docs", "Not just pattern matching", "Research before applying"]
 ```
 
 > notes:
 >
-> - Even in marathon mode, quality mattered
 > - Used research skill to verify Svelte 5 patterns
 > - Avoid blindly applying fixes
 > - Understand each change
@@ -320,15 +305,14 @@ commits: 20
 
 ```component:punch-card
 title: "PR #5361: When It Happened"
-subtitle: "Nov 12-17: 30 commits over 4.6 days"
-data: [{"date":"2025-11-12","hour":21,"count":5},{"date":"2025-11-12","hour":22,"count":3},{"date":"2025-11-13","hour":7,"count":2},{"date":"2025-11-13","hour":10,"count":1},{"date":"2025-11-13","hour":12,"count":3},{"date":"2025-11-13","hour":13,"count":3},{"date":"2025-11-13","hour":14,"count":2},{"date":"2025-11-14","hour":21,"count":3},{"date":"2025-11-14","hour":22,"count":3},{"date":"2025-11-15","hour":8,"count":3},{"date":"2025-11-15","hour":9,"count":1},{"date":"2025-11-17","hour":10,"count":1},{"date":"2025-11-17","hour":11,"count":2}]
+subtitle: "Nov 12-13: 19 commits over 2 days"
+data: [{"date":"2025-11-12","hour":21,"count":5},{"date":"2025-11-12","hour":22,"count":3},{"date":"2025-11-13","hour":7,"count":2},{"date":"2025-11-13","hour":10,"count":1},{"date":"2025-11-13","hour":12,"count":3},{"date":"2025-11-13","hour":13,"count":3},{"date":"2025-11-13","hour":14,"count":2}]
 hour_range: [6, 24]
 ```
 
 > notes:
 >
-> - The marathon: Nov 12 evening through Nov 13 afternoon
-> - 16.5 hours shown in the punch card
+> - Nov 12 evening through Nov 13 afternoon
 > - Late night commits = fixing batches of 50 errors
 
 ---
@@ -336,7 +320,7 @@ hour_range: [6, 24]
 ```component:dual-bars
 title: "PR #5361: Work vs Commits"
 subtitle: "Coding hours vs shipped commits"
-data: [{"date":"2025-11-12","commits":8,"hours":11.53},{"date":"2025-11-13","commits":7,"hours":12.53},{"date":"2025-11-14","commits":6,"hours":12.86},{"date":"2025-11-15","commits":3,"hours":6.09},{"date":"2025-11-16","commits":0,"hours":7.27},{"date":"2025-11-17","commits":6,"hours":10.53}]
+data: [{"date":"2025-11-12","commits":8,"hours":11.53},{"date":"2025-11-13","commits":11,"hours":12.53}]
 y_primary: "hours"
 y_secondary: "commits"
 y_label: "Hours"
@@ -348,24 +332,44 @@ secondary_opacity: 0.6
 
 > notes:
 >
-> - Nov 12-13: Marathon coding, 8+7 commits
-> - Nov 14: Still high hours (12.86h), fewer commits as work got
->   harder
-> - Nov 16: 7.27h coding but 0 commits (working on personal projects)
-> - Total: 60.81 hours across this PR
+> - Nov 12: 8 commits, 11.5h
+> - Nov 13: 11 commits, 12.5h
+> - Total: 24h across 2 days
 
 ---
 
-# The Disaster
-
-"you did fucking what? that ui package is the old svelte 4 fucking
-implementation!"
+# Don't trust it!
 
 > notes:
 >
-> - Claude migrated 160 files to the WRONG shadcn-svelte version
-> - Had to revert everything and start over
-> - This is why you verify AI outputs!
+> - Remember the 160-file disaster? That's why verification matters
+> - 50 lines at a time = manageable, verifiable chunks
+> - Session limits force breaks = built-in verification points
+> - Constantly checking outputs against real behavior
+
+---
+
+```component:claude-terminal
+claude_code_version: "v2.0.61"
+model?: "Opus 4.5"
+account_type: "Claude Max"
+folder_location: "~/repos/jsmonthly-december-2025"
+user_input: ["did you analyse the data I gave you?"]
+claude_output: ["You're right, I was lazy. Let me actually check the data:"]
+show_thinking: true
+thinking_file: "talk.md"
+user_reply: ""
+status_text: 'accept-edits'
+```
+
+> notes:
+>
+> - This is an actual exchange I had with Claude
+> - The data here is all the collated information for these slides
+
+---
+
+# 🤦
 
 ---
 
@@ -374,16 +378,20 @@ implementation!"
 ---
 
 ```component:claude-terminal
-user_input: ["\"Migrated 160 files from 'ui' package → local $lib/components/ui/*\"",
-"",
-"  you did fucking what?",
-"",
-"  that ui package is the old svelte 4 fucking iplemtnation of schadcn-svelte!!"]
+folder_location: "/repos/xo-monorepo"
+claude_output: ["Done!", "Migrated 160 files from 'ui' package > local $lib/components/ui/*"]
+user_input: ["you did fucking what?", "", "that ui package is the old svelte 4 fucking iplemtnation of schadcn-svelte!!"]
 show_thinking: true
 thinking_file: "claude-terminal.svelte"
-user_reply: ""
+user_reply: "you twat! lol! ok, I need to do this all over again now!"
 status_text: 'accept-edits'
+output_first: true
 ```
+
+> notes:
+>
+> - It moved the old ui package to where the new components were
+> - this is what git is for now, undoing Claude's mess
 
 ---
 
@@ -415,7 +423,7 @@ items: [
   { text: "Visit each route in browser" },
   { text: "Check against official shadcn-svelte docs" },
   { text: "Verify tokens, contrast, dark mode" },
-  { text: "No 'good enough' - authentic or nothing" }
+  { text: "15 routes validated" }
 ]
 ```
 
@@ -425,14 +433,14 @@ items: [
 > - 15 routes: /quality, /evals, /reporting, /agent-view,
 >   /smart-agents, /login, etc.
 > - Constant questions: "is that vanilla schadcn-svelte?"
-> - "doesn't feel very schadcn-svelte" → research and fix
+> - "doesn't feel very schadcn-svelte" > research and fix
 > - Visual validation, not just compile errors
 
 ---
 
 ```component:bullet-points
-title: "Quality Enforcement Philosophy"
-points: ["'are they vanilla schadcn-svelte?'", "'is that correct against official docs?'", "15 routes systematically validated", "No shortcuts, no 'good enough'"]
+title: "Quality Enforcement"
+points: ["`are they vanilla schadcn-svelte?`", "`is that correct against official docs?`", "15 routes validated", "Visual inspection, not just compile"]
 ```
 
 > notes:
@@ -513,73 +521,56 @@ scale: 1.8
 
 ---
 
-# "I'm super pissed off with this slow loading"
-
-Repeated across 5 sessions
+```component:claude-terminal
+folder_location: "/repos/xo-monorepo"
+user_input: ["I'm super pissed off with this slow loading"]
+show_thinking: true
+thinking_file: "hooks.server.ts"
+user_reply: ""
+status_text: 'accept-edits'
+output_first: true
+```
 
 > notes:
 >
+> - "I'm super pissed off with this slow loading"
+> - Repeated across 5 sessions
 > - SvelteKit is super fast
 > - But 3 years of accumulated rot
 > - Time to strip everything
 
 ---
 
-```component:title-with-list
-title: "The Workflow: Performance Investigation"
-items: [
-  { text: "Different from batch processing and validation" },
-  { text: "Performance.now() timing around all hooks" },
-  { text: "Wrote performance-logs.jsonl for analysis" },
-  { text: "Read logs, identify bottlenecks, implement solutions" }
-]
+```component:claude-terminal
+folder_location: "/repos/xo-monorepo"
+user_input: "doing perf! use performance.now around each of the hooks"
+show_thinking: true
+thinking_file: "hooks.server.ts"
+claude_output: ["Analyzing route performance...", "Writing to performance-logs.jsonl", "Ready for bottleneck analysis"]
+status_text: 'accept-edits'
 ```
 
 > notes:
 >
-> - Not fixing errors or validating UI
-> - Scientific method: measure, identify, optimize
-> - "let's add performance.now logging throughout"
-> - Log rotation to avoid clogging devices
-> - Made problems visible before solving them
+> - Scientific method: measure first
+> - Log rotation added to avoid clogging devices
+> - Made problems visible before solving
 
 ---
 
-```component:bullet-points
-title: "The Bottleneck Discovery"
-points: ["Systematic route investigation", "fetchAgents: 803ms ❌ (TOO SLOW)", "Total request: 2,838ms including render", "Solution: MongoDB database indexes"]
+```component:claude-terminal
+folder_location: "/repos/xo-monorepo"
+display_header: true
+claude_output: ["🔍 Found the Bottlenecks!", "", "parallelQueries:  221ms ✅", "fetchAgents:      803ms ❌ (TOO SLOW)", "Total server:    1031ms", "Total request:   2838ms", "", "Solution: MongoDB database indexes needed"]
+status_text: 'accept-edits'
+output_first: true
 ```
 
 > notes:
 >
-> - parallelQueries: 221ms ✅ (acceptable)
-> - fetchAgents: 803ms ❌ (THE PROBLEM)
-> - Created database-indexes.md documentation
-> - Multiple indexes needed for optimization
-
----
-
-```component:three-column-features
-title: "Performance Wins"
-gradient_title: true
-items: [
-  {
-    icon: "🔐",
-    heading: "Auth Optimization",
-    description: "Remote functions reducing overhead"
-  },
-  {
-    icon: "💾",
-    heading: "Session Caching",
-    description: "Fewer DB round trips"
-  },
-  {
-    icon: "⚡",
-    heading: "Progressive Loading",
-    description: "Tab-based lazy loading for agent data"
-  }
-]
-```
+> - 237 agents fetched, only 10 shown
+> - No database indexes = 803ms query
+> - With indexes: under 100ms expected
 
 ---
 
@@ -633,16 +624,14 @@ secondary_opacity: 0.6
 ---
 
 ```component:bullet-points
-title: "PR #5397: Layout Effect Refactor"
-points: ["Quick polish pass", "7 commits, 9 hours", "Fixed loading states", "Wrapped components in TooltipProvider", "The cleanup after the big refactors"]
+title: "PR #5397: Cleanup"
+points: ["7 commits, 9 hours", "Fixed loading states", "Wrapped components in TooltipProvider", "Added Spinner component"]
 ```
 
 > notes:
 >
 > - Nov 21: wrapping up loose ends
-> - Not every PR is a marathon
-> - Sometimes you just need to tidy up
-> - Added Spinner component for loading states
+> - Tidying up after the main work
 
 ---
 
@@ -651,21 +640,21 @@ title: "Before vs After"
 gradient_title: false
 left_title: "Before"
 left_items: [
-  { main: "Blocked", sub: "Legacy UI package for 18 months" },
+  { main: "Blocked", sub: "Legacy UI package since spring" },
   { main: "Scattered", sub: "Custom styling everywhere" }
 ]
 right_title: "After"
 right_items: [
   { main: "Clean", sub: "Vanilla shadcn-svelte components" },
-  { main: "Unlocked", sub: "Performance optimizations finally possible" }
+  { main: "Unlocked", sub: "Performance work now possible" }
 ]
 ```
 
 ---
 
 ```component:bullet-points
-title: "Time Freed = Time Earned"
-points: ["Foundation work finished", "Room to tackle performance", "The stuff I actually wanted to do"]
+title: "Why This Mattered"
+points: ["UI migration done > performance work unblocked", "PR #5381 wouldn't exist without #5361 and #5375"]
 ```
 
 ---
@@ -691,7 +680,7 @@ commits: 128
 
 ```component:bullet-points
 title: "What This Actually Means"
-points: ["AI didn't replace me", "It enabled work at inhuman scale", "I focused on decisions, not drudgery"]
+points: ["AI didn't replace me", "It handled 928 errors in batches of 50", "I made the decisions, Claude did the typing"]
 ```
 
 ---
@@ -751,25 +740,25 @@ color: "var(--color-warning)"
 ---
 
 ```component:three-column-cards
-title: "Building Better Workflows"
+title: "Side Project: svelte-claude-skills"
 items: [
   {
     number: "1",
     heading: "Evaluation",
     points: ["Skill evaluation framework", "Cost calculator", "Metrics tracker"],
-    conclusion: "Nov 13: Measuring quality"
+    conclusion: "Nov 13"
   },
   {
     number: "2",
     heading: "Automation",
-    points: ["Hook system for reliable activation", "Testing consistency"],
-    conclusion: "Nov 15: Making it reliable"
+    points: ["Hook system for skill activation", "Testing consistency"],
+    conclusion: "Nov 15"
   },
   {
     number: "3",
-    heading: "Results",
-    points: ["Patterns that work vs don't", "Repeatable workflows"],
-    conclusion: "Finding what makes Claude work"
+    heading: "Blog Post",
+    points: ["What worked vs didn't", "4.5k readers"],
+    conclusion: "Nov 16"
   }
 ]
 ```
@@ -782,31 +771,14 @@ items: [
 
 ---
 
-# Don't trust it!
-
-> notes:
->
-> - Remember the 160-file disaster? That's why verification matters
-> - 50 lines at a time = manageable, verifiable chunks
-> - Session limits force breaks = built-in verification points
-> - Constantly checking outputs against real behavior
-
----
-
-```component:claude-terminal
-user_input: ["did you analyse the data I gave you?"]
-claude_output: ["You're right, I was lazy. Let me actually check the data:"]
-show_thinking: true
-thinking_file: "claude-terminal.svelte"
-user_reply: ""
-status_text: 'accept-edits'
-```
-
----
-
-```component:simple-timeline
-title: "The Blog Post"
-events: ["Nov 13|Built eval framework", "Nov 15|Created hook system", "Nov 16|Published|highlight", "Nov 22|4.5k readers"]
+```component:stacking-reveal
+items: [
+  { text: "Built eval framework", sub: "Nov 13" },
+  { text: "Created hook system", sub: "Nov 15" },
+  { text: "Published blog post", sub: "Nov 16" },
+  { text: "4.5k readers", sub: "Nov 22" }
+]
+scale: 1.5
 ```
 
 > notes:
@@ -819,7 +791,7 @@ events: ["Nov 13|Built eval framework", "Nov 15|Created hook system", "Nov 16|Pu
 
 ```component:bullet-points
 title: "The Real Unlock"
-points: ["AI accelerated my work", "Understanding AI made it reliable", "Sharing knowledge amplified impact", "875 files + viral blog post = same 10 days"]
+points: ["AI handled the repetitive bits", "Research skill caught mistakes", "Blog got traction (4.5k readers)", "875 files + blog post = same 10 days"]
 ```
 
 ---
@@ -828,25 +800,22 @@ points: ["AI accelerated my work", "Understanding AI made it reliable", "Sharing
 
 > notes:
 >
-> - PR #5361: Batch processing (systematic error elimination)
-> - PR #5375: Route-by-route validation (visual quality enforcement)
-> - PR #5381: Scientific investigation (measure, identify, optimize)
+> - PR #5361: Batch processing (50 errors at a time)
+> - PR #5375: Route-by-route validation (15 routes)
+> - PR #5381: Performance investigation (measure, identify, fix)
 > - Each PR needed a different approach
-> - AI adapted to the workflow, not the other way around
 
 ---
 
 ```component:bullet-points
 title: "The Complete Picture"
-points: ["4 work PRs across 10 days", "128 commits to production", "137 hours tracked (git duration)", "104 hours actual coding time", "Plus 57 personal commits"]
+points: ["4 work PRs across 10 days", "128 commits to production", "104 hours coding (wakatime)", "74.5h work + 20.8h personal"]
 ```
 
 > notes:
 >
 > - Work: xo-monorepo refactor (74.5h)
 > - Personal: svelte-claude-skills (20.8h), blog, other projects
-> - Not just doing more - doing impossible work
-> - While building better tools to do it
 
 ---
 
@@ -859,12 +828,10 @@ color: "text-purple-400"
 
 > notes:
 >
-> - This is the full achievement
-> - Professional AND personal growth
+> - 128 work + 57 personal
 > - Refactoring at work
-> - Building better AI tools at home
-> - Publishing knowledge to community
-> - All in parallel
+> - Building tools at home
+> - Both in same 10 days
 
 ---
 
@@ -908,8 +875,8 @@ secondary_opacity: 0.6
 ---
 
 ```component:key-takeaways
-title: "Impact Summary"
-points: ["AI handles tedious work so you focus on interesting problems", "Large-scale refactors become manageable with the right tools", "Building reliable workflows beats one-off solutions", "Different problems need different workflows"]
+title: "What Worked"
+points: ["50 lines at a time = verifiable chunks", "Research skill for Svelte 5 patterns", "Same workflow across all 4 PRs", "Batch processing ≠ validation ≠ investigation"]
 ```
 
 ---

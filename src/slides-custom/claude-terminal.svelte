@@ -39,7 +39,7 @@
 <Transition visible entry="scale-in" duration={0.6} delay={0.2}>
 	<div
 		class="overflow-hidden rounded-lg text-left font-mono"
-		style="background-color: #011627; max-width: 1400px; min-height: 600px; display: flex; flex-direction: column; padding: 2rem; font-family: 'JetBrains Mono', 'Victor Mono', 'Fira Code', Menlo, Monaco, Consolas, monospace;"
+		style="background-color: #011627; max-width: 1400px; min-width: 1200px; min-height: 600px; display: flex; flex-direction: column; padding: 2rem; font-family: 'JetBrains Mono', 'Victor Mono', 'Fira Code', Menlo, Monaco, Consolas, monospace;"
 	>
 		<!-- Header Section -->
 		{#if display_header}
@@ -236,13 +236,12 @@
 		</div>
 
 		<!-- User Reply Section with bars -->
-		{#if user_reply}
 			<Transition visible order={3} delay={0.7}>
 				<div class="mt-6">
 					<!-- Top bar -->
 					<div
-						class="border-t-4 pt-4"
-						style="border-color: #576b7f;"
+						class="border-t-2 pt-2"
+						style="border-color: #404040;"
 					></div>
 
 					<!-- User reply with prompt -->
@@ -260,12 +259,11 @@
 
 					<!-- Bottom bar -->
 					<div
-						class="border-b-4 pt-4"
-						style="border-color: #576b7f;"
+						class="border-b-2 pt-2"
+						style="border-color: #404040;"
 					></div>
 				</div>
 			</Transition>
-		{/if}
 
 		<!-- Bottom Status Bar -->
 		<div class="mt-auto pt-2" style="border-color: #576b7f;">
