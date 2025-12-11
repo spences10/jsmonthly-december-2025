@@ -270,6 +270,33 @@ points: ["`Skill(research) for svelte 5 runes`", "Verify against official docs",
 
 ---
 
+```component:claude-terminal
+folder_location: "/repos/xo-monorepo"
+user_input: "can you check the aws logs for me, there's a IAM issue with bedrock"
+claude_output: [
+  { text: "Skill Evaluation:", color: "#d6deeb" },
+  { text: "- docker-ecs-troubleshooting: YES - checking ECS/AWS logs", color: "#637777" },
+  { text: "- operations: YES - investigating error/logs", color: "#637777" },
+  { text: "Skill(operations)", color: "#afafff" },
+  { text: "Skill(docker-ecs-troubleshooting)", color: "#afafff" },
+  { text: "Let me check the AWS logs for the claude-sdk-runtime service:", color: "#d6deeb" },
+  { text: "Bash(aws logs tail /ecs/warby-claude-sdk-runtime --since 1h)", color: "#FF6B9D" },
+  { text: "(No content)", color: "#637777", indent: true }
+]
+show_thinking: true
+thinking_file: "hooks.server.ts"
+status_text: 'accept-edits'
+```
+
+> notes:
+>
+> - This is Claude Code evaluating which skills to use
+> - The colored dots show different types of output
+> - Blue/purple for skill activations
+> - Pink for tool calls
+
+---
+
 ```component:bluesky-embed
 post_id: "did:plc:nlvjelw3dy3pddq7qoglleko/app.bsky.feed.post/3m5mt5kevzk27"
 scale: 1.2
@@ -872,12 +899,6 @@ secondary_opacity: 0.6
 > - The commits show WHEN I shipped, not when I worked
 > - Full 10-day picture of work + personal combined
 
----
-<!-- TODO -->
-```component:key-takeaways
-title: "What Worked"
-points: ["50 lines at a time = verifiable chunks", "Research skill for Svelte 5 patterns", "Same workflow across all 4 PRs", "Batch processing ≠ validation ≠ investigation"]
-```
 
 ---
 

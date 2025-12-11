@@ -1,6 +1,8 @@
 <script lang="ts">
 	import { Transition } from '@animotion/core'
 
+	type OutputItem = string | { text: string; color?: string; indent?: boolean }
+
 	interface Props {
 		display_header?: boolean
 		claude_code_version?: string
@@ -9,12 +11,25 @@
 		folder_location?: string
 		user_input?: string | string[]
 		user_reply?: string
-		claude_output?: string | string[]
+		claude_output?: string | string[] | OutputItem[]
 		show_thinking?: boolean
 		thinking_file?: string
 		thinking_on?: boolean
 		status_text?: 'shortcuts' | 'accept-edits' | 'plan-mode'
 		output_first?: boolean
+	}
+
+	function normalizeOutput(
+		item: string | OutputItem
+	): { text: string; color: string; indent: boolean } {
+		if (typeof item === 'string') {
+			return { text: item, color: '#d6deeb', indent: false }
+		}
+		return {
+			text: item.text,
+			color: item.color || '#d6deeb',
+			indent: item.indent || false,
+		}
 	}
 
 	let {
@@ -78,6 +93,7 @@
 					<div class="mb-8">
 						{#if Array.isArray(claude_output)}
 							{#each claude_output as output, index}
+								{@const normalized = normalizeOutput(output)}
 								<Transition
 									visible
 									order={1 + index}
@@ -87,9 +103,11 @@
 										class="text-2xl leading-relaxed whitespace-pre-wrap"
 										style="color: #d6deeb;"
 									>
-										{#if index === 0}<span>●&nbsp;</span>{:else}<span
-												>&nbsp;&nbsp;</span
-											>{/if}{output}
+										{#if normalized.indent}
+											<span>&nbsp;&nbsp;└ </span><span style="color: {normalized.color};">{normalized.text}</span>
+										{:else}
+											<span style="color: {normalized.color};">●</span>&nbsp;<span style="color: {normalized.color};">{normalized.text}</span>
+										{/if}
 									</div>
 								</Transition>
 							{/each}
@@ -206,6 +224,7 @@
 				{#if claude_output}
 					{#if Array.isArray(claude_output)}
 						{#each claude_output as output, index}
+							{@const normalized = normalizeOutput(output)}
 							<Transition
 								visible
 								order={2 + index}
@@ -215,9 +234,11 @@
 									class="text-2xl leading-relaxed whitespace-pre-wrap"
 									style="color: #d6deeb;"
 								>
-									{#if index === 0}<span>●&nbsp;</span>{:else}<span
-											>&nbsp;&nbsp;</span
-										>{/if}{output}
+									{#if normalized.indent}
+										<span>&nbsp;&nbsp;└ </span><span style="color: {normalized.color};">{normalized.text}</span>
+									{:else}
+										<span style="color: {normalized.color};">●</span>&nbsp;<span style="color: {normalized.color};">{normalized.text}</span>
+									{/if}
 								</div>
 							</Transition>
 						{/each}

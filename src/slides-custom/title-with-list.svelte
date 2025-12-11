@@ -35,24 +35,6 @@
 				<div
 					class="gradient-primary relative flex items-start gap-6 rounded-2xl p-8"
 				>
-					<div
-						class="flex h-12 w-12 shrink-0 items-center justify-center"
-					>
-						<svg
-							class="h-10 w-10 text-red-400"
-							fill="none"
-							stroke="currentColor"
-							viewBox="0 0 24 24"
-						>
-							<path
-								stroke-linecap="round"
-								stroke-linejoin="round"
-								stroke-width="3"
-								d="M6 18L18 6M6 6l12 12"
-							/>
-						</svg>
-					</div>
-
 					<p class="flex-1 text-left text-3xl leading-relaxed">
 						{item.text}
 					</p>
