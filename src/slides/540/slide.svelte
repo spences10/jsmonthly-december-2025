@@ -1,6 +1,6 @@
 <script>
-	import BulletPoints from '../../slides-custom/bullet-points.svelte'
+	import TwoColumnGrid from '../../slides-custom/two-column-grid.svelte'
 </script>
 
-<BulletPoints title="Why This Mattered" points={["UI migration done > performance work unblocked","PR #5381 wouldn't exist without #5361 and #5375"]} />
+<TwoColumnGrid title="Before vs After" gradient_title={false} left_title="Before" left_items={[{"main":"Blocked","sub":"Legacy UI package since spring"},{"main":"Scattered","sub":"Custom styling everywhere"}]} right_title="After" right_items={[{"main":"Clean","sub":"Vanilla shadcn-svelte components"},{"main":"Unlocked","sub":"Performance work now possible"}]} />
 

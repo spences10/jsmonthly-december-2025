@@ -1,17 +1,16 @@
 <script>
-	import DualBars from '../../slides-custom/dual-bars.svelte'
+	import PunchCard from '../../slides-custom/punch-card.svelte'
 	import { Notes } from '@animotion/core'
 </script>
 
-<DualBars title="PR #5381: Work vs Commits" subtitle="Performance investigation and optimization" data={[{"date":"2025-11-18","commits":8,"hours":13.58},{"date":"2025-11-19","commits":14,"hours":11.41},{"date":"2025-11-20","commits":27,"hours":8.89},{"date":"2025-11-21","commits":9,"hours":9.33}]} y_primary="hours" y_secondary="commits" y_label="Hours" primary_label="Coding Hours" secondary_label="Commits" primary_opacity={0.3} secondary_opacity={0.6} />
+<PunchCard title="PR #5381: When It Happened" subtitle="Nov 18-21: 54 commits over 3 days" data={[{"date":"2025-11-18","hour":15,"count":2},{"date":"2025-11-18","hour":16,"count":2},{"date":"2025-11-18","hour":17,"count":2},{"date":"2025-11-18","hour":22,"count":2},{"date":"2025-11-19","hour":7,"count":1},{"date":"2025-11-19","hour":8,"count":1},{"date":"2025-11-19","hour":9,"count":1},{"date":"2025-11-19","hour":10,"count":1},{"date":"2025-11-19","hour":14,"count":4},{"date":"2025-11-19","hour":16,"count":2},{"date":"2025-11-19","hour":17,"count":1},{"date":"2025-11-19","hour":19,"count":1},{"date":"2025-11-19","hour":20,"count":1},{"date":"2025-11-19","hour":21,"count":4},{"date":"2025-11-20","hour":7,"count":2},{"date":"2025-11-20","hour":16,"count":1},{"date":"2025-11-20","hour":19,"count":12},{"date":"2025-11-20","hour":20,"count":5},{"date":"2025-11-20","hour":21,"count":3},{"date":"2025-11-20","hour":22,"count":2},{"date":"2025-11-20","hour":23,"count":2},{"date":"2025-11-21","hour":11,"count":1},{"date":"2025-11-21","hour":12,"count":2},{"date":"2025-11-21","hour":16,"count":2},{"date":"2025-11-21","hour":17,"count":3},{"date":"2025-11-21","hour":18,"count":1}]} hour_range={[6,24]} />
 
 <Notes>
 	<ul>
-		<li>Nov 18: overlapped with end of #5375 (13.58h total)</li>
-		<li>Nov 19: Investigation day (11.41h, steady commits)</li>
-		<li>Nov 20: Implementation day (27 commits, shipping solutions)</li>
-		<li>Nov 21: Wrapping up (9.33h)</li>
-		<li>Total: 43.21 hours across this PR</li>
+		<li>Nov 18 afternoon: started after #5375 completion</li>
+		<li>Nov 19: steady investigation and optimization</li>
+		<li>Nov 20: Big push (27 commits) - implementing solutions</li>
+		<li>Nov 21: final touches before wrapping up</li>
 	</ul>
 </Notes>
 

@@ -1,15 +1,6 @@
 <script>
-	import StatComparison from '../../slides-custom/stat-comparison.svelte'
-	import { Notes } from '@animotion/core'
+	import BulletPoints from '../../slides-custom/bullet-points.svelte'
 </script>
 
-<StatComparison title="Same 10 Days" stats={["74.5h|Work refactor|text-blue-400","20.8h|Personal projects|text-green-400"]} />
-
-<Notes>
-	<ul>
-		<li>This is the meta story</li>
-		<li>Not just using AI, but improving how to use AI</li>
-		<li>Work refactor AND personal projects in parallel</li>
-	</ul>
-</Notes>
+<BulletPoints title="Augmentation, Not Replacement" points={["I made all the architectural decisions","Claude handled the tedious execution","Still needed to understand every fix","But didn't have to type it all manually"]} />
 

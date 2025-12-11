@@ -1,6 +1,16 @@
 <script>
-	import GithubPr from '../../slides-custom/github-pr.svelte'
+	import DualBars from '../../slides-custom/dual-bars.svelte'
+	import { Notes } from '@animotion/core'
 </script>
 
-<GithubPr org="xtendops-developers" repo="xo-monorepo" pr_number={5381} pr_title="feat(auth): optimize user authentication with remote functions" author="spences10" branch="Optimisation-Of-XOOS-loading" base_branch="main" status="merged" date="4 weeks ago" conversation={14} commits={54} checks={32} files_changed="122" added={8269} deleted={6054} scale={1.8} />
+<DualBars title="PR #5375: Work vs Commits" subtitle="Post-disaster recovery sprint" data={[{"date":"2025-11-17","commits":24,"hours":10.53},{"date":"2025-11-18","commits":30,"hours":13.58}]} y_primary="hours" y_secondary="commits" y_label="Hours" primary_label="Coding Hours" secondary_label="Commits" primary_opacity={0.3} secondary_opacity={0.6} />
+
+<Notes>
+	<ul>
+		<li>Most intense 2 days of the entire 10-day period</li>
+		<li>Nov 18: 30 commits in a single day (peak productivity)</li>
+		<li>13.58 hours = longest coding day</li>
+		<li>High commit rate because of systematic route-by-route approach</li>
+	</ul>
+</Notes>
 

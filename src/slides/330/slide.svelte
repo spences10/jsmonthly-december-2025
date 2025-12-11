@@ -1,15 +1,14 @@
 <script>
-	import DualBars from '../../slides-custom/dual-bars.svelte'
+	import PunchCard from '../../slides-custom/punch-card.svelte'
 	import { Notes } from '@animotion/core'
 </script>
 
-<DualBars title="PR #5361: Work vs Commits" subtitle="Coding hours vs shipped commits" data={[{"date":"2025-11-12","commits":8,"hours":11.53},{"date":"2025-11-13","commits":11,"hours":12.53}]} y_primary="hours" y_secondary="commits" y_label="Hours" primary_label="Coding Hours" secondary_label="Commits" primary_opacity={0.3} secondary_opacity={0.6} />
+<PunchCard title="PR #5361: When It Happened" subtitle="Nov 12-13: 19 commits over 2 days" data={[{"date":"2025-11-12","hour":21,"count":5},{"date":"2025-11-12","hour":22,"count":3},{"date":"2025-11-13","hour":7,"count":2},{"date":"2025-11-13","hour":10,"count":1},{"date":"2025-11-13","hour":12,"count":3},{"date":"2025-11-13","hour":13,"count":3},{"date":"2025-11-13","hour":14,"count":2}]} hour_range={[6,24]} />
 
 <Notes>
 	<ul>
-		<li>Nov 12: 8 commits, 11.5h</li>
-		<li>Nov 13: 11 commits, 12.5h</li>
-		<li>Total: 24h across 2 days</li>
+		<li>Nov 12 evening through Nov 13 afternoon</li>
+		<li>Late night commits = fixing batches of 50 errors</li>
 	</ul>
 </Notes>
 

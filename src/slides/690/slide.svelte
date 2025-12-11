@@ -1,17 +1,16 @@
 <script>
-	import DualBars from '../../slides-custom/dual-bars.svelte'
+	import PunchCard from '../../slides-custom/punch-card.svelte'
 	import { Notes } from '@animotion/core'
 </script>
 
-<DualBars title={`But Here's What Was Really Happening`} subtitle="Commits vs Coding Hours" data={[{"date":"2025-11-12","commits":17,"hours":11.53},{"date":"2025-11-13","commits":16,"hours":12.53},{"date":"2025-11-14","commits":14,"hours":12.86},{"date":"2025-11-15","commits":7,"hours":6.09},{"date":"2025-11-16","commits":5,"hours":7.27},{"date":"2025-11-17","commits":30,"hours":10.53},{"date":"2025-11-18","commits":30,"hours":13.58},{"date":"2025-11-19","commits":14,"hours":11.41},{"date":"2025-11-20","commits":27,"hours":8.89},{"date":"2025-11-21","commits":10,"hours":9.33}]} y_primary="hours" y_secondary="commits" y_label="Hours" primary_label="Coding Hours" secondary_label="Commits" primary_opacity={0.3} secondary_opacity={0.6} />
+<PunchCard title="When The Work Happened" subtitle="180 commits across 10 days (work + personal)" data={[{"date":"2025-11-12","hour":13,"count":1},{"date":"2025-11-12","hour":17,"count":1},{"date":"2025-11-12","hour":18,"count":1},{"date":"2025-11-12","hour":19,"count":6},{"date":"2025-11-12","hour":21,"count":5},{"date":"2025-11-12","hour":22,"count":3},{"date":"2025-11-13","hour":7,"count":2},{"date":"2025-11-13","hour":9,"count":3},{"date":"2025-11-13","hour":10,"count":3},{"date":"2025-11-13","hour":12,"count":3},{"date":"2025-11-13","hour":13,"count":3},{"date":"2025-11-13","hour":14,"count":2},{"date":"2025-11-14","hour":21,"count":3},{"date":"2025-11-14","hour":22,"count":9},{"date":"2025-11-14","hour":23,"count":2},{"date":"2025-11-15","hour":8,"count":1},{"date":"2025-11-15","hour":12,"count":4},{"date":"2025-11-15","hour":14,"count":1},{"date":"2025-11-15","hour":20,"count":1},{"date":"2025-11-16","hour":19,"count":3},{"date":"2025-11-16","hour":20,"count":2},{"date":"2025-11-17","hour":11,"count":6},{"date":"2025-11-17","hour":12,"count":1},{"date":"2025-11-17","hour":17,"count":2},{"date":"2025-11-17","hour":18,"count":4},{"date":"2025-11-17","hour":19,"count":4},{"date":"2025-11-17","hour":20,"count":6},{"date":"2025-11-17","hour":21,"count":1},{"date":"2025-11-17","hour":22,"count":4},{"date":"2025-11-17","hour":23,"count":2},{"date":"2025-11-18","hour":7,"count":1},{"date":"2025-11-18","hour":8,"count":2},{"date":"2025-11-18","hour":9,"count":2},{"date":"2025-11-18","hour":11,"count":3},{"date":"2025-11-18","hour":12,"count":3},{"date":"2025-11-18","hour":15,"count":2},{"date":"2025-11-18","hour":16,"count":2},{"date":"2025-11-18","hour":17,"count":2},{"date":"2025-11-18","hour":18,"count":7},{"date":"2025-11-18","hour":19,"count":5},{"date":"2025-11-18","hour":20,"count":6},{"date":"2025-11-18","hour":22,"count":2},{"date":"2025-11-19","hour":7,"count":1},{"date":"2025-11-19","hour":8,"count":1},{"date":"2025-11-19","hour":9,"count":1},{"date":"2025-11-19","hour":10,"count":1},{"date":"2025-11-19","hour":14,"count":4},{"date":"2025-11-19","hour":16,"count":2},{"date":"2025-11-19","hour":17,"count":1},{"date":"2025-11-19","hour":19,"count":1},{"date":"2025-11-19","hour":20,"count":1},{"date":"2025-11-19","hour":21,"count":4},{"date":"2025-11-20","hour":7,"count":2},{"date":"2025-11-20","hour":16,"count":1},{"date":"2025-11-20","hour":19,"count":12},{"date":"2025-11-20","hour":20,"count":5},{"date":"2025-11-20","hour":21,"count":3},{"date":"2025-11-20","hour":22,"count":2},{"date":"2025-11-20","hour":23,"count":2},{"date":"2025-11-21","hour":11,"count":1},{"date":"2025-11-21","hour":12,"count":2},{"date":"2025-11-21","hour":16,"count":2},{"date":"2025-11-21","hour":17,"count":3},{"date":"2025-11-21","hour":18,"count":1},{"date":"2025-11-21","hour":22,"count":1}]} hour_range={[6,24]} />
 
 <Notes>
 	<ul>
-		<li>Coding ALL DAY, not just evenings</li>
-		<li>Peak: Nov 18 = 13.6 hours</li>
-		<li>Average: 10.4h per day</li>
-		<li>The commits show WHEN I shipped, not when I worked</li>
-		<li>Full 10-day picture of work + personal combined</li>
+		<li>Notice the late night sessions</li>
+		<li>Nov 17-18 was intense - that's when #5375 happened</li>
+		<li>Early mornings on Nov 21 finishing up</li>
+		<li>The complete timeline across all 10 days</li>
 	</ul>
 </Notes>
 

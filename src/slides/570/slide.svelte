@@ -1,6 +1,6 @@
 <script>
-	import BulletPoints from '../../slides-custom/bullet-points.svelte'
+	import GithubDiffstat from '../../slides-custom/github-diffstat.svelte'
 </script>
 
-<BulletPoints title="What This Actually Means" points={["AI didn't replace me","It handled 928 errors in batches of 50","I made the decisions, Claude did the typing"]} />
+<GithubDiffstat title="Total Impact" added={25477} deleted={19733} files={875} commits={128} />
 

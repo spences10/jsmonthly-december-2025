@@ -1,6 +1,6 @@
 <script>
-	import GithubDiffstat from '../../slides-custom/github-diffstat.svelte'
+	import BigStat from '../../slides-custom/big-stat.svelte'
 </script>
 
-<GithubDiffstat title="Total Impact" added={25477} deleted={19733} files={875} commits={128} />
+<BigStat number="875" label="files changed" sublabel="180 commits (123 work + 57 personal) in 10 days" color="text-green-400" />
 

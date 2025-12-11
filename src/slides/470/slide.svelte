@@ -3,13 +3,15 @@
 	import { Notes } from '@animotion/core'
 </script>
 
-<ClaudeTerminal folder_location="/repos/xo-monorepo" user_input="doing perf! use performance.now around each of the hooks" show_thinking={true} thinking_file="hooks.server.ts" claude_output={["Analyzing route performance...","Writing to performance-logs.jsonl","Ready for bottleneck analysis"]} status_text="accept-edits" />
+<ClaudeTerminal folder_location="/repos/xo-monorepo" user_input={["I'm super pissed off with this slow loading"]} show_thinking={true} thinking_file="hooks.server.ts" user_reply="" status_text="accept-edits" output_first={true} />
 
 <Notes>
 	<ul>
-		<li>Scientific method: measure first</li>
-		<li>Log rotation added to avoid clogging devices</li>
-		<li>Made problems visible before solving</li>
+		<li>"I'm super pissed off with this slow loading"</li>
+		<li>Repeated across 5 sessions</li>
+		<li>SvelteKit is super fast</li>
+		<li>But 3 years of accumulated rot</li>
+		<li>Time to strip everything</li>
 	</ul>
 </Notes>
 

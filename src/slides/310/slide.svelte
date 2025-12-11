@@ -1,6 +1,6 @@
 <script>
-	import GithubDiffstat from '../../slides-custom/github-diffstat.svelte'
+	import BlueskyEmbed from '../../slides-custom/bluesky-embed.svelte'
 </script>
 
-<GithubDiffstat title="PR #5361: The Numbers" added={12225} deleted={9020} files={377} commits={20} />
+<BlueskyEmbed post_id="did:plc:nlvjelw3dy3pddq7qoglleko/app.bsky.feed.post/3m5nru3in5k27" scale={2} />
 

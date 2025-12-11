@@ -1,15 +1,15 @@
 <script>
-	import ThreeColumnCards from '../../slides-custom/three-column-cards.svelte'
+	import Histogram from '../../slides-custom/histogram.svelte'
 	import { Notes } from '@animotion/core'
 </script>
 
-<ThreeColumnCards title="Side Project: svelte-claude-skills" items={[{"number":"1","heading":"Evaluation","points":["Skill evaluation framework","Cost calculator","Metrics tracker"],"conclusion":"Nov 13"},{"number":"2","heading":"Automation","points":["Hook system for skill activation","Testing consistency"],"conclusion":"Nov 15"},{"number":"3","heading":"Blog Post","points":["What worked vs didn't","4.5k readers"],"conclusion":"Nov 16"}]} />
+<Histogram title="Peak Productivity Hours" subtitle="Distribution of 180 commits by hour" data={[13,17,18,19,19,19,19,19,19,21,21,21,21,21,22,22,22,7,7,9,9,9,10,10,10,12,12,12,13,13,13,14,14,21,21,21,22,22,22,22,22,22,22,22,22,23,23,8,12,12,12,12,14,20,19,19,19,20,20,11,11,11,11,11,11,12,17,17,18,18,18,18,19,19,19,19,20,20,20,20,20,20,21,22,22,22,22,23,23,7,8,8,9,9,11,11,11,12,12,12,15,15,16,16,17,17,18,18,18,18,18,18,18,19,19,19,19,19,20,20,20,20,20,20,22,22,7,8,9,10,14,14,14,14,16,16,17,19,20,21,21,21,21,7,7,16,19,19,19,19,19,19,19,19,19,19,19,19,20,20,20,20,20,21,21,21,22,22,23,23,11,12,12,16,16,17,17,17,18,22]} thresholds={18} color="var(--color-warning)" />
 
 <Notes>
 	<ul>
-		<li>svelte-claude-skills repo</li>
-		<li>Measuring activation rates, quality of outputs</li>
-		<li>Finding patterns that work vs don't</li>
+		<li>Clear peaks in evening hours (19:00-22:00)</li>
+		<li>Some early morning sessions (6-8am)</li>
+		<li>Lunch breaks visible (fewer commits at 13:00)</li>
 	</ul>
 </Notes>
 

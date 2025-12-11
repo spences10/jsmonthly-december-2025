@@ -1,6 +1,6 @@
 <script>
-	import BigStat from '../../slides-custom/big-stat.svelte'
+	import BulletPoints from '../../slides-custom/bullet-points.svelte'
 </script>
 
-<BigStat number="875" label="files changed" sublabel="180 commits (123 work + 57 personal) in 10 days" color="text-green-400" />
+<BulletPoints title="Why This Mattered" points={["UI migration done > performance work unblocked","PR #5381 wouldn't exist without #5361 and #5375"]} />
 

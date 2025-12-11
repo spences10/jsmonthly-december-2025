@@ -1,18 +1,6 @@
 <script>
-	import TitleWithList from '../../slides-custom/title-with-list.svelte'
-	import { Notes } from '@animotion/core'
+	import GithubPr from '../../slides-custom/github-pr.svelte'
 </script>
 
-<TitleWithList title="The Workflow: Route-by-Route Validation" items={[{"text":"Different from #5361's batch processing"},{"text":"Visit each route in browser"},{"text":"Check against official shadcn-svelte docs"},{"text":"Verify tokens, contrast, dark mode"},{"text":"15 routes validated"}]} />
-
-<Notes>
-	<ul>
-		<li>After the disaster, trust but verify EVERYTHING</li>
-		<li>15 routes: /quality, /evals, /reporting, /agent-view,</li>
-		<li>/smart-agents, /login, etc.</li>
-		<li>Constant questions: "is that vanilla schadcn-svelte?"</li>
-		<li>"doesn't feel very schadcn-svelte" > research and fix</li>
-		<li>Visual validation, not just compile errors</li>
-	</ul>
-</Notes>
+<GithubPr org="xtendops-developers" repo="xo-monorepo" pr_number={5375} pr_title="refactor: ♻️ vanilla schadcn-svelte" author="spences10" branch="Convert-XOOS-to-use-Schadcn" base_branch="main" status="merged" date="4 weeks ago" conversation={6} commits={37} checks={15} files_changed="300+" added={4776} deleted={4528} scale={1.8} />
 

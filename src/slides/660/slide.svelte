@@ -1,14 +1,14 @@
 <script>
-	import BulletPoints from '../../slides-custom/bullet-points.svelte'
 	import { Notes } from '@animotion/core'
 </script>
 
-<BulletPoints title="The Complete Picture" points={["4 work PRs across 10 days","128 commits to production","104 hours coding (wakatime)","74.5h work + 20.8h personal"]} />
+<h1 class="text-9xl font-bold text-center">Three Different Workflows</h1>
 
 <Notes>
 	<ul>
-		<li>Work: xo-monorepo refactor (74.5h)</li>
-		<li>Personal: svelte-claude-skills (20.8h), blog, other projects</li>
+		<li>PR #5361: Batch processing (50 errors at a time)</li>
+		<li>PR #5375: Route-by-route validation (15 routes)</li>
+		<li>PR #5381: Performance investigation (measure, identify, fix)</li>
+		<li>Each PR needed a different approach</li>
 	</ul>
 </Notes>
-

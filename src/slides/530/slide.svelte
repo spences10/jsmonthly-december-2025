@@ -1,6 +1,14 @@
 <script>
-	import TwoColumnGrid from '../../slides-custom/two-column-grid.svelte'
+	import BulletPoints from '../../slides-custom/bullet-points.svelte'
+	import { Notes } from '@animotion/core'
 </script>
 
-<TwoColumnGrid title="Before vs After" gradient_title={false} left_title="Before" left_items={[{"main":"Blocked","sub":"Legacy UI package since spring"},{"main":"Scattered","sub":"Custom styling everywhere"}]} right_title="After" right_items={[{"main":"Clean","sub":"Vanilla shadcn-svelte components"},{"main":"Unlocked","sub":"Performance work now possible"}]} />
+<BulletPoints title="PR #5397: Cleanup" points={["7 commits, 9 hours","Fixed loading states","Wrapped components in TooltipProvider","Added Spinner component"]} />
+
+<Notes>
+	<ul>
+		<li>Nov 21: wrapping up loose ends</li>
+		<li>Tidying up after the main work</li>
+	</ul>
+</Notes>
 
