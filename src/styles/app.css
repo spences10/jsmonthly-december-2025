@@ -26,6 +26,12 @@ html {
 /* defaults */
 :root {
 	--r-background-color: oklch(98% 0.01 272);
+
+	/* Dots pattern */
+	--dot-size: 1.5px;
+	--dot-space: 24px;
+	--dot-color: color-mix(in srgb, var(--color-primary) 20%, transparent);
+	/*  */
 	--r-main-font: 'Atkinson Hyperlegible';
 	--r-main-font-size: 42px;
 	--r-main-color: oklch(20% 0.02 272);
@@ -177,4 +183,14 @@ html {
 .gradient-danger {
 	background: var(--gradient-danger);
 	backdrop-filter: blur(10px);
+}
+
+/* Dots background pattern overlay */
+.reveal .slides {
+	background-image: radial-gradient(
+		var(--dot-color) var(--dot-size),
+		transparent var(--dot-size)
+	);
+	background-size: var(--dot-space) var(--dot-space);
+	background-position: center;
 }
