@@ -3,8 +3,24 @@
 	import { tween } from '@animotion/motion'
 	import { cubicOut } from 'svelte/easing'
 
-	let { items = [], scale = 1 }: { items: string[]; scale?: number } =
-		$props()
+	interface Item {
+		text: string
+		sub?: string
+	}
+
+	let {
+		items = [],
+		scale = 1,
+	}: { items: (string | Item)[]; scale?: number } = $props()
+
+	// Normalize items to always have text/sub structure
+	const normalized = $derived(
+		items.map((item) =>
+			typeof item === 'string'
+				? { text: item, sub: undefined }
+				: item,
+		),
+	)
 
 	// Create tweens once - not derived (tweens are stateful)
 	const create_tweens = () =>
@@ -46,15 +62,18 @@
 </script>
 
 <div class="stacking-container" style:transform="scale({scale})">
-	{#each items as item, i}
+	{#each normalized as item, i}
 		<div
-			class="stacking-item text-8xl font-bold"
+			class="stacking-item"
 			style:transform="translateY({item_tweens[i].current.y}vh) scale({item_tweens[
 				i
 			].current.item_scale})"
 			style:opacity={item_tweens[i].current.opacity}
 		>
-			<h1>{item}</h1>
+			<h1 class="text-8xl font-bold">{item.text}</h1>
+			{#if item.sub}
+				<p class="mt-4 text-3xl text-gray-400">{item.sub}</p>
+			{/if}
 		</div>
 	{/each}
 </div>
@@ -72,5 +91,6 @@
 
 	.stacking-item {
 		grid-area: 1 / 1;
+		text-align: center;
 	}
 </style>
