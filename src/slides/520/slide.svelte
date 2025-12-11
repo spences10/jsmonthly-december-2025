@@ -1,6 +1,14 @@
 <script>
-	import GithubDiffstat from '../../slides-custom/github-diffstat.svelte'
+	import BulletPoints from '../../slides-custom/bullet-points.svelte'
+	import { Notes } from '@animotion/core'
 </script>
 
-<GithubDiffstat title="PR #5381: The Numbers" added={8269} deleted={6054} files={122} commits={54} />
+<BulletPoints title="PR #5397: Cleanup" points={["7 commits, 9 hours","Fixed loading states","Wrapped components in TooltipProvider","Added Spinner component"]} />
+
+<Notes>
+	<ul>
+		<li>Nov 21: wrapping up loose ends</li>
+		<li>Tidying up after the main work</li>
+	</ul>
+</Notes>
 

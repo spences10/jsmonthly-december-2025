@@ -1,6 +1,6 @@
 <script>
-	import BigStat from '../../slides-custom/big-stat.svelte'
+	import BulletPoints from '../../slides-custom/bullet-points.svelte'
 </script>
 
-<BigStat number="875" label="files changed" sublabel="180 commits (123 work + 57 personal) in 10 days" color="text-green-400" />
+<BulletPoints title="Augmentation, Not Replacement" points={["I made all the architectural decisions","Claude handled the tedious execution","Still needed to understand every fix","But didn't have to type it all manually"]} />
 

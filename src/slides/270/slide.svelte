@@ -1,15 +1,15 @@
 <script>
+	import BulletPoints from '../../slides-custom/bullet-points.svelte'
 	import { Notes } from '@animotion/core'
 </script>
 
-<h1 class="text-9xl font-bold text-center">AI Didn&#39;t Make This Fast</h1>
-<p class="mt-8 text-4xl">My job is now chief copy paster!</p>
+<BulletPoints title="Quality Control" points={["`Skill(research) for svelte 5 runes`","Verify against official docs","Not just pattern matching","Research before applying"]} />
 
 <Notes>
 	<ul>
-		<li>Not quick AI fixes</li>
-		<li>Sustained, iterative work with Claude all day</li>
-		<li>Evening commits = proven solutions in batches</li>
-		<li>This reinforces "Augmentation, Not Replacement"</li>
+		<li>Used research skill to verify Svelte 5 patterns</li>
+		<li>Avoid blindly applying fixes</li>
+		<li>Understand each change</li>
 	</ul>
 </Notes>
+

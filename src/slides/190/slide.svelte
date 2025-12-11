@@ -1,6 +1,6 @@
 <script>
-	import BulletPoints from '../../slides-custom/bullet-points.svelte'
+	import StackingReveal from '../../slides-custom/stacking-reveal.svelte'
 </script>
 
-<BulletPoints title="The work" points={["Remove ui dependency","Add new ui components","Run svelte-check","Proffit??"]} />
+<StackingReveal items={["Claude","This is your job now!"]} scale={1.5} />
 

@@ -1,6 +1,15 @@
 <script>
-	import BulletPoints from '../../slides-custom/bullet-points.svelte'
+	import Histogram from '../../slides-custom/histogram.svelte'
+	import { Notes } from '@animotion/core'
 </script>
 
-<BulletPoints title="Augmentation, Not Replacement" points={["I made all the architectural decisions","Claude handled the tedious execution","Still needed to understand every fix","But didn't have to type it all manually"]} />
+<Histogram title="Peak Productivity Hours" subtitle="Distribution of 180 commits by hour" data={[13,17,18,19,19,19,19,19,19,21,21,21,21,21,22,22,22,7,7,9,9,9,10,10,10,12,12,12,13,13,13,14,14,21,21,21,22,22,22,22,22,22,22,22,22,23,23,8,12,12,12,12,14,20,19,19,19,20,20,11,11,11,11,11,11,12,17,17,18,18,18,18,19,19,19,19,20,20,20,20,20,20,21,22,22,22,22,23,23,7,8,8,9,9,11,11,11,12,12,12,15,15,16,16,17,17,18,18,18,18,18,18,18,19,19,19,19,19,20,20,20,20,20,20,22,22,7,8,9,10,14,14,14,14,16,16,17,19,20,21,21,21,21,7,7,16,19,19,19,19,19,19,19,19,19,19,19,19,20,20,20,20,20,21,21,21,22,22,23,23,11,12,12,16,16,17,17,17,18,22]} thresholds={18} color="var(--color-warning)" />
+
+<Notes>
+	<ul>
+		<li>Clear peaks in evening hours (19:00-22:00)</li>
+		<li>Some early morning sessions (6-8am)</li>
+		<li>Lunch breaks visible (fewer commits at 13:00)</li>
+	</ul>
+</Notes>
 

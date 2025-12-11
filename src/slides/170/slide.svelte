@@ -1,6 +1,14 @@
 <script>
-	import GithubCiCheck from '../../slides-custom/github-ci-check.svelte'
+	import GitDiff from '../../slides-custom/git-diff.svelte'
 </script>
 
-<GithubCiCheck />
+<GitDiff title="The Change" lines={[
+  { "content": "<script lang=\"ts\">", "type": "normal" },
+  { "content": "  import { Button, Card, Input } from 'ui'", "type": "removed" },
+  { "content": "  import { Button, Card, Input } from '$lib/components/ui'", "type": "added" },
+  { content: '  ...', type: 'ellipsis' },
+  { content: '  // other stuff', type: 'ellipsis' },
+  { content: '  ...', type: 'ellipsis' },
+  { "content": "</script>", "type": "normal" }
+]} scale={2.5} />
 

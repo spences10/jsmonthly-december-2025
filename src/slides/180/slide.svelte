@@ -1,6 +1,6 @@
 <script>
-	import GithubRepo from '../../slides-custom/github-repo.svelte'
+	import TerminalOutput from '../../slides-custom/terminal-output.svelte'
 </script>
 
-<GithubRepo repo="ghostdevv/svelte-check-action" scale={1.5} />
+<TerminalOutput />
 

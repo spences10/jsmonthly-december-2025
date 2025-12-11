@@ -1,14 +1,15 @@
 <script>
+	import ClaudeTerminal from '../../slides-custom/claude-terminal.svelte'
 	import { Notes } from '@animotion/core'
 </script>
 
-<h1 class="text-9xl font-bold text-center">&quot;I&#39;m super pissed off with this slow loading&quot;</h1>
-<p class="mt-8 text-4xl">Repeated across 5 sessions</p>
+<ClaudeTerminal folder_location="/repos/xo-monorepo" display_header={true} claude_output={["🔍 Found the Bottlenecks!","","parallelQueries:  221ms ✅","fetchAgents:      803ms ❌ (TOO SLOW)","Total server:    1031ms","Total request:   2838ms","","Solution: MongoDB database indexes needed"]} status_text="accept-edits" output_first={true} />
 
 <Notes>
 	<ul>
-		<li>SvelteKit is super fast</li>
-		<li>But 3 years of accumulated rot</li>
-		<li>Time to strip everything</li>
+		<li>237 agents fetched, only 10 shown</li>
+		<li>No database indexes = 803ms query</li>
+		<li>With indexes: under 100ms expected</li>
 	</ul>
 </Notes>
+

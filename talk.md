@@ -177,7 +177,7 @@ scale: 1.5
 
 ```component:bullet-points
 title: "The Loop"
-points: ["Run svelte-check", "Copy first 50 errors", "Paste to Claude > get fixes", "Apply fixes > commit", "Repeat until green"]
+points: ["Run svelte-check", "Copy first 50 lines errors", "Paste to Claude > get fixes", "Apply fixes > commit", "Repeat until green"]
 ```
 
 ---
@@ -415,7 +415,7 @@ scale: 1.8
 ```
 
 ---
-
+<!-- TODO -->
 ```component:title-with-list
 title: "The Workflow: Route-by-Route Validation"
 items: [
@@ -788,7 +788,7 @@ scale: 1.5
 > - Community hungry for practical AI workflows
 
 ---
-
+<!-- TODO -->
 ```component:bullet-points
 title: "The Real Unlock"
 points: ["AI handled the repetitive bits", "Research skill caught mistakes", "Blog got traction (4.5k readers)", "875 files + blog post = same 10 days"]
@@ -873,7 +873,7 @@ secondary_opacity: 0.6
 > - Full 10-day picture of work + personal combined
 
 ---
-
+<!-- TODO -->
 ```component:key-takeaways
 title: "What Worked"
 points: ["50 lines at a time = verifiable chunks", "Research skill for Svelte 5 patterns", "Same workflow across all 4 PRs", "Batch processing ≠ validation ≠ investigation"]

@@ -1,6 +1,15 @@
 <script>
-	import GithubPr from '../../slides-custom/github-pr.svelte'
+	import ClaudeTerminal from '../../slides-custom/claude-terminal.svelte'
+	import { Notes } from '@animotion/core'
 </script>
 
-<GithubPr org="xtendops-developers" repo="xo-monorepo" pr_number={5381} pr_title="feat(auth): optimize user authentication with remote functions" author="spences10" branch="Optimisation-Of-XOOS-loading" base_branch="main" status="merged" date="3 weeks ago" conversation={14} commits={54} checks={32} files_changed="122" added={8269} deleted={6054} scale={1.8} />
+<ClaudeTerminal folder_location="/repos/xo-monorepo" user_input="doing perf! use performance.now around each of the hooks" show_thinking={true} thinking_file="hooks.server.ts" claude_output={["Analyzing route performance...","Writing to performance-logs.jsonl","Ready for bottleneck analysis"]} status_text="accept-edits" />
+
+<Notes>
+	<ul>
+		<li>Scientific method: measure first</li>
+		<li>Log rotation added to avoid clogging devices</li>
+		<li>Made problems visible before solving</li>
+	</ul>
+</Notes>
 

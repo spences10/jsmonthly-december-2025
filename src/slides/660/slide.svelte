@@ -1,14 +1,14 @@
 <script>
+	import BulletPoints from '../../slides-custom/bullet-points.svelte'
 	import { Notes } from '@animotion/core'
 </script>
 
-<h1 class="text-9xl font-bold text-center">Don&#39;t trust it!</h1>
+<BulletPoints title="The Complete Picture" points={["4 work PRs across 10 days","128 commits to production","104 hours coding (wakatime)","74.5h work + 20.8h personal"]} />
 
 <Notes>
 	<ul>
-		<li>Remember the 160-file disaster? That's why verification matters</li>
-		<li>50 lines at a time = manageable, verifiable chunks</li>
-		<li>Session limits force breaks = built-in verification points</li>
-		<li>Constantly checking outputs against real behavior</li>
+		<li>Work: xo-monorepo refactor (74.5h)</li>
+		<li>Personal: svelte-claude-skills (20.8h), blog, other projects</li>
 	</ul>
 </Notes>
+

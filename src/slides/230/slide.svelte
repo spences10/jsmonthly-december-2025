@@ -1,6 +1,14 @@
 <script>
-	import BulletPoints from '../../slides-custom/bullet-points.svelte'
+	import { Notes } from '@animotion/core'
 </script>
 
-<BulletPoints title="Claude, this is your job now!" points={["Copy 50 lines of errors","Feed the errors to Claude","Repeat until svelte-check passes"]} />
+<h1 class="text-9xl font-bold text-center">Still a missive chore!</h1>
+<p class="mt-8 text-4xl">My job is now chief copy paster!</p>
 
+<Notes>
+	<ul>
+		<li>Not quick AI fixes</li>
+		<li>Sustained, iterative work with Claude</li>
+		<li>This reinforces "Augmentation, Not Replacement"</li>
+	</ul>
+</Notes>

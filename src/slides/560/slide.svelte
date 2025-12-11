@@ -1,6 +1,6 @@
 <script>
-	import TwoColumnGrid from '../../slides-custom/two-column-grid.svelte'
+	import GithubDiffstat from '../../slides-custom/github-diffstat.svelte'
 </script>
 
-<TwoColumnGrid title="Before vs After" gradient_title={false} left_title="Before" left_items={[{"main":"Blocked","sub":"Legacy UI package for 18 months"},{"main":"Scattered","sub":"Custom styling everywhere"}]} right_title="After" right_items={[{"main":"Clean","sub":"Vanilla shadcn-svelte components"},{"main":"Unlocked","sub":"Performance optimizations finally possible"}]} />
+<GithubDiffstat title="Total Impact" added={25477} deleted={19733} files={875} commits={128} />
 

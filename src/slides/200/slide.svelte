@@ -1,6 +1,6 @@
 <script>
-	import GitDiff from '../../slides-custom/git-diff.svelte'
+	import BulletPoints from '../../slides-custom/bullet-points.svelte'
 </script>
 
-<GitDiff title="The Change" lines={[{"content":"<script lang=\"ts\">","type":"normal"},{"content":"  import { Button, Card, Input } from 'ui'","type":"removed"},{"content":"  import { Button, Card, Input } from '$lib/components/ui'","type":"added"},{"content":"</script>","type":"normal"}]} scale={2.5} />
+<BulletPoints title="The Loop" points={["Run svelte-check","Copy first 50 errors","Paste to Claude > get fixes","Apply fixes > commit","Repeat until green"]} />
 

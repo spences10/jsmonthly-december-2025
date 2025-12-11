@@ -1,16 +1,17 @@
 <script>
-	import DualBars from '../../slides-custom/dual-bars.svelte'
+	import ClaudeTerminal from '../../slides-custom/claude-terminal.svelte'
 	import { Notes } from '@animotion/core'
 </script>
 
-<DualBars title="PR #5375: Work vs Commits" subtitle="Post-disaster recovery sprint" data={[{"date":"2025-11-17","commits":24,"hours":10.53},{"date":"2025-11-18","commits":30,"hours":13.58}]} y_primary="hours" y_secondary="commits" y_label="Hours" primary_label="Coding Hours" secondary_label="Commits" primary_opacity={0.3} secondary_opacity={0.6} />
+<ClaudeTerminal folder_location="/repos/xo-monorepo" user_input={["I'm super pissed off with this slow loading"]} show_thinking={true} thinking_file="hooks.server.ts" user_reply="" status_text="accept-edits" output_first={true} />
 
 <Notes>
 	<ul>
-		<li>Most intense 2 days of the entire 10-day period</li>
-		<li>Nov 18: 30 commits in a single day (peak productivity)</li>
-		<li>13.58 hours = longest coding day</li>
-		<li>High commit rate because of systematic route-by-route approach</li>
+		<li>"I'm super pissed off with this slow loading"</li>
+		<li>Repeated across 5 sessions</li>
+		<li>SvelteKit is super fast</li>
+		<li>But 3 years of accumulated rot</li>
+		<li>Time to strip everything</li>
 	</ul>
 </Notes>
 

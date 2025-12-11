@@ -1,15 +1,15 @@
 <script>
-	import StatComparison from '../../slides-custom/stat-comparison.svelte'
+	import ThreeColumnCards from '../../slides-custom/three-column-cards.svelte'
 	import { Notes } from '@animotion/core'
 </script>
 
-<StatComparison title="Same 10 Days" stats={["74.5h|Work refactor|text-blue-400","20.8h|Personal projects|text-green-400"]} />
+<ThreeColumnCards title="Side Project: svelte-claude-skills" items={[{"number":"1","heading":"Evaluation","points":["Skill evaluation framework","Cost calculator","Metrics tracker"],"conclusion":"Nov 13"},{"number":"2","heading":"Automation","points":["Hook system for skill activation","Testing consistency"],"conclusion":"Nov 15"},{"number":"3","heading":"Blog Post","points":["What worked vs didn't","4.5k readers"],"conclusion":"Nov 16"}]} />
 
 <Notes>
 	<ul>
-		<li>This is the meta story</li>
-		<li>Not just using AI, but improving how to use AI</li>
-		<li>Work refactor AND personal projects in parallel</li>
+		<li>svelte-claude-skills repo</li>
+		<li>Measuring activation rates, quality of outputs</li>
+		<li>Finding patterns that work vs don't</li>
 	</ul>
 </Notes>
 
