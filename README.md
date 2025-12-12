@@ -1,23 +1,3 @@
-# Animotion Template
+# JSMonthly December 2025
 
-This is an Animotion presentation.
-
-## Setup
-
-Install dependencies:
-
-```sh
-pnpm i
-```
-
-Run the development server at http://localhost:5173/:
-
-```sh
-pnpm run dev
-```
-
-Build and preview deploy:
-
-```sh
-pnpm run build && pnpm run preview
-```
+Talk on a really tedious refactor with Claude
