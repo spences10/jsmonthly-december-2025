@@ -21,7 +21,7 @@
 		"d3-array": "^3.2.4",
 		"d3-scale": "^4.0.2",
 		"date-fns": "^4.1.0",
-		"layerchart": "2.0.0-next.43",
+		"layerchart": "2.4.0",
 		"marked": "^17.0.1",
 		"prettier": "^3.7.4",
 		"prettier-plugin-svelte": "^3.4.0",
