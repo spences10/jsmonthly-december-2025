@@ -31,8 +31,8 @@ importers:
         specifier: ^5.2.8
         version: 5.2.8
       '@lucide/svelte':
-        specifier: ^0.560.0
-        version: 0.560.0(svelte@5.45.8)
+        specifier: ^0.577.0
+        version: 0.577.0(svelte@5.45.8)
       '@sveltejs/adapter-auto':
         specifier: ^7.0.0
         version: 7.0.0(@sveltejs/kit@2.49.2(@sveltejs/vite-plugin-svelte@6.2.1(svelte@5.45.8)(vite@7.2.7(jiti@2.6.1)(lightningcss@1.30.2)))(svelte@5.45.8)(vite@7.2.7(jiti@2.6.1)(lightningcss@1.30.2)))
@@ -321,8 +321,8 @@ packages:
   '@layerstack/utils@2.0.0-next.14':
     resolution: {integrity: sha512-1I2CS0Cwgs53W35qVg1eBdYhB/CiPvL3s0XE61b8jWkTHxgjBF65yYNgXjW74kv7WI7GsJcWMNBufPd0rnu9kA==}
 
-  '@lucide/svelte@0.560.0':
-    resolution: {integrity: sha512-5z9W4srHj17RWj8HKBUl1lnaUIRE53oiKaPQFKK+TdH3xutyCAzEeTwLAiM7qGk5EeskfgHMhR5IEHhelnfp5A==}
+  '@lucide/svelte@0.577.0':
+    resolution: {integrity: sha512-0P6mkySd2MapIEgq08tADPmcN4DHndC/02PWwaLkOerXlx5Sv9aT4BxyXLIY+eccr0g/nEyCYiJesqS61YdBZQ==}
     peerDependencies:
       svelte: ^5
 
@@ -1600,7 +1600,7 @@ snapshots:
       d3-time-format: 4.1.0
       lodash-es: 4.17.21
 
-  '@lucide/svelte@0.560.0(svelte@5.45.8)':
+  '@lucide/svelte@0.577.0(svelte@5.45.8)':
     dependencies:
       svelte: 5.45.8
 
